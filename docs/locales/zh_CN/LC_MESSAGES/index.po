@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Read the Docs core team
+# This file is distributed under the same license as the Basic Sphinx
+# Example Project package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Basic Sphinx Example Project \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-26 10:58+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/index.rst:21
+msgid "Home"
+msgstr ""
+
+#: ../../source/index.rst:4 7b109fe8b73f48f69804068fbbe6675e
+msgid "Welcome to Lumache's documentation!"
+msgstr ""
+
+#: ../../source/index.rst:6 947ddf2a38ac4c288d59b73f0c4425fa
+msgid ""
+"**Lumache** (/lu'make/) is a Python library for cooks and food lovers "
+"that creates recipes mixing random ingredients. It pulls data from the "
+"`Open Food Facts database <https://world.openfoodfacts.org/>`_ and offers"
+" a *simple* and *intuitive* API."
+msgstr ""
+
+#: ../../source/index.rst:11 655aaa4b91734f848c2c1674d03ff7c4
+msgid ""
+"Check out the :doc:`usage` section for further information, including how"
+" to :ref:`installation` the project."
+msgstr ""
+
+#: ../../source/index.rst:16 3ebd487b97b040c899c564f06c4335d4
+msgid "This project is under active development."
+msgstr ""
+
+#: ../../source/index.rst:19 f1abf993256a4c9a88de25ec76cd0f3c
+msgid "Contents"
+msgstr ""
+
