@@ -2,15 +2,15 @@
 # Copyright (C)
 # This file is distributed under the same license as the NCCL(2.19) package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: NCCL(2.19) \n"
+"Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-27 10:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -21,39 +21,36 @@ msgstr ""
 
 #: ../../source/api/ops.rst:3 4685526f1d754ba895c68a7c9f1c56e4
 msgid "User Defined Reduction Operators"
-msgstr ""
+msgstr "用户定义的减少运算符"
 
 #: ../../source/api/ops.rst:5 369dab31f7474e9f93ec07290c1ec6c1
 msgid ""
-"The following functions are public APIs exposed by NCCL to create and "
-"destroy custom reduction operators for use in reduction collectives."
-msgstr ""
+"The following functions are public APIs exposed by NCCL to create and destroy custom reduction operators for use in "
+"reduction collectives."
+msgstr "以下函数是由NCCL公开的API，用于创建和销毁自定义的减少操作符，以便在减少集合中使用。"
 
 #: ../../source/api/ops.rst:9 717ae8ffb708400ea9fbd0593c768a73
 msgid "ncclRedOpCreatePreMulSum"
-msgstr ""
+msgstr "ncclRedOpCreatePreMulSum"
 
 #: ../../source/api/ops.rst:13 e88b28bad69a4449b4f9a1ace617970f
 msgid ""
-"Creates a new reduction operator which pre-multiplies input values by a "
-"given scalar locally before reducing them with peer values via summation."
-" For use only with collectives launched against *comm* and *datatype*. "
-"The *residence* argument indicates whether the memory pointed to by "
-"*scalar* should be dereferenced immediately by the host before this "
-"function returns (ncclScalarHostImmediate), or by the device during "
-"execution of the reduction collective (ncclScalarDevice). Upon return, "
-"the newly created operator's handle is stored in *op*."
+"Creates a new reduction operator which pre-multiplies input values by a given scalar locally before reducing them with "
+"peer values via summation. For use only with collectives launched against *comm* and *datatype*. The *residence* "
+"argument indicates whether the memory pointed to by *scalar* should be dereferenced immediately by the host before this "
+"function returns (ncclScalarHostImmediate), or by the device during execution of the reduction collective "
+"(ncclScalarDevice). Upon return, the newly created operator's handle is stored in *op*."
 msgstr ""
+"创建一个新的减少运算符，在通过求和与对等值一起减少它们之前，本地预先将输入值乘以给定的标量。仅用于针对 *comm* 和 *datatype* 启动的集合。*residence* 参数指示在此函数返回之前主机是否应立即对 *scalar* "
+"指向的内存进行解引用（ncclScalarHostImmediate），还是在减少集合的执行期间由设备进行解引用（ncclScalarDevice）。返回时，新创建的运算符句柄存储在 *op* 中。"
 
 #: ../../source/api/ops.rst:23 e364a488345949f9938e2df8e3a29a4d
 msgid "ncclRedOpDestroy"
-msgstr ""
+msgstr "ncclRedOpDestroy"
 
 #: ../../source/api/ops.rst:27 3d0cbcf59eaa4ce5ab327cd04e56f002
 msgid ""
-"Destroys the reduction operator *op*. The operator must have been created"
-" by ncclRedOpCreatePreMul with the matching communicator *comm*. An "
-"operator may be destroyed as soon as the last NCCL function which is "
-"given that operator returns."
-msgstr ""
-
+"Destroys the reduction operator *op*. The operator must have been created by ncclRedOpCreatePreMul with the matching "
+"communicator *comm*. An operator may be destroyed as soon as the last NCCL function which is given that operator "
+"returns."
+msgstr "销毁减少运算符 *op*。该运算符必须是通过 ncclRedOpCreatePreMul 与匹配的通信器 *comm* 创建的。只要给定该运算符的最后一个 NCCL 函数返回，就可以销毁运算符。"

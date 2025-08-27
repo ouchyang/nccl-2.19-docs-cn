@@ -2,15 +2,15 @@
 # Copyright (C)
 # This file is distributed under the same license as the NCCL(2.19) package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: NCCL(2.19) \n"
+"Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-27 10:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -21,124 +21,110 @@ msgstr ""
 
 #: ../../source/api/colls.rst:3 f8e79c06b5c0465fa2ea0245dd378a20
 msgid "Collective Communication Functions"
-msgstr ""
+msgstr "集体通信功能"
 
 #: ../../source/api/colls.rst:6 6cb5968866e843ba8a943243cc66a466
 msgid "The following NCCL APIs provide some commonly used collective operations."
-msgstr ""
+msgstr "以下 NCCL API 提供了一些常用的集体操作。"
 
 #: ../../source/api/colls.rst:9 3473f45470dc4a75b0cf879ea0762321
 msgid "ncclAllReduce"
-msgstr ""
+msgstr "ncclAllReduce"
 
 #: ../../source/api/colls.rst:13 235ca8dec504466290f64d7677856977
 msgid ""
-"Reduce data arrays of length ``count`` in ``sendbuff`` using ``op`` "
-"operation and leaves identical copies of the result on each ``recvbuff``."
-msgstr ""
+"Reduce data arrays of length ``count`` in ``sendbuff`` using ``op`` operation and leaves identical copies of the result "
+"on each ``recvbuff``."
+msgstr "使用“op”操作在“sendbuff”中减少长度为“count”的数据数组，并在每个“recvbuff”上留下结果的相同副本。"
 
 #: ../../source/api/colls.rst:15 ../../source/api/colls.rst:28
 #: ../../source/api/colls.rst:51 0b71ffcad58c420098943f77b1b6410f
 #: 6c134585d70a4524b0052e48b017ff0a f4d44283f7724e19b873cef3acc9f802
 msgid "In-place operation will happen if ``sendbuff == recvbuff``."
-msgstr ""
+msgstr "如果 `sendbuff == recvbuff`，将会发生原地操作。"
 
 #: ../../source/api/colls.rst:17 132e01caf87848f68b5269d94e6ccc16
 msgid "Related links: :ref:`allreduce`."
-msgstr ""
+msgstr "相关链接：:ref:`allreduce`."
 
 #: ../../source/api/colls.rst:21 5bb31c49ab0a4fa982644164cd6c9b93
 msgid "ncclBroadcast"
-msgstr ""
+msgstr "ncclBroadcast"
 
 #: ../../source/api/colls.rst:25 c4f0564b4cba4ffeaf8127bade4be74d
 msgid ""
-"Copies ``count`` elements from ``sendbuff`` on the ``root` rank to all "
-"ranks' ``recvbuff``. ``sendbuff`` is only used on rank ``root`` and "
-"ignored for other ranks."
-msgstr ""
+"Copies ``count`` elements from ``sendbuff`` on the ``root` rank to all ranks' ``recvbuff``. ``sendbuff`` is only used "
+"on rank ``root`` and ignored for other ranks."
+msgstr "将“sendbuff”上的“count”个元素从“root”等级复制到所有等级的“recvbuff”中。“sendbuff”仅在等级“root”上使用，在其他等级上将被忽略。"
 
 #: ../../source/api/colls.rst:33 fcbb5b45e71343c1ad2d23c9e33d64ca
-msgid ""
-"Legacy in-place version of ``ncclBroadcast`` in a similar fashion to "
-"MPI_Bcast. A call to ::"
-msgstr ""
+msgid "Legacy in-place version of ``ncclBroadcast`` in a similar fashion to MPI_Bcast. A call to ::"
+msgstr "类似于 MPI_Bcast 的 ``ncclBroadcast`` 的就地版本。调用 ::"
 
 #: ../../source/api/colls.rst:37 7b024595e27842138b2178b42fea00d9
 msgid "is equivalent to ::"
-msgstr ""
+msgstr "等同于 ::"
 
 #: ../../source/api/colls.rst:41 4d55e0cf55324555a942ef735e0c770b
 msgid "Related links: :ref:`broadcast`"
-msgstr ""
+msgstr "相关链接：:ref:`broadcast`"
 
 #: ../../source/api/colls.rst:44 64142c2f2fea4d17871d4291a1ee1a42
 msgid "ncclReduce"
-msgstr ""
+msgstr "ncclReduce"
 
 #: ../../source/api/colls.rst:48 679905cb99974f62b0e7dd1a9ef08af3
 msgid ""
-"Reduce data arrays of length ``count`` in ``sendbuff`` into ``recvbuff`` "
-"on the ``root`` rank using the ``op`` operation. ``recvbuff`` is only "
-"used on rank ``root`` and ignored for other ranks."
-msgstr ""
+"Reduce data arrays of length ``count`` in ``sendbuff`` into ``recvbuff`` on the ``root`` rank using the ``op`` "
+"operation. ``recvbuff`` is only used on rank ``root`` and ignored for other ranks."
+msgstr "在“root”等级上使用“op”操作将“sendbuff”中长度为“count”的数据数组缩减到“recvbuff”中。“recvbuff”仅在“root”等级上使用，在其他等级上将被忽略。"
 
 #: ../../source/api/colls.rst:53 045f04b0ceac4542a14eeba4761dc13f
 msgid "Related links: :ref:`reduce`."
-msgstr ""
+msgstr "相关链接：:ref:`reduce`."
 
 #: ../../source/api/colls.rst:56 3d91f00fe19946529badea1c3d05882d
 msgid "ncclAllGather"
-msgstr ""
+msgstr "ncclAllGather"
 
 #: ../../source/api/colls.rst:60 ffe597f9384c48f98327edefa56849d5
-msgid ""
-"Gather ``sendcount`` values from all GPUs into ``recvbuff``, receiving "
-"data from rank ``i`` at offset ``i*sendcount``."
-msgstr ""
+msgid "Gather ``sendcount`` values from all GPUs into ``recvbuff``, receiving data from rank ``i`` at offset ``i*sendcount``."
+msgstr "收集所有 GPU 中的 ``sendcount`` 值到 ``recvbuff`` 中，从排名 ``i`` 处接收数据，偏移量为 ``i*sendcount``。"
 
 #: ../../source/api/colls.rst:62 41eba676d8f34d6a9bccbec806065c03
 msgid ""
-"Note: This assumes the receive count is equal to ``nranks*sendcount``, "
-"which means that ``recvbuff`` should have a size of at least "
-"``nranks*sendcount`` elements."
-msgstr ""
+"Note: This assumes the receive count is equal to ``nranks*sendcount``, which means that ``recvbuff`` should have a size "
+"of at least ``nranks*sendcount`` elements."
+msgstr "注意：这里假设接收计数等于``nranks*sendcount``，这意味着``recvbuff``的大小至少应为``nranks*sendcount``个元素。"
 
 #: ../../source/api/colls.rst:64 38496f60ff864a229edbf3e49582307b
-msgid ""
-"In-place operation will happen if ``sendbuff == recvbuff + rank * "
-"sendcount``."
-msgstr ""
+msgid "In-place operation will happen if ``sendbuff == recvbuff + rank * sendcount``."
+msgstr "如果 ``sendbuff == recvbuff + rank * sendcount``，则会发生原地操作。"
 
 #: ../../source/api/colls.rst:66 6d089a7d280d429688206dfa1bec156e
 msgid "Related links: :ref:`allgather`, :ref:`in-place-operations`."
-msgstr ""
+msgstr "相关链接：:ref:`allgather`，:ref:`in-place-operations`。"
 
 #: ../../source/api/colls.rst:69 4e609de012ee4b74a2df98218d522f89
 msgid "ncclReduceScatter"
-msgstr ""
+msgstr "ncclReduceScatter"
 
 #: ../../source/api/colls.rst:73 908eaca0257348949cfc7509993777c7
 msgid ""
-"Reduce data in ``sendbuff`` from all GPUs using the ``op`` operation and "
-"leave the reduced result scattered over the devices so that the "
-"``recvbuff`` on rank ``i`` will contain the i-th block of the result."
-msgstr ""
+"Reduce data in ``sendbuff`` from all GPUs using the ``op`` operation and leave the reduced result scattered over the "
+"devices so that the ``recvbuff`` on rank ``i`` will contain the i-th block of the result."
+msgstr "使用“op”操作从所有GPU中的“sendbuff”减少数据，并将减少的结果分散到设备上，以便在排名“i”的“recvbuff”中包含结果的第i个块。"
 
 #: ../../source/api/colls.rst:76 f2246be1232c4e098d19e0ad0017c987
 msgid ""
-"Note:  This assumes the send count is equal to ``nranks*recvcount``, "
-"which means that ``sendbuff`` should have a size of at least "
-"``nranks*recvcount`` elements."
-msgstr ""
+"Note:  This assumes the send count is equal to ``nranks*recvcount``, which means that ``sendbuff`` should have a size "
+"of at least ``nranks*recvcount`` elements."
+msgstr "注意：这假设发送计数等于``nranks*recvcount``，这意味着``sendbuff``的大小至少应为``nranks*recvcount``个元素。"
 
 #: ../../source/api/colls.rst:78 6811f094589145ee9edfe07786b79c4f
-msgid ""
-"In-place operation will happen if ``recvbuff == sendbuff + rank * "
-"recvcount``."
-msgstr ""
+msgid "In-place operation will happen if ``recvbuff == sendbuff + rank * recvcount``."
+msgstr "如果 ``recvbuff == sendbuff + rank * recvcount``，则会发生原地操作。"
 
 #: ../../source/api/colls.rst:80 f16c88b80a6b40f4a7b545ef1f07971d
 msgid "Related links: :ref:`reducescatter`, :ref:`in-place-operations`."
-msgstr ""
-
+msgstr "相关链接：:ref:`reducescatter`，:ref:`in-place-operations`。"

@@ -2,15 +2,15 @@
 # Copyright (C)
 # This file is distributed under the same license as the NCCL(2.19) package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: NCCL(2.19) \n"
+"Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-27 10:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -21,26 +21,22 @@ msgstr ""
 
 #: ../../source/usage/inplace.rst:5 e935480ef1d3420da795681d03aac6ec
 msgid "In-place Operations"
-msgstr ""
+msgstr "原地操作"
 
 #: ../../source/usage/inplace.rst:7 6c4fc18183694c008784b02bbf5e7c4a
 msgid ""
-"Contrary to MPI, NCCL does not define a special \"in-place\" value to "
-"replace pointers. Instead, NCCL optimizes the case where the provided "
-"pointers are effectively \"in place\"."
-msgstr ""
+"Contrary to MPI, NCCL does not define a special \"in-place\" value to replace pointers. Instead, NCCL optimizes the "
+"case where the provided pointers are effectively \"in place\"."
+msgstr "与MPI相反，NCCL不定义一个特殊的“原地”值来替换指针。相反，NCCL优化了提供的指针实际上是“原地”的情况。"
 
 #: ../../source/usage/inplace.rst:9 97c8b5d0d230431db2eccecadb37940f
 msgid ""
-"For ncclBroadcast, ncclReduce and ncclAllreduce functions, this means "
-"that passing ``sendBuff == recvBuff`` will perform in place operations, "
-"storing final results at the same place as initial data was read from."
-msgstr ""
+"For ncclBroadcast, ncclReduce and ncclAllreduce functions, this means that passing ``sendBuff == recvBuff`` will "
+"perform in place operations, storing final results at the same place as initial data was read from."
+msgstr "对于 ncclBroadcast、ncclReduce 和 ncclAllreduce 函数，这意味着传递 `sendBuff == recvBuff` 将执行原地操作，在相同的位置存储最终结果，就像初始数据的位置一样。"
 
 #: ../../source/usage/inplace.rst:12 3cdaefc8f31a470c90d818dc3a128f04
 msgid ""
-"For ncclReduceScatter and ncclAllGather, in place operations are done "
-"when the per-rank pointer is located at the rank offset of the global "
-"buffer. More precisely, these calls are considered in place : ::"
-msgstr ""
-
+"For ncclReduceScatter and ncclAllGather, in place operations are done when the per-rank pointer is located at the rank "
+"offset of the global buffer. More precisely, these calls are considered in place : ::"
+msgstr "对于 ncclReduceScatter 和 ncclAllGather，当每个排名指针位于全局缓冲区的排名偏移处时，将执行原位操作。更确切地说，这些调用被视为原位：::"

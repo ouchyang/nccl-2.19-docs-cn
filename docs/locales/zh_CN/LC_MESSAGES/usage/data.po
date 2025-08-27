@@ -2,15 +2,15 @@
 # Copyright (C)
 # This file is distributed under the same license as the NCCL(2.19) package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: NCCL(2.19) \n"
+"Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-27 10:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -21,33 +21,28 @@ msgstr ""
 
 #: ../../source/usage/data.rst:3 e24f1c18cc144b4987294778d985b897
 msgid "Data Pointers"
-msgstr ""
+msgstr "数据指针"
 
 #: ../../source/usage/data.rst:5 8a4249d1201c42ebb0266d8dbabfd828
 msgid ""
-"In general NCCL  will accept any CUDA pointers that are accessible from "
-"the CUDA device associated to the communicator object. This includes:"
-msgstr ""
+"In general NCCL  will accept any CUDA pointers that are accessible from the CUDA device associated to the communicator "
+"object. This includes:"
+msgstr "通常情况下，NCCL 将接受与通信对象关联的 CUDA 设备可访问的任何 CUDA 指针。这包括："
 
 #: ../../source/usage/data.rst:7 d7cd277d7e0041089b87fd1e746722ff
 msgid "device memory local to the CUDA device"
-msgstr ""
+msgstr "设备内存局限于CUDA设备。"
 
 #: ../../source/usage/data.rst:8 bfde8407910344558227d3deac984e00
-msgid ""
-"host memory registered using CUDA SDK APIs cudaHostRegister or "
-"cudaGetDevicePointer"
-msgstr ""
+msgid "host memory registered using CUDA SDK APIs cudaHostRegister or cudaGetDevicePointer"
+msgstr "使用CUDA SDK API中的cudaHostRegister或cudaGetDevicePointer注册主机内存"
 
 #: ../../source/usage/data.rst:9 9723be4b4bca404f9c6e705e1ef14276
 msgid "managed and unified memory"
-msgstr ""
+msgstr "管理和统一内存"
 
 #: ../../source/usage/data.rst:11 fd6c299314aa4fe1ad6e870e72fbd474
 msgid ""
-"The only exception is device memory located on another device but "
-"accessible from the current device using peer access. NCCL will return an"
-" error in that case to avoid programming errors (only when "
-"NCCL_CHECK_POINTERS=1 since 2.2.12)."
-msgstr ""
-
+"The only exception is device memory located on another device but accessible from the current device using peer access. "
+"NCCL will return an error in that case to avoid programming errors (only when NCCL_CHECK_POINTERS=1 since 2.2.12)."
+msgstr "唯一的例外是位于另一设备上但可通过对等访问从当前设备访问的设备内存。在这种情况下，NCCL 将返回一个错误，以避免编程错误（仅当 NCCL_CHECK_POINTERS=1 时，自 2.2.12 起）。"

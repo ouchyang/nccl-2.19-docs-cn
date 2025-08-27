@@ -2,15 +2,15 @@
 # Copyright (C)
 # This file is distributed under the same license as the NCCL(2.19) package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: NCCL(2.19) \n"
+"Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-27 10:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -21,34 +21,30 @@ msgstr ""
 
 #: ../../source/usage/streams.rst:3 0c6b6b4e11bb46c99a6955ada526479f
 msgid "CUDA Stream Semantics"
-msgstr ""
+msgstr "CUDA流语义"
 
 #: ../../source/usage/streams.rst:6 d12256562c654441ba51b6b5ac265214
 msgid ""
-"NCCL calls are associated to a stream and are passed as the last argument"
-" of the collective communication function. The NCCL call returns when the"
-" operation has been effectively enqueued to the given stream, or returns "
-"an error. The collective operation is then executed asynchronously on the"
-" CUDA device. The operation status can be queried using standard CUDA "
-"semantics, for example, calling cudaStreamSynchronize or using CUDA "
-"events."
+"NCCL calls are associated to a stream and are passed as the last argument of the collective communication function. The "
+"NCCL call returns when the operation has been effectively enqueued to the given stream, or returns an error. The "
+"collective operation is then executed asynchronously on the CUDA device. The operation status can be queried using "
+"standard CUDA semantics, for example, calling cudaStreamSynchronize or using CUDA events."
 msgstr ""
+"NCCL 调用与流相关联，并作为集体通信函数的最后一个参数传递。当操作已成功排入给定流时，NCCL 调用将返回，否则将返回错误。然后，在 CUDA 设备上异步执行集体操作。操作状态可以使用标准的 CUDA 语义进行查询，例如，调用 "
+"cudaStreamSynchronize 或使用 CUDA 事件。"
 
 #: ../../source/usage/streams.rst:10 f0f0b8129d28434084349c3c21a8065a
 msgid "Mixing Multiple Streams within the same ncclGroupStart/End() group"
-msgstr ""
+msgstr "在同一个`ncclGroupStart/End()`组中混合多个流"
 
 #: ../../source/usage/streams.rst:12 ad124faf23a34077bbf9787377f9b224
 msgid ""
-"NCCL allows for using multiple streams within a group call. This will "
-"enforce a stream dependency of all streams before the NCCL kernel starts "
-"and block all streams until the NCCL kernel completes."
-msgstr ""
+"NCCL allows for using multiple streams within a group call. This will enforce a stream dependency of all streams before "
+"the NCCL kernel starts and block all streams until the NCCL kernel completes."
+msgstr "NCCL允许在组调用中使用多个流。这将强制在NCCL内核启动之前对所有流进行流依赖性，并在NCCL内核完成之前阻塞所有流。"
 
 #: ../../source/usage/streams.rst:16 8506436b0f954f05a78044d7c66d51c0
 msgid ""
-"It will behave as if the NCCL group operation was posted on every stream,"
-" but given it is a single operation, it will cause a global "
-"synchronization point between the streams."
-msgstr ""
-
+"It will behave as if the NCCL group operation was posted on every stream, but given it is a single operation, it will "
+"cause a global synchronization point between the streams."
+msgstr "它将表现得好像在每个流上发布了NCCL组操作，但由于它是单个操作，它将在各个流之间引起全局同步点。"

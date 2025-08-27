@@ -139,7 +139,7 @@ msgstr "MPI定义了一个“进展”的概念，这意味着MPI操作需要程
 msgid ""
 "In some implementations, progress on one rank may need MPI to be called on another rank. While this is usually bad for "
 "performance, it can be argued that this is a valid MPI implementation."
-msgstr ""
+msgstr "在某些实现中，一个进程的进展可能需要在另一个进程上调用 MPI。虽然这通常对性能不利，但可以说这是一个有效的 MPI 实现。"
 
 #: ../../source/mpi.rst:55 b810af163409431789018913507dc99c
 msgid ""

@@ -105,7 +105,7 @@ msgstr ""
 
 #: ../../source/troubleshooting.rst:60 9656ec9dbbda4cae85b1e90227276820
 msgid "PCI Access Control Services (ACS)"
-msgstr ""
+msgstr "PCI访问控制服务（ACS）"
 
 #: ../../source/troubleshooting.rst:62 7c90481f8de2462698c9665b12794eac
 msgid ""
@@ -231,7 +231,7 @@ msgstr "NCCL打开TCP端口以连接进程并交换连接信息。要限制NCCL�
 
 #: ../../source/troubleshooting.rst:169 c87669ee6bea4929bb54cdc3ddea7cc2
 msgid "This example shows how to restrict NCCL ports to 50000-51000:"
-msgstr ""
+msgstr "此示例显示如何将 NCCL 端口限制在 50000-51000 范围内："
 
 #: ../../source/troubleshooting.rst:175 c786cd7b61634383b6e662c973c44766
 msgid "Or to make this permanent, add a line to /set/sysctl.conf:"

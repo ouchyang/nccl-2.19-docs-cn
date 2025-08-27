@@ -2,15 +2,15 @@
 # Copyright (C)
 # This file is distributed under the same license as the NCCL(2.19) package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: NCCL(2.19) \n"
+"Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-27 10:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -21,49 +21,44 @@ msgstr ""
 
 #: ../../source/usage/cudagraph.rst:5 0c952cc1404f487e9df758776319b7f4
 msgid "Using NCCL with CUDA Graphs"
-msgstr ""
+msgstr "使用 CUDA 图形与 NCCL。"
 
 #: ../../source/usage/cudagraph.rst:7 a42e4dfdf8cf4ac4a2296b259ccf5fc7
 msgid "Starting with NCCL 2.9, NCCL operations can be captured by CUDA Graphs."
-msgstr ""
+msgstr "从 NCCL 2.9 开始，NCCL 操作可以被 CUDA 图形捕获。"
 
 #: ../../source/usage/cudagraph.rst:9 21abcc40baf74457a0e1e1d7d881c3bf
 msgid ""
-"CUDA Graphs provide a way to define workflows as graphs rather than "
-"single operations. They may reduce overhead by launching multiple GPU "
-"operations through a single CPU operation. More details about CUDA Graphs"
-" can be found in the `CUDA Programming Guide "
-"<https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#cuda-"
-"graphs>`_."
+"CUDA Graphs provide a way to define workflows as graphs rather than single operations. They may reduce overhead by "
+"launching multiple GPU operations through a single CPU operation. More details about CUDA Graphs can be found in the "
+"`CUDA Programming Guide <https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#cuda-graphs>`_."
 msgstr ""
+"CUDA图形提供了一种将工作流定义为图形而不是单个操作的方式。它们可以通过单个CPU操作启动多个GPU操作，从而减少开销。有关CUDA图形的更多详细信息，请参阅`CUDA编程指南<https://docs.nvidia.com/cuda/"
+"cuda-c-programming-guide/index.html#cuda-graphs>`_."
 
 #: ../../source/usage/cudagraph.rst:11 bf1a7c690952418dadcc678f1410ea9c
 msgid ""
-"NCCL's collective, P2P and group operations all support CUDA Graph "
-"captures. This support requires a minimum CUDA version of 11.3."
-msgstr ""
+"NCCL's collective, P2P and group operations all support CUDA Graph captures. This support requires a minimum CUDA "
+"version of 11.3."
+msgstr "NCCL的集体、点对点和组操作都支持CUDA图形捕获。此支持需要最低CUDA版本为11.3。"
 
 #: ../../source/usage/cudagraph.rst:13 433fe04504ee4afeb830af06bce159d2
-msgid ""
-"The following sample code shows how to capture computational kernels and "
-"NCCL operations in a CUDA Graph: ::"
-msgstr ""
+msgid "The following sample code shows how to capture computational kernels and NCCL operations in a CUDA Graph: ::"
+msgstr "以下示例代码展示了如何在CUDA图中捕获计算核心和NCCL操作：::"
 
 #: ../../source/usage/cudagraph.rst:28 f4285b80f54b4ca9b8a274e4879c4a0a
 msgid ""
-"Starting with NCCL 2.11, when NCCL communication is captured and the "
-"CollNet algorithm is used, NCCL allows for further performance "
-"improvement via user buffer registration. For details, please environment"
-" variable :ref:`NCCL_GRAPH_REGISTER`."
-msgstr ""
+"Starting with NCCL 2.11, when NCCL communication is captured and the CollNet algorithm is used, NCCL allows for further "
+"performance improvement via user buffer registration. For details, please environment variable "
+":ref:`NCCL_GRAPH_REGISTER`."
+msgstr "从 NCCL 2.11 开始，当 NCCL 通信被捕获并使用 CollNet 算法时，NCCL 允许通过用户缓冲区注册进一步提高性能。有关详细信息，请参考环境变量 :ref:`NCCL_GRAPH_REGISTER`。"
 
 #: ../../source/usage/cudagraph.rst:30 b316cb8fec084f2a9c2534401a9b04b1
 msgid ""
-"Having multiple outstanding NCCL operations that are any combination of "
-"graph-captured or non-captured is supported. There is a caveat that the "
-"mechanism NCCL uses internally to accomplish this has been seen to cause "
-"CUDA to deadlock when the graphs of multiple communicators are "
-"cudaGraphLaunch()'d from the same thread. To disable this mechansim see "
+"Having multiple outstanding NCCL operations that are any combination of graph-captured or non-captured is supported. "
+"There is a caveat that the mechanism NCCL uses internally to accomplish this has been seen to cause CUDA to deadlock "
+"when the graphs of multiple communicators are cudaGraphLaunch()'d from the same thread. To disable this mechansim see "
 "the environment variable :ref:`NCCL_GRAPH_MIXING_SUPPORT`."
 msgstr ""
-
+"支持具有任意组合的图捕获或非捕获的多个未完成的 NCCL 操作。有一个警告，NCCL 用于实现此功能的内部机制已被发现在从同一线程 cudaGraphLaunch() 多个通信器的图时导致 CUDA 死锁。要禁用此机制，请参阅环境变量 "
+":ref:`NCCL_GRAPH_MIXING_SUPPORT`。"

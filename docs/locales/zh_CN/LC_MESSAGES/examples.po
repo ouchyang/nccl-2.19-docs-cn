@@ -129,7 +129,7 @@ msgstr "示例 3：每个线程多个设备"
 msgid ""
 "You can combine both multiple process or threads and multiple device per process or thread. In this case, we need to "
 "use group semantics."
-msgstr ""
+msgstr "您可以将多个进程或线程与每个进程或线程的多个设备结合起来。在这种情况下，我们需要使用组语义。"
 
 #: ../../source/examples.rst:327 388e2d20d84b49a786a21733be7e4a2b
 msgid "The following example combines MPI and multiple devices per process (=MPI rank)."
@@ -185,7 +185,7 @@ msgstr "有关MPI和每个MPI进程一个设备的完整工作示例，请参阅
 
 #: ../../source/examples.rst:557 2a7801f331ed4f3a85b372d0d8196f89
 msgid "Example 2: Multiple Devices per Thread"
-msgstr ""
+msgstr "示例 2：每个线程多个设备"
 
 #: ../../source/examples.rst:559 12027a4d7ea34a9589463f068ac334bb
 msgid ""
