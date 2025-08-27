@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"POT-Creation-Date: 2025-08-27 11:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,49 +19,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/api/p2p.rst:3 a62dc165a8db4fa19798f0cd00153a83
+#: ../../source/api/p2p.rst:3 34987cb04a3e4c66a365fb2989a4a97d
 msgid "Point To Point Communication Functions"
 msgstr "点对点通信功能"
 
-#: ../../source/api/p2p.rst:5 54be7d610f2f4593b2871825ab92f81c
+#: ../../source/api/p2p.rst:5 dbeff2b1310a4edda6d9f31812b454da
 msgid ""
 "(Since NCCL 2.7) Point-to-point communication primitives need to be used when ranks need to send and receive arbitrary "
 "data from each other, which cannot be expressed as a broadcast or allgather, i.e. when all data sent and received is "
 "different."
 msgstr "自 NCCL 2.7 版本开始，当排名需要彼此发送和接收任意数据时，需要使用点对点通信原语，这些数据无法表示为广播或全收集，即发送和接收的所有数据都不同。"
 
-#: ../../source/api/p2p.rst:10 fa95cf61f10547c7a2cb96fbdbc702bc
+#: ../../source/api/p2p.rst:10 d9edcd881b69491fb9a4dd9646cf0348
 msgid "ncclSend"
 msgstr "nccl发送"
 
-#: ../../source/api/p2p.rst:14 178284675b6b42e58c928e1c3fcb6b75
+#: ../../source/api/p2p.rst:14 71468d99163147c1bb68f2aaeaa8445e
 msgid "Send data from ``sendbuff`` to rank ``peer``."
 msgstr "将``sendbuff``中的数据发送到等级为``peer``的节点。"
 
-#: ../../source/api/p2p.rst:16 e83b54f6ffd54de38fcd54bafdc65684
+#: ../../source/api/p2p.rst:16 c5cb00f075db4fa8a153f0959d8b0324
 msgid "Rank ``peer`` needs to call ncclRecv with the same ``datatype`` and the same ``count`` from this rank."
 msgstr "等待“peer”等级调用ncclRecv，使用与此等级相同的“datatype”和相同的“count”。"
 
 #: ../../source/api/p2p.rst:18 ../../source/api/p2p.rst:33
-#: 8687944b5a114a33aa63fe958f0f9a29 d122c19e8bc244cb9687f38ccbea1f3d
+#: 29f04db80c184f028e3bda3190be7ba3 7756abdd8b884fb082bc3c465bb66df0
 msgid ""
 "This operation is blocking for the GPU. If multiple :c:func:`ncclSend` and :c:func:`ncclRecv` operations need to "
 "progress concurrently to complete, they must be fused within a :c:func:`ncclGroupStart`/ :c:func:`ncclGroupEnd` section."
 msgstr "这个操作会阻塞 GPU。如果需要同时进行多个 `ncclSend` 和 `ncclRecv` 操作以完成，它们必须在 `ncclGroupStart`/ `ncclGroupEnd` 区块内合并。"
 
 #: ../../source/api/p2p.rst:22 ../../source/api/p2p.rst:37
-#: 0800650ed8d842da8575cfab48d83972 6ef2d82519ee4f0da2558e8ff7cde920
+#: 58892fb81642473ab16e76c1d095da64 b7779a097888465e8733b55489e0332e
 msgid "Related links: :ref:`point-to-point`."
-msgstr "相关链接: :ref:`point-to-point`."
+msgstr "相关链接：:ref:`point-to-point`."
 
-#: ../../source/api/p2p.rst:25 88ba3ddb0e1145cdb8287a1e1c4d90cb
+#: ../../source/api/p2p.rst:25 cad7e4a173b04439954bbabf8acc7146
 msgid "ncclRecv"
 msgstr "ncclRecv"
 
-#: ../../source/api/p2p.rst:29 11c951b824cf4bf5aef16baa821484cc
+#: ../../source/api/p2p.rst:29 3c335203f0dc4efda64e7c3a39804dee
 msgid "Receive data from rank ``peer`` into ``recvbuff``."
 msgstr "从rank ``peer``接收数据到``recvbuff``中。"
 
-#: ../../source/api/p2p.rst:31 1fcc657cce894af5a8c1a6f406d17e20
+#: ../../source/api/p2p.rst:31 4ea929ff1ce949fab9fa4a92b626323f
 msgid "Rank ``peer`` needs to call ncclSend with the same ``datatype`` and the same ``count`` to this rank."
 msgstr "等待“peer”等级调用ncclSend，使用相同的“datatype”和相同的“count”到这个等级。"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"POT-Creation-Date: 2025-08-27 11:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,204 +19,204 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/api/types.rst:3 117667d5d749449aad61fe83331f30e7
+#: ../../source/api/types.rst:3 50a1da59dfe34cd4b7da9efc90022f5c
 msgid "Types"
 msgstr "类型"
 
-#: ../../source/api/types.rst:5 0c21c6e5fe214acdb61bae5720a7a46c
+#: ../../source/api/types.rst:5 bdfdbb24b2cd401993656ef56e59b119
 msgid "The following types are used by the NCCL library."
 msgstr "NCCL库使用以下类型。"
 
-#: ../../source/api/types.rst:8 5aa0136206e34bfd93cb15755e34f71c
+#: ../../source/api/types.rst:8 e4e4fc64a47740f08d81e5726dd9e58d
 msgid "ncclComm_t"
 msgstr "ncclComm_t"
 
-#: ../../source/api/types.rst:12 11815cf6d93048a492757f0712a4401b
+#: ../../source/api/types.rst:12 15e7a4b7762e488fb26c64f7a361e54c
 msgid "NCCL communicator. Points to an opaque structure inside NCCL."
 msgstr "NCCL 通信器。指向 NCCL 内部的不透明结构。"
 
-#: ../../source/api/types.rst:15 6952c8c89a27461ca31abfc42ee9da3e
+#: ../../source/api/types.rst:15 fbb957a018a24f5786dd8dc5de6a359d
 msgid "ncclResult_t"
 msgstr "ncclResult_t"
 
-#: ../../source/api/types.rst:19 14a1e88c1ae1401a8f94cdca8f8294ad
+#: ../../source/api/types.rst:19 bb3b66da79fe4f6d9393ad9bb2636337
 msgid "Return values for all NCCL functions. Possible values are :"
 msgstr "所有 NCCL 函数的返回值。可能的取值为："
 
-#: ../../source/api/types.rst:23 ebe9be430be04a78945464f931a30f40
+#: ../../source/api/types.rst:23 074b3053a77f4405a44d7167171d87c4
 msgid "(``0``) Function succeeded."
 msgstr "(``0``) 功能成功。"
 
-#: ../../source/api/types.rst:27 2cd2202446644af1b40a3d646c6ee0a3
+#: ../../source/api/types.rst:27 1f42c28654aa4a6b8b2aa3f40edb0432
 msgid "(``1``) A call to a CUDA function failed."
 msgstr "(``1``) 调用 CUDA 函数失败。"
 
-#: ../../source/api/types.rst:32 600959fc79bf4ff38af3a60d70375c70
+#: ../../source/api/types.rst:32 f9f5c9edefda4f618a75f4e8f1f5d4de
 msgid "(``2``) A call to the system failed."
 msgstr "(``2``) 系统调用失败。"
 
-#: ../../source/api/types.rst:37 d814c7cd4a5248939226bba87aca86bb
+#: ../../source/api/types.rst:37 afc5d76a1bc043a29e1832b88246bb15
 msgid "(``3``) An internal check failed. This is either a bug in NCCL or due to memory corruption."
 msgstr "(``3``) 内部检查失败。这可能是NCCL中的一个错误或由于内存损坏引起的。"
 
-#: ../../source/api/types.rst:42 9979e3d2ee9343dfa4278c8866c630da
+#: ../../source/api/types.rst:42 d6d725db37984fd9922f3895f34d9bb2
 msgid "(``4``) One argument has an invalid value."
 msgstr "(``4``) 一个参数具有无效值。"
 
-#: ../../source/api/types.rst:47 b67df66b705e4345a7d87d35be1f1a8b
+#: ../../source/api/types.rst:47 15283802554b4f53974b6e6286253565
 msgid "(``5``) The call to NCCL is incorrect. This is usually reflecting a programming error."
 msgstr "(``5``) 调用 NCCL 是不正确的。这通常反映了一个编程错误。"
 
-#: ../../source/api/types.rst:52 34f3c29f7d3e42a1b1dddf8df7da7b85
+#: ../../source/api/types.rst:52 ecff31ff91f84aeaad6bde58dd344fbb
 msgid "(``6``) A call failed possibly due to a network error or a remote process exiting prematurely."
 msgstr "(``6``) 一通电话可能由于网络错误或远程进程过早退出而失败。"
 
-#: ../../source/api/types.rst:57 2d6d69abd29f4514a6ee9c7f978539df
+#: ../../source/api/types.rst:57 ddd7fb1d1d964003a12f3febe7254888
 msgid "(``7``) A NCCL operation on the communicator is being enqueued and is being progressed in the background."
-msgstr "(``7``) 一个 NCCL 操作正在被加入队列，并在后台进行。"
+msgstr "(``7``) 一个 NCCL 操作正在被排队并在后台进行。"
 
-#: ../../source/api/types.rst:60 57cb35155d454a76b55c9d92d7e7bae6
+#: ../../source/api/types.rst:60 fae3fe5ec6924e648c8f999542056893
 msgid ""
 "Whenever a function returns an error (not ncclSuccess), NCCL should print a more detailed message when the environment "
 "variable :ref:`NCCL_DEBUG` is set to \"WARN\"."
-msgstr "每当一个函数返回一个错误（不是ncclSuccess），NCCL应该在环境变量:ref:`NCCL_DEBUG`设置为\"WARN\"时打印更详细的消息。"
+msgstr "每当一个函数返回错误（不是ncclSuccess），NCCL应该在环境变量:ref:`NCCL_DEBUG`设置为\"WARN\"时打印更详细的消息。"
 
-#: ../../source/api/types.rst:63 1b1b11e490d8430da2fc51481abb5008
+#: ../../source/api/types.rst:63 a451121623bf45e99e71a47e65307e39
 msgid "ncclDataType_t"
 msgstr "ncclDataType_t"
 
-#: ../../source/api/types.rst:67 33f2d91cde1444a18d40bccf6f8a51b8
+#: ../../source/api/types.rst:67 f3ca30fa20a540e796afa43404c37661
 msgid "NCCL defines the following integral and floating data-types."
 msgstr "NCCL 定义了以下整数和浮点数据类型。"
 
 #: ../../source/api/types.rst:71 ../../source/api/types.rst:75
-#: a4408c61e4c441ba92786c8c508777ce dd5775f09ec94f939ef53a36a07e8d2e
+#: 1c4c60fcd5f84774b4d24fdff10fe066 1ed916edc7c842a18f79a160b4f3156a
 msgid "Signed 8-bits integer"
 msgstr "已签名的8位整数"
 
-#: ../../source/api/types.rst:79 648e3c3144b2458591cf5d825f2d7b76
+#: ../../source/api/types.rst:79 d6b54bcbef954a069b552b3949987b79
 msgid "Unsigned 8-bits integer"
 msgstr "无符号8位整数"
 
 #: ../../source/api/types.rst:83 ../../source/api/types.rst:87
-#: 782464529fb54f5a9fcb80c9099f49ee c3b50cb2d0dd4405bdfed94425a01c76
+#: 194ebe3f1569447d90c96baf770eaa57 597242e01c464161808ed6ff240fd3e1
 msgid "Signed 32-bits integer"
 msgstr "已签名的32位整数"
 
-#: ../../source/api/types.rst:91 f93172d255884017b1408cdaf029e6e0
+#: ../../source/api/types.rst:91 10b477370404471bbaf6cf56d44ec5af
 msgid "Unsigned 32-bits integer"
 msgstr "无符号 32 位整数"
 
-#: ../../source/api/types.rst:95 58b49ccb2d7d48c7be99cb1338cd1c5c
+#: ../../source/api/types.rst:95 7481ae0cf887477a8af5dc7c092bde0a
 msgid "Signed 64-bits integer"
 msgstr "已签名的 64 位整数"
 
-#: ../../source/api/types.rst:99 78b76ea791e94914a4a974231ddcb6a1
+#: ../../source/api/types.rst:99 ec002fb04f2f4d119c5619d8734fa9fb
 msgid "Unsigned 64-bits integer"
-msgstr "无符号 64 位整数"
+msgstr "未签名的 64 位整数"
 
 #: ../../source/api/types.rst:103 ../../source/api/types.rst:107
-#: 48bb348f2ba14dd2a6d7bab0b47f2153 f6bfd12a910344b2a9f290cc5a95d9eb
+#: 09a1212f4c5e421796f9f5d96b0a30f6 bb63485a827d4c8fbc2f25adef084864
 msgid "16-bits floating point number (half precision)"
 msgstr "16位浮点数（半精度）"
 
 #: ../../source/api/types.rst:111 ../../source/api/types.rst:115
-#: 4010105b187140ab97442b2456963d9b 94a7b96cc6ad4d31819eef2848426466
+#: 4e4caa2d107741b58f96b8c43cd8c227 ef4444ad56f2449f9873c2a63b3f57a5
 msgid "32-bits floating point number (single precision)"
 msgstr "32位浮点数（单精度）"
 
 #: ../../source/api/types.rst:119 ../../source/api/types.rst:123
-#: 43888439dc7b4cb0aa4e8c71d51cd318 99b3dc6ac34a46d5935899cf64d0c3f1
+#: 680857105b02416ba607fccded70b908 956d0e4472a6425db68dc1adc014badc
 msgid "64-bits floating point number (double precision)"
 msgstr "64位浮点数（双精度）"
 
-#: ../../source/api/types.rst:127 c4b55e4f89d84f0593c8996280320ce5
+#: ../../source/api/types.rst:127 c307ffc524a04e2e8a0fe08b578b85fc
 msgid "16-bits floating point number (truncated precision in bfloat16 format, CUDA 11 or later)"
 msgstr "16位浮点数（在bfloat16格式中截断精度，CUDA 11或更高版本）"
 
-#: ../../source/api/types.rst:131 ea4b914a86f4496b9e584ef502b9d363
+#: ../../source/api/types.rst:131 26aac38de0934b66b23bfae76d775120
 msgid "ncclRedOp_t"
 msgstr "ncclRedOp_t"
 
-#: ../../source/api/types.rst:135 1c3114e528724034ba5b79d1fcc709c2
+#: ../../source/api/types.rst:135 e905113fe99c45d5b06bf151e38b5bc1
 msgid "Defines the reduction operation."
 msgstr "定义了减少操作。"
 
-#: ../../source/api/types.rst:139 2bc0992838bf43028c85bb2ecc12cde7
+#: ../../source/api/types.rst:139 8f609e3176c3491b90c66c5a4e8d7c52
 msgid "Perform a sum (+) operation"
 msgstr "执行一个求和（+）操作"
 
-#: ../../source/api/types.rst:143 d66037d28a2248ea83304315a9929fc0
+#: ../../source/api/types.rst:143 90463cef4b30440faef525b6c233800d
 msgid "Perform a product (*) operation"
 msgstr "执行一个产品 (*) 操作"
 
-#: ../../source/api/types.rst:147 e7a6a3cbba6f4b81ae466a2e62c1e722
+#: ../../source/api/types.rst:147 1fd58161f09640f3a0a28f304d63fe54
 msgid "Perform a min operation"
-msgstr "执行一个最小化操作"
+msgstr "执行一个 min 操作"
 
-#: ../../source/api/types.rst:151 f3acc9bf23bd4c1daf93489e62f40627
+#: ../../source/api/types.rst:151 650608ddb1ec4c64ae2565bbd6c244f7
 msgid "Perform a max operation"
 msgstr "执行最大值操作"
 
-#: ../../source/api/types.rst:155 c3699d0320904cba934af719b7b64e50
+#: ../../source/api/types.rst:155 b9dba90eae9b47b7abf365569e708fcd
 msgid "Perform an average operation, i.e. a sum across all ranks, divided by the number of ranks."
-msgstr "执行一个平均操作，即在所有等级上求和，然后除以等级的数量。"
+msgstr "执行平均操作，即在所有等级上求和，然后除以等级数。"
 
-#: ../../source/api/types.rst:159 d7211b5e26744ecb919234e36254f424
+#: ../../source/api/types.rst:159 9af5fa170f7c4d9486fb42c4a5542650
 msgid "ncclScalarResidence_t"
 msgstr "ncclScalarResidence_t"
 
-#: ../../source/api/types.rst:163 f67a8e3399ac4943b5207f7785927a50
+#: ../../source/api/types.rst:163 78d25a19d999496fbe0c00366c30d4db
 msgid "Indicates where (memory space) scalar arguments reside and when they can be dereferenced."
 msgstr "指示标量参数所在的位置（内存空间），以及何时可以对它们进行解引用。"
 
-#: ../../source/api/types.rst:168 5cb13f989f8e42a491fbb443665a089d
+#: ../../source/api/types.rst:168 c8c12c4150394864a69edca48fc81fc8
 msgid "The scalar resides in host memory and should be derefenced in the most immediate way."
 msgstr "标量位于主机内存中，应以最直接的方式取消引用。"
 
-#: ../../source/api/types.rst:173 a6ec3d3671ac4858bc95ba12fe2d8ae7
+#: ../../source/api/types.rst:173 fda9ab8772154e3386c6c4a1e59d9d55
 msgid "The scalar resides on device visible memory and should be dereferenced once needed."
-msgstr "标量位于设备可见内存中，一旦需要，应解除引用。"
+msgstr "标量位于设备可见内存上，需要时应解除引用。"
 
-#: ../../source/api/types.rst:179 785f32d6d7394d58a6ec0bffb15e62a4
+#: ../../source/api/types.rst:179 0ae96524d1c94adab324b866c223ba0e
 msgid "ncclConfig_t"
 msgstr "ncclConfig_t"
 
-#: ../../source/api/types.rst:183 02a1041d4ab74b308c0b390edd768567
+#: ../../source/api/types.rst:183 2bf0cd3d026940deb7af9f93745021d7
 msgid ""
 "A structure-based configuration users can set to initialize a communicator; a new created configuration must be "
 "initialized by NCCL_CONFIG_INITIALIZER."
 msgstr "用户可以设置的基于结构的配置，用于初始化通信器；新创建的配置必须由NCCL_CONFIG_INITIALIZER进行初始化。"
 
-#: ../../source/api/types.rst:188 580700cfa11143e587ca20e64ab24b2c
+#: ../../source/api/types.rst:188 eea66bd2f5874f6d8ac44e0f5459a520
 msgid "A configuration macro initializer which must be assigned to new created configuration."
-msgstr "一个必须分配给新创建的配置的配置宏初始化器。"
+msgstr "一个必须分配给新创建的配置的配置宏初始化程序。"
 
-#: ../../source/api/types.rst:192 27e7446f88d14053ab4bbe32a99506bc
+#: ../../source/api/types.rst:192 40dc3fc27843453f9afc3a3053c2dec6
 msgid ""
 "This attribute can be set as integer 0 or 1 to indicate nonblocking or blocking communicator behavior correspondingly. "
 "Blocking is default value."
-msgstr "这个属性可以设置为整数 0 或 1，分别表示非阻塞或阻塞通信器行为。阻塞是默认值。"
+msgstr "这个属性可以设置为整数0或1，分别表示非阻塞或阻塞通信器行为。阻塞是默认值。"
 
-#: ../../source/api/types.rst:197 f42efe68756040b091cbb3c2259847aa
+#: ../../source/api/types.rst:197 7ba20fd66dec4a9fae5409118837b404
 msgid ""
 "Set Cooperative Group Array (CGA) size of kernels launched by NCCL. This attribute can be set between 0 to 8, and "
 "default value is 4 since sm90 architecture and 0 for older architectures."
-msgstr "设置由NCCL启动的内核的合作组数组（CGA）大小。此属性可设置为0到8之间的值，默认值为4，自sm90架构起，而对于旧架构则为0。"
+msgstr "设置由NCCL启动的内核的合作组数组（CGA）大小。此属性可设置为0至8之间的值，默认值为4，自sm90架构起为默认值，而在旧架构中为0。"
 
-#: ../../source/api/types.rst:203 2a5799272b6f4185857a5c002842ddf9
+#: ../../source/api/types.rst:203 aa2707f01b78436f98d36ccd4f7d1d74
 msgid ""
 "Set the minimal number of CTAs NCCL should use for each kernel. Set to a positive integer value, up to 32. The default "
 "value is 1."
-msgstr "为每个内核设置 NCCL 应使用的最小数量的 CTA。将其设置为正整数值，最多为 32。默认值为 1。"
+msgstr "为每个内核设置 NCCL 应该使用的最小 CTA 数量。设置为正整数值，最多为 32。默认值为 1。"
 
-#: ../../source/api/types.rst:208 dcd6997f08304cb48beb196ca28df906
+#: ../../source/api/types.rst:208 54751aab57014e18b5ddb38e922e72c1
 msgid ""
 "Set the maximal number of CTAs NCCL should use for each kernel. Set to a positive integer value, up to 32. The default "
 "value is 32."
-msgstr "将每个内核 NCCL 应使用的最大 CTA 数设置为一个正整数值，最多为 32。默认值为 32。"
+msgstr "将 NCCL 每个内核应使用的最大 CTA 数设置为正整数值，最多为 32。默认值为 32。"
 
-#: ../../source/api/types.rst:213 1e920ed8cddc48e2b708934044e1d03b
+#: ../../source/api/types.rst:213 277fc686a6a5457c85b79313e6d93430
 msgid ""
 "Specify the network module name NCCL should use for network communication. The value of netName must match exactly the "
 "name of the network module (case-insensitive). NCCL internal network module names are \"IB\" (generic IB verbs) and "
@@ -226,7 +226,7 @@ msgstr ""
 "请指定NCCL应用于网络通信的网络模块名称。netName的值必须与网络模块的名称完全匹配（不区分大小写）。NCCL内部网络模块的名称为\"IB\"（通用IB verbs）和\"Socket\"（TCP/IP "
 "sockets）。外部网络插件定义其自己的名称。默认值未定义，NCCL将自动选择网络模块。"
 
-#: ../../source/api/types.rst:220 a07f9ed905ff45af8bfce00140664f19
+#: ../../source/api/types.rst:220 c01c90785e6349b4940dd10a0376008e
 msgid ""
 "Specify whether to share resources with child communicator during communicator split. Set the value of splitShare to 0 "
 "or 1. The default value is 0. When parent communicator is created with `splitShare=1` during `ncclCommInitRankConfig`, "
@@ -235,5 +235,5 @@ msgid ""
 "the same family. No matter whether sharing resources or not, users should always abort/destroy all communicators to "
 "free up resources."
 msgstr ""
-"在通信器分裂期间是否与子通信器共享资源进行指定。将splitShare的值设置为0或1。默认值为0。当使用`ncclCommInitRankConfig`创建父通信器时，若`splitShare=1`"
+"在通信器分裂期间，指定是否与子通信器共享资源。将splitShare的值设置为0或1。默认值为0。当使用`ncclCommInitRankConfig`创建父通信器时，若`splitShare=1`"
 "，则子通信器可以在通信器分裂期间共享父通信器的内部资源。分裂后的通信器属于同一家族。一旦资源被共享，中止任何通信器可能导致同一家族中其他通信器无法使用。无论是否共享资源，用户应始终中止/销毁所有通信器以释放资源。"

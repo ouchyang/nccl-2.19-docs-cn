@@ -31,7 +31,7 @@ The Broadcast operation copies an N-element buffer on the root rank to all ranks
 .. figure:: images/broadcast.png
  :align: center
  
- Broadcast operation: all ranks receive data from a 鈥渞oot鈥� rank. 
+ Broadcast operation: all ranks receive data from a "root" rank. 
 
 Important note: The root argument is one of the ranks, not a device number, and is therefore impacted by a different rank to device mapping.
 

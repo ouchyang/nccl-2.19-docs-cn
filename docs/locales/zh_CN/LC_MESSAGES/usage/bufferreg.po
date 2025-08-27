@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"POT-Creation-Date: 2025-08-27 11:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,17 +19,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage/bufferreg.rst:5 c566de1b2662445d90318d88bb46a72d
+#: ../../source/usage/bufferreg.rst:5 0409e7e78fbe4633baa89aff8b1ee9dd
 msgid "User Buffer Registration"
 msgstr "用户缓冲区注册"
 
-#: ../../source/usage/bufferreg.rst:7 00b8969ee26243699c579bd5b1ceaa63
+#: ../../source/usage/bufferreg.rst:7 71e7d40378b7407dabf6ee46f0b50eeb
 msgid ""
 "User Buffer Registration is a feature that allows NCCL to directly send/receive/operate data through the user buffer "
 "without extra internal copy. It can accelerate collectives and reduce the resource usage (e.g. #channel usage)."
 msgstr "用户缓冲区注册是一项功能，允许 NCCL 直接通过用户缓冲区发送/接收/操作数据，无需额外的内部复制。它可以加速集合操作并减少资源使用（例如，#通道使用）。"
 
-#: ../../source/usage/bufferreg.rst:10 eacf8c3c26104fac93c060147e3d8c5d
+#: ../../source/usage/bufferreg.rst:10 af4307277ed24ee283b9182a479a9931
 msgid ""
 "NCCL 2.19.x now supports user buffer registration for NVLink Switch; any NCCL collectives that support NVLS algorithm "
 "can utilize this feature. To enable the *CUDA Graph based* buffer registration, users have to comply with several "
@@ -37,36 +37,36 @@ msgid ""
 msgstr "NCCL 2.19.x现在支持NVLink Switch的用户缓冲区注册；任何支持NVLS算法的NCCL集合都可以利用这一功能。要启用基于CUDA图形的缓冲区注册，用户必须符合几项要求："
 
 #: ../../source/usage/bufferreg.rst:13 ../../source/usage/bufferreg.rst:21
-#: 4957f83b9c0e486ba25c4b2eb241f7f1 848985d14c5e41a786b8c1311cf71973
+#: 4bf9cd60c3b8410fa3ff04068935f9fb 9f26cb50da63447ba0ad67215e36a672
 msgid "The buffer is allocated through :c:func:`ncclMemAlloc()`."
 msgstr "缓冲区是通过 :c:func:`ncclMemAlloc()` 分配的。"
 
-#: ../../source/usage/bufferreg.rst:14 0431cbdd720a46258d364ae935589279
+#: ../../source/usage/bufferreg.rst:14 adecc4df6f394bc08f6a58d30c49a2fc
 msgid "Offset to the head address of the buffer is same for each rank in collectives."
-msgstr "缓冲区的头地址偏移在集体操作中对每个排名都是相同的。"
+msgstr "缓冲区的头地址偏移对于集体操作中的每个排名都是相同的。"
 
-#: ../../source/usage/bufferreg.rst:15 0b2bbcba7f184a56ab60aff9ebad2bbd
+#: ../../source/usage/bufferreg.rst:15 50d25da16a5d4b1cbdb01583864b4b06
 msgid "The NCCL operation is launched on a stream captured by a CUDA graph."
 msgstr "NCCL 操作在被 CUDA 图捕获的流上启动。"
 
-#: ../../source/usage/bufferreg.rst:17 8dc398dc1d0f414c80080e618dc78e21
+#: ../../source/usage/bufferreg.rst:17 7a6c2237c5fa404da20cb1ae1a022187
 msgid "Registered buffers will be deregistered when cuda graph is destroyed."
 msgstr "当CUDA图被销毁时，已注册的缓冲区将被取消注册。"
 
-#: ../../source/usage/bufferreg.rst:19 449588ecca76499c98f3528c4f21c68b
+#: ../../source/usage/bufferreg.rst:19 f02b91d7321e409aa1033e35d8da25f4
 msgid ""
 "On the other hand, to enable the *Local based* buffer registration, users have to comply with the following "
 "requirements:"
-msgstr "另一方面，为了启用*基于本地的*缓冲区注册，用户必须遵守以下要求："
+msgstr "另一方面，要启用*基于本地的*缓冲区注册，用户必须遵守以下要求："
 
-#: ../../source/usage/bufferreg.rst:22 2ea73f5d49fa4660921ee54c76ea7350
+#: ../../source/usage/bufferreg.rst:22 269811580fa04c57baef0af96e23173b
 msgid "Register buffer with :c:func:`ncclCommRegister` before calling collectives."
 msgstr "在调用集合操作之前，使用:c:func:`ncclCommRegister`注册缓冲区。"
 
-#: ../../source/usage/bufferreg.rst:23 08893ecb067f41c08bade3e83702daf8
+#: ../../source/usage/bufferreg.rst:23 7d6b1ac1dc564fd496594a6b9b6b4f2f
 msgid "Call NCCL collectives as usual but similarly keep the offset to the head address of the buffer same for each rank."
-msgstr "按照惯例调用 NCCL 集合，但同时确保每个排名的偏移量与缓冲区的头地址保持一致。"
+msgstr "按照惯例调用 NCCL 集合，但是同样保持每个排名的偏移量与缓冲区的头地址相同。"
 
-#: ../../source/usage/bufferreg.rst:25 b5324868be1b4a70b915bd4074dc8321
+#: ../../source/usage/bufferreg.rst:25 314c2a5caabf4336b6cb794b1505654e
 msgid "Registered buffers will be deregistered when users explicitly call :c:func:`ncclCommDeregister`."
-msgstr "当用户显式调用 :c:func:`ncclCommDeregister` 时，已注册的缓冲区将被取消注册。"
+msgstr "当用户显式调用 :c:func:`ncclCommDeregister` 时，已注册的缓冲区将被注销。"

@@ -1,15 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2022, Read the Docs core team
-# This file is distributed under the same license as the Basic Sphinx
-# Example Project package.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 # 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Basic Sphinx Example Project\n"
+"Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"POT-Creation-Date: 2025-08-27 11:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -20,37 +19,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage.rst:3 1894dda544884ba5ba4a4542ab25c5ee
+#: ../../source/usage.rst:3 557a9179fe2f43f2a43470385652a46b
 msgid "Using NCCL"
 msgstr "使用 NCCL"
 
-#: ../../source/usage.rst:5 f1976a05f1ff4d06bb50673d08600b39
+#: ../../source/usage.rst:5 d138eab8cada459392ee8bcdb0e8f456
 msgid "Using NCCL is similar to using any other library in your code:"
 msgstr "使用NCCL就像在您的代码中使用任何其他库一样："
 
-#: ../../source/usage.rst:7 57feb578a44b437e8a137f9aad4e1409
+#: ../../source/usage.rst:7 e3c6beb521a043f9b2d36a166971cbd0
 msgid "Install the NCCL library on your system"
 msgstr "在您的系统上安装NCCL库"
 
-#: ../../source/usage.rst:9 e7396d36cc0345a0a9a6f10e40719a3f
+#: ../../source/usage.rst:9 3f3ab8cf201644deb4b0bfc21c1f47e3
 msgid "Modify your application to link to that library"
-msgstr "修改您的应用程序以链接到该库"
+msgstr "修改你的应用程序以链接到那个库。"
 
-#: ../../source/usage.rst:11 17dcdc9811d4478d841f38eb7df1242c
+#: ../../source/usage.rst:11 fb1d2389a570459db5a3677326a1908e
 msgid "Include the header file nccl.h in your application"
 msgstr "在你的应用程序中包含头文件 `nccl.h`。"
 
-#: ../../source/usage.rst:13 cf742cbdfe8443ae94e557ebe9bed288
+#: ../../source/usage.rst:13 2bc28b0a3d9a4d14a397c6190bc11767
 msgid "Create a communicator (see :ref:`communicator-label`)"
 msgstr "创建一个通信器（参见：:ref:`communicator-label`）"
 
-#: ../../source/usage.rst:15 d52d0075fc7841b0a1351cc43ef13519
+#: ../../source/usage.rst:15 d8e0f2c37e2647c0bb775e35a929a156
 msgid ""
 "Use NCCL collective communication primitives to perform data communication. You can familiarize yourself with the "
 ":ref:`api-label` documentation to maximize your usage performance."
-msgstr "使用NCCL集合通信原语执行数据通信。您可以熟悉:ref:`api-label`文档，以最大化您的使用性能。"
+msgstr "使用NCCL集体通信原语来执行数据通信。您可以熟悉:ref:`api-label`文档，以最大化您的使用性能。"
 
-#: ../../source/usage.rst:17 13c9c313dbf4471b88457bbf87d9f209
+#: ../../source/usage.rst:17 1f6d2bc190694962ab80defbc58f9f73
 msgid ""
 "Collective communication primitives are common patterns of data transfer among a group of CUDA devices. A communication "
 "algorithm involves many processors that are communicating together. Each CUDA device is identified within the "
@@ -58,28 +57,5 @@ msgid ""
 "GPUs that are intended to work together. The creation of a communicator is the first step needed before launching any "
 "communication operation."
 msgstr ""
-"集体通信原语是CUDA设备组中常见的数据传输模式。通信算法涉及许多一起通信的处理器。在通信组中，每个CUDA设备通过从零开始的索引或秩进行标识。每个秩使用通信器对象来引用打算一起工作的GPU集合。在启动任何通信操作之前，创建通信器是必需的第"
-"一步。"
-
-#~ msgid "Usage"
-#~ msgstr "使用"
-
-#~ msgid "Installation"
-#~ msgstr "安装"
-
-#~ msgid "To use Lumache, first install it using pip:"
-#~ msgstr "使用 Lumache，首先使用 pip 进行安装："
-
-#~ msgid "Creating recipes"
-#~ msgstr "创建食谱"
-
-#~ msgid "To retrieve a list of random ingredients, you can use the ``lumache.get_random_ingredients()`` function:"
-#~ msgstr "要检索随机食材清单，您可以使用 ``lumache.get_random_ingredients()`` 函数："
-
-#~ msgid ""
-#~ "The ``kind`` parameter should be either ``\"meat\"``, ``\"fish\"``, or ``\"veggies\"``. Otherwise, "
-#~ ":py:func:`lumache.get_random_ingredients` will raise an exception."
-#~ msgstr "``kind`` 参数应为 ``\"meat\"``, ``\"fish\"`` 或 ``\"veggies\"`` 中的一个。否则，:py:func:`lumache.get_random_ingredients` 将引发异常。"
-
-#~ msgid "For example:"
-#~ msgstr "例如："
+"集体通信原语是CUDA设备组中常见的数据传输模式。通信算法涉及许多一起通信的处理器。每个CUDA设备在通信组中通过从零开始的索引或秩进行标识。每个秩使用通信器对象来引用打算一起工作的GPU集合。在启动任何通信操作之前，创建通信器是必需的第一"
+"步。"

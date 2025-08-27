@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"POT-Creation-Date: 2025-08-27 11:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,20 +19,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage/p2p.rst:5 a94b1b042a214299af2a878601ffb282
+#: ../../source/usage/p2p.rst:5 d45094775aac4fb0a4289a4d3081c75a
 msgid "Point-to-point communication"
 msgstr "点对点通信"
 
-#: ../../source/usage/p2p.rst:7 a956296aae314106a8df09b8ecc94e41
+#: ../../source/usage/p2p.rst:7 5acd0c30d9474240abdec35682e53bee
 msgid ""
 "(Since NCCL 2.7) Point-to-point communication can be used to express any communication pattern between ranks. Any "
 "point-to-point communication needs two NCCL calls : a call to :c:func:`ncclSend` on one rank and a corresponding "
 ":c:func:`ncclRecv` on the other rank, with the same count and data type."
 msgstr ""
-"自 NCCL 2.7 版本开始，点对点通信可用于表示排名之间的任何通信模式。任何点对点通信都需要两个 NCCL 调用：一个调用 `ncclSend` 在一个排名上，另一个调用对应的 `ncclRecv` "
-"在另一个排名上，且具有相同的计数和数据类型。"
+"自 NCCL 2.7 版本以来，点对点通信可用于表示排名之间的任何通信模式。任何点对点通信都需要两个 NCCL 调用：一个在一个排名上调用 `ncclSend`，另一个在另一个排名上调用相应的 "
+"`ncclRecv`，并且需要相同的计数和数据类型。"
 
-#: ../../source/usage/p2p.rst:13 51d0fec3bbd64435a9e4bfd21cf944f3
+#: ../../source/usage/p2p.rst:13 23e4536e90b3463ea165b2ed09d33acb
 msgid ""
 "Multiple calls to :c:func:`ncclSend` and :c:func:`ncclRecv` targeting different peers can be fused together with "
 ":c:func:`ncclGroupStart` and :c:func:`ncclGroupEnd` to form more complex communication patterns such as one-to-all "
@@ -41,57 +41,57 @@ msgstr ""
 "多次调用 :c:func:`ncclSend` 和 :c:func:`ncclRecv`，针对不同的对等方，可以通过 :c:func:`ncclGroupStart` 和 :c:func:`ncclGroupEnd` "
 "进行融合，形成更复杂的通信模式，如一对多（scatter）、多对一（gather）、多对多或在 N 维空间中与邻居通信。"
 
-#: ../../source/usage/p2p.rst:18 5a5db00b35eb46acb01ee15cf341d349
+#: ../../source/usage/p2p.rst:18 e22c4d58295e4fac984b2c5ae84ad238
 msgid ""
 "Point-to-point calls within a group will be blocking until that group of calls completes, but calls within a group can "
 "be seen as progressing independently, hence should never block each other. It is therefore important to merge calls "
 "that need to progress concurrently to avoid deadlocks."
 msgstr "组内点对点通话将被阻塞，直到该通话组完成，但组内通话可以被视为独立进行，因此不应相互阻塞。因此，合并需要同时进行的通话非常重要，以避免死锁。"
 
-#: ../../source/usage/p2p.rst:23 d4bb4720f0f349c380429b0e8813f67a
+#: ../../source/usage/p2p.rst:23 622c744dc10c4f13b93ff9552d3cc4d5
 msgid ""
 "Below are a few examples of classic point-to-point communication patterns used by parallel applications. NCCL semantics "
 "allow for all variants with different sizes, datatypes, and buffers, per rank."
 msgstr "以下是一些经典的并行应用程序中使用的点对点通信模式示例。NCCL语义允许每个排名使用不同大小、数据类型和缓冲区的所有变体。"
 
-#: ../../source/usage/p2p.rst:28 828308f4109444ac9454461d9a4c0bff
+#: ../../source/usage/p2p.rst:28 fd73f946147944fba6567b99ebe9e2f5
 msgid "Sendrecv"
 msgstr "发送接收"
 
-#: ../../source/usage/p2p.rst:30 7495e82cd4124cc893b033773a446881
+#: ../../source/usage/p2p.rst:30 0579abecf3b3413d8891eec4510be064
 msgid ""
 "In MPI terms, a sendrecv operation is when two ranks exchange data, both sending and receiving at the same time. This "
 "can be done by merging both ncclSend and ncclRecv calls into one :"
 msgstr "在 MPI 中，sendrecv 操作是指两个进程交换数据，同时发送和接收数据。可以通过将 ncclSend 和 ncclRecv 调用合并为一个来实现这一操作："
 
-#: ../../source/usage/p2p.rst:41 c469629ee25b4d47bfcd722679cada18
+#: ../../source/usage/p2p.rst:41 83bb514c42e24923ad7e921b87cb71aa
 msgid "One-to-all (scatter)"
 msgstr "一对多（散开）"
 
-#: ../../source/usage/p2p.rst:43 c10f5045679640a0a598bed831cc2ab4
+#: ../../source/usage/p2p.rst:43 58921d222cac4e8f90a54ef652e15bb8
 msgid "A one-to-all operation from a ``root`` rank can be expressed by merging all send and receive operations in a group :"
 msgstr "从“根”等级进行的一对多操作可以通过合并组中的所有发送和接收操作来表示："
 
-#: ../../source/usage/p2p.rst:57 05872da63ee343fe9656143fb48b75dc
+#: ../../source/usage/p2p.rst:57 63ec7c9485ee4207873afc5804bec1fd
 msgid "All-to-one (gather)"
-msgstr "全收到一起"
+msgstr "全收到（聚集）"
 
-#: ../../source/usage/p2p.rst:59 9d0f49fb9b8b4b5a9c31c1e31a85028b
+#: ../../source/usage/p2p.rst:59 b9fd550e53d14285b74c6c1938941e56
 msgid "Similarly, an all-to-one operations to a ``root`` rank would be implemented this way :"
-msgstr "同样地，将所有到一个“root”等级的操作实现方式如下："
+msgstr "同样，将所有到一个“root”等级的操作实施如下："
 
-#: ../../source/usage/p2p.rst:72 2fba901a5a6a420fa58f636f731ed1b6
+#: ../../source/usage/p2p.rst:72 a59caf3db0734dfc9be2e3ada42371b3
 msgid "All-to-all"
 msgstr "全对全"
 
-#: ../../source/usage/p2p.rst:74 a4a8a6ed8df34d30a16b3b7ad6540697
+#: ../../source/usage/p2p.rst:74 db7d78606a6249289c928e91c8858f93
 msgid "An all-to-all operation would be a merged loop of send/recv operations to/from all peers :"
-msgstr "一个全对全操作将是一个合并的循环，发送/接收操作与所有对等方之间进行："
+msgstr "一个全对全操作将是一个合并的循环，涉及到所有对等体的发送/接收操作："
 
-#: ../../source/usage/p2p.rst:87 c8f84526ee09440d9f39a0147bcb0970
+#: ../../source/usage/p2p.rst:87 c19f20b388714ec7a59c8953de3785d0
 msgid "Neighbor exchange"
 msgstr "邻居交流"
 
-#: ../../source/usage/p2p.rst:89 0c1678490b4346f39d25706f49b30540
+#: ../../source/usage/p2p.rst:89 f68049c85c2f4ef2ae6f5c568fe8791e
 msgid "Finally, exchanging data with neighbors in an N-dimensions space could be done with :"
 msgstr "最终，在 N 维空间中与邻居交换数据可以通过以下方式完成："

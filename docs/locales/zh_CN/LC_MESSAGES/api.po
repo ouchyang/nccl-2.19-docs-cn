@@ -1,15 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2022, Read the Docs core team
-# This file is distributed under the same license as the Basic Sphinx
-# Example Project package.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 # 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Basic Sphinx Example Project\n"
+"Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"POT-Creation-Date: 2025-08-27 11:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -20,13 +19,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/api.rst:5 06ea1bc1c2e34dd7ae41172ec5e20d04
+#: ../../source/api.rst:5 0bdee6603edf40848e1e6c3e74210b83
 msgid "NCCL API"
 msgstr "NCCL API"
 
-#: ../../source/api.rst:7 feaea8d073c448c3b6ca0ad40d0751c6
+#: ../../source/api.rst:7 7d4aedc8fe924667ad0b03eede73cd69
 msgid "The following sections describe the collective communications methods and operations."
-msgstr "以下部分描述了集体通信方法和操作。"
-
-#~ msgid "API"
-#~ msgstr "接口"
+msgstr "以下部分描述了集体沟通方法和运营。"

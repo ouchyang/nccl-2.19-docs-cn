@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"POT-Creation-Date: 2025-08-27 11:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,29 +19,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage/data.rst:3 e24f1c18cc144b4987294778d985b897
+#: ../../source/usage/data.rst:3 b5875cc1e41b415f8a52d2bff791deb0
 msgid "Data Pointers"
 msgstr "数据指针"
 
-#: ../../source/usage/data.rst:5 8a4249d1201c42ebb0266d8dbabfd828
+#: ../../source/usage/data.rst:5 e9a65ea1cab7456985f9eff624b82e69
 msgid ""
 "In general NCCL  will accept any CUDA pointers that are accessible from the CUDA device associated to the communicator "
 "object. This includes:"
 msgstr "通常情况下，NCCL 将接受与通信对象关联的 CUDA 设备可访问的任何 CUDA 指针。这包括："
 
-#: ../../source/usage/data.rst:7 d7cd277d7e0041089b87fd1e746722ff
+#: ../../source/usage/data.rst:7 d82428d81c9748b7a1093ebf0d2a2134
 msgid "device memory local to the CUDA device"
 msgstr "设备内存局限于CUDA设备。"
 
-#: ../../source/usage/data.rst:8 bfde8407910344558227d3deac984e00
+#: ../../source/usage/data.rst:8 6103624671514ea783d073b8fefe86fd
 msgid "host memory registered using CUDA SDK APIs cudaHostRegister or cudaGetDevicePointer"
 msgstr "使用CUDA SDK API中的cudaHostRegister或cudaGetDevicePointer注册主机内存"
 
-#: ../../source/usage/data.rst:9 9723be4b4bca404f9c6e705e1ef14276
+#: ../../source/usage/data.rst:9 59f20ba2e16d49f9a54316f659c0e118
 msgid "managed and unified memory"
 msgstr "管理和统一内存"
 
-#: ../../source/usage/data.rst:11 fd6c299314aa4fe1ad6e870e72fbd474
+#: ../../source/usage/data.rst:11 6af9270ee41f479d93e5255b87916347
 msgid ""
 "The only exception is device memory located on another device but accessible from the current device using peer access. "
 "NCCL will return an error in that case to avoid programming errors (only when NCCL_CHECK_POINTERS=1 since 2.2.12)."
