@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19) \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/usage/data.rst:3 e24f1c18cc144b4987294778d985b897
+msgid "Data Pointers"
+msgstr ""
+
+#: ../../source/usage/data.rst:5 8a4249d1201c42ebb0266d8dbabfd828
+msgid ""
+"In general NCCL  will accept any CUDA pointers that are accessible from "
+"the CUDA device associated to the communicator object. This includes:"
+msgstr ""
+
+#: ../../source/usage/data.rst:7 d7cd277d7e0041089b87fd1e746722ff
+msgid "device memory local to the CUDA device"
+msgstr ""
+
+#: ../../source/usage/data.rst:8 bfde8407910344558227d3deac984e00
+msgid ""
+"host memory registered using CUDA SDK APIs cudaHostRegister or "
+"cudaGetDevicePointer"
+msgstr ""
+
+#: ../../source/usage/data.rst:9 9723be4b4bca404f9c6e705e1ef14276
+msgid "managed and unified memory"
+msgstr ""
+
+#: ../../source/usage/data.rst:11 fd6c299314aa4fe1ad6e870e72fbd474
+msgid ""
+"The only exception is device memory located on another device but "
+"accessible from the current device using peer access. NCCL will return an"
+" error in that case to avoid programming errors (only when "
+"NCCL_CHECK_POINTERS=1 since 2.2.12)."
+msgstr ""
+

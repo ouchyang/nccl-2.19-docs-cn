@@ -1,0 +1,265 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19) \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/api/types.rst:3 117667d5d749449aad61fe83331f30e7
+msgid "Types"
+msgstr ""
+
+#: ../../source/api/types.rst:5 0c21c6e5fe214acdb61bae5720a7a46c
+msgid "The following types are used by the NCCL library."
+msgstr ""
+
+#: ../../source/api/types.rst:8 5aa0136206e34bfd93cb15755e34f71c
+msgid "ncclComm_t"
+msgstr ""
+
+#: ../../source/api/types.rst:12 11815cf6d93048a492757f0712a4401b
+msgid "NCCL communicator. Points to an opaque structure inside NCCL."
+msgstr ""
+
+#: ../../source/api/types.rst:15 6952c8c89a27461ca31abfc42ee9da3e
+msgid "ncclResult_t"
+msgstr ""
+
+#: ../../source/api/types.rst:19 14a1e88c1ae1401a8f94cdca8f8294ad
+msgid "Return values for all NCCL functions. Possible values are :"
+msgstr ""
+
+#: ../../source/api/types.rst:23 ebe9be430be04a78945464f931a30f40
+msgid "(``0``) Function succeeded."
+msgstr ""
+
+#: ../../source/api/types.rst:27 2cd2202446644af1b40a3d646c6ee0a3
+msgid "(``1``) A call to a CUDA function failed."
+msgstr ""
+
+#: ../../source/api/types.rst:32 600959fc79bf4ff38af3a60d70375c70
+msgid "(``2``) A call to the system failed."
+msgstr ""
+
+#: ../../source/api/types.rst:37 d814c7cd4a5248939226bba87aca86bb
+msgid ""
+"(``3``) An internal check failed. This is either a bug in NCCL or due to "
+"memory corruption."
+msgstr ""
+
+#: ../../source/api/types.rst:42 9979e3d2ee9343dfa4278c8866c630da
+msgid "(``4``) One argument has an invalid value."
+msgstr ""
+
+#: ../../source/api/types.rst:47 b67df66b705e4345a7d87d35be1f1a8b
+msgid ""
+"(``5``) The call to NCCL is incorrect. This is usually reflecting a "
+"programming error."
+msgstr ""
+
+#: ../../source/api/types.rst:52 34f3c29f7d3e42a1b1dddf8df7da7b85
+msgid ""
+"(``6``) A call failed possibly due to a network error or a remote process"
+" exiting prematurely."
+msgstr ""
+
+#: ../../source/api/types.rst:57 2d6d69abd29f4514a6ee9c7f978539df
+msgid ""
+"(``7``) A NCCL operation on the communicator is being enqueued and is "
+"being progressed in the background."
+msgstr ""
+
+#: ../../source/api/types.rst:60 57cb35155d454a76b55c9d92d7e7bae6
+msgid ""
+"Whenever a function returns an error (not ncclSuccess), NCCL should print"
+" a more detailed message when the environment variable :ref:`NCCL_DEBUG` "
+"is set to \"WARN\"."
+msgstr ""
+
+#: ../../source/api/types.rst:63 1b1b11e490d8430da2fc51481abb5008
+msgid "ncclDataType_t"
+msgstr ""
+
+#: ../../source/api/types.rst:67 33f2d91cde1444a18d40bccf6f8a51b8
+msgid "NCCL defines the following integral and floating data-types."
+msgstr ""
+
+#: ../../source/api/types.rst:71 ../../source/api/types.rst:75
+#: a4408c61e4c441ba92786c8c508777ce dd5775f09ec94f939ef53a36a07e8d2e
+msgid "Signed 8-bits integer"
+msgstr ""
+
+#: ../../source/api/types.rst:79 648e3c3144b2458591cf5d825f2d7b76
+msgid "Unsigned 8-bits integer"
+msgstr ""
+
+#: ../../source/api/types.rst:83 ../../source/api/types.rst:87
+#: 782464529fb54f5a9fcb80c9099f49ee c3b50cb2d0dd4405bdfed94425a01c76
+msgid "Signed 32-bits integer"
+msgstr ""
+
+#: ../../source/api/types.rst:91 f93172d255884017b1408cdaf029e6e0
+msgid "Unsigned 32-bits integer"
+msgstr ""
+
+#: ../../source/api/types.rst:95 58b49ccb2d7d48c7be99cb1338cd1c5c
+msgid "Signed 64-bits integer"
+msgstr ""
+
+#: ../../source/api/types.rst:99 78b76ea791e94914a4a974231ddcb6a1
+msgid "Unsigned 64-bits integer"
+msgstr ""
+
+#: ../../source/api/types.rst:103 ../../source/api/types.rst:107
+#: 48bb348f2ba14dd2a6d7bab0b47f2153 f6bfd12a910344b2a9f290cc5a95d9eb
+msgid "16-bits floating point number (half precision)"
+msgstr ""
+
+#: ../../source/api/types.rst:111 ../../source/api/types.rst:115
+#: 4010105b187140ab97442b2456963d9b 94a7b96cc6ad4d31819eef2848426466
+msgid "32-bits floating point number (single precision)"
+msgstr ""
+
+#: ../../source/api/types.rst:119 ../../source/api/types.rst:123
+#: 43888439dc7b4cb0aa4e8c71d51cd318 99b3dc6ac34a46d5935899cf64d0c3f1
+msgid "64-bits floating point number (double precision)"
+msgstr ""
+
+#: ../../source/api/types.rst:127 c4b55e4f89d84f0593c8996280320ce5
+msgid ""
+"16-bits floating point number (truncated precision in bfloat16 format, "
+"CUDA 11 or later)"
+msgstr ""
+
+#: ../../source/api/types.rst:131 ea4b914a86f4496b9e584ef502b9d363
+msgid "ncclRedOp_t"
+msgstr ""
+
+#: ../../source/api/types.rst:135 1c3114e528724034ba5b79d1fcc709c2
+msgid "Defines the reduction operation."
+msgstr ""
+
+#: ../../source/api/types.rst:139 2bc0992838bf43028c85bb2ecc12cde7
+msgid "Perform a sum (+) operation"
+msgstr ""
+
+#: ../../source/api/types.rst:143 d66037d28a2248ea83304315a9929fc0
+msgid "Perform a product (*) operation"
+msgstr ""
+
+#: ../../source/api/types.rst:147 e7a6a3cbba6f4b81ae466a2e62c1e722
+msgid "Perform a min operation"
+msgstr ""
+
+#: ../../source/api/types.rst:151 f3acc9bf23bd4c1daf93489e62f40627
+msgid "Perform a max operation"
+msgstr ""
+
+#: ../../source/api/types.rst:155 c3699d0320904cba934af719b7b64e50
+msgid ""
+"Perform an average operation, i.e. a sum across all ranks, divided by the"
+" number of ranks."
+msgstr ""
+
+#: ../../source/api/types.rst:159 d7211b5e26744ecb919234e36254f424
+msgid "ncclScalarResidence_t"
+msgstr ""
+
+#: ../../source/api/types.rst:163 f67a8e3399ac4943b5207f7785927a50
+msgid ""
+"Indicates where (memory space) scalar arguments reside and when they can "
+"be dereferenced."
+msgstr ""
+
+#: ../../source/api/types.rst:168 5cb13f989f8e42a491fbb443665a089d
+msgid ""
+"The scalar resides in host memory and should be derefenced in the most "
+"immediate way."
+msgstr ""
+
+#: ../../source/api/types.rst:173 a6ec3d3671ac4858bc95ba12fe2d8ae7
+msgid ""
+"The scalar resides on device visible memory and should be dereferenced "
+"once needed."
+msgstr ""
+
+#: ../../source/api/types.rst:179 785f32d6d7394d58a6ec0bffb15e62a4
+msgid "ncclConfig_t"
+msgstr ""
+
+#: ../../source/api/types.rst:183 02a1041d4ab74b308c0b390edd768567
+msgid ""
+"A structure-based configuration users can set to initialize a "
+"communicator; a new created configuration must be initialized by "
+"NCCL_CONFIG_INITIALIZER."
+msgstr ""
+
+#: ../../source/api/types.rst:188 580700cfa11143e587ca20e64ab24b2c
+msgid ""
+"A configuration macro initializer which must be assigned to new created "
+"configuration."
+msgstr ""
+
+#: ../../source/api/types.rst:192 27e7446f88d14053ab4bbe32a99506bc
+msgid ""
+"This attribute can be set as integer 0 or 1 to indicate nonblocking or "
+"blocking communicator behavior correspondingly. Blocking is default "
+"value."
+msgstr ""
+
+#: ../../source/api/types.rst:197 f42efe68756040b091cbb3c2259847aa
+msgid ""
+"Set Cooperative Group Array (CGA) size of kernels launched by NCCL. This "
+"attribute can be set between 0 to 8, and default value is 4 since sm90 "
+"architecture and 0 for older architectures."
+msgstr ""
+
+#: ../../source/api/types.rst:203 2a5799272b6f4185857a5c002842ddf9
+msgid ""
+"Set the minimal number of CTAs NCCL should use for each kernel. Set to a "
+"positive integer value, up to 32. The default value is 1."
+msgstr ""
+
+#: ../../source/api/types.rst:208 dcd6997f08304cb48beb196ca28df906
+msgid ""
+"Set the maximal number of CTAs NCCL should use for each kernel. Set to a "
+"positive integer value, up to 32. The default value is 32."
+msgstr ""
+
+#: ../../source/api/types.rst:213 1e920ed8cddc48e2b708934044e1d03b
+msgid ""
+"Specify the network module name NCCL should use for network "
+"communication. The value of netName must match exactly the name of the "
+"network module (case-insensitive). NCCL internal network module names are"
+" \"IB\" (generic IB verbs) and \"Socket\" (TCP/IP sockets). External "
+"network plugins define their own names. Default value is undefined, and "
+"NCCL will choose the network module automatically."
+msgstr ""
+
+#: ../../source/api/types.rst:220 a07f9ed905ff45af8bfce00140664f19
+msgid ""
+"Specify whether to share resources with child communicator during "
+"communicator split. Set the value of splitShare to 0 or 1. The default "
+"value is 0. When parent communicator is created with `splitShare=1` "
+"during `ncclCommInitRankConfig`, the child communicator can share "
+"internal resources of the parent during communicator split. Split "
+"communicators are in the same family. Once resources are shared, aborting"
+" any communicator can result in unusable for other communicators in the "
+"same family. No matter whether sharing resources or not, users should "
+"always abort/destroy all communicators to free up resources."
+msgstr ""
+

@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: gpt-po v1.0.11\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/mpi.rst:3 b9f69458fe4f46ce9fff64065ab9e9b3
+msgid "NCCL and MPI"
+msgstr "NCCL 和 MPI"
+
+#: ../../source/mpi.rst:7 91a066e3aca94ed6af074a24658e0eb5
+msgid "API"
+msgstr "API"
+
+#: ../../source/mpi.rst:9 9c2b41037d6c4e258674248add7a5f18
+msgid ""
+"The NCCL API and usage is similar to MPI but there are many minor differences.  The following list summarizes these "
+"differences:"
+msgstr "NCCL API 和使用方式类似于 MPI，但有许多细微差别。以下列表总结了这些差异："
+
+#: ../../source/mpi.rst:12 c3724b90e5af45d2b009bdbe92b31020
+msgid "Using multiple devices per process"
+msgstr "使用多个设备每个进程"
+
+#: ../../source/mpi.rst:13 97008d0f013947f1866fd7b5a54870df
+msgid ""
+"Similarly to the concept of MPI endpoints, NCCL does not require ranks to be mapped 1:1 to MPI ranks. A NCCL "
+"communicator may have many ranks associated to a single process (hence MPI rank if used with MPI)."
+msgstr "与MPI端点的概念类似，NCCL不要求将等级一对一映射到MPI等级。一个NCCL通信器可以有多个等级与单个进程相关联（因此如果与MPI一起使用，则与MPI等级相关）。"
+
+#: ../../source/mpi.rst:16 738f1de84f7344bc875dc4d70af73b4b
+msgid "ReduceScatter operation"
+msgstr "ReduceScatter 操作"
+
+#: ../../source/mpi.rst:17 47b0956772d94097a758f85d495124b2
+msgid ""
+"The ncclReduceScatter operation is similar to the MPI_Reduce_scatter_block operation, not the MPI_Reduce_scatter "
+"operation. The MPI_Reduce_scatter function is intrinsically a \"vector\" function, while MPI_Reduce_scatter_block "
+"(defined later to fill the missing semantics) provides regular counts similarly to the mirror function MPI_Allgather. "
+"This is an oddity of MPI which has not been fixed for legitimate retro-compatibility reasons and that NCCL does not "
+"follow."
+msgstr ""
+"`ncclReduceScatter` 操作类似于 `MPI_Reduce_scatter_block` 操作，而不是 `MPI_Reduce_scatter` 操作。`MPI_Reduce_scatter` "
+"函数本质上是一个“向量”函数，而 `MPI_Reduce_scatter_block`（稍后定义以填补缺失的语义）提供类似于镜像函数 `MPI_Allgather` 的常规计数。这是 MPI "
+"的一个奇怪之处，出于合法的向后兼容性原因尚未修复，而 NCCL 不遵循这一点。"
+
+#: ../../source/mpi.rst:20 754bfd53fd1142faad7072c95bd70953
+msgid "Send and Receive counts"
+msgstr "发送和接收计数"
+
+#: ../../source/mpi.rst:21 16b14137f24a4d5d815ffc2ed6a502ec
+msgid ""
+"In many collective operations, MPI allows for different send and receive counts and types, as long as "
+"sendcount*sizeof(sendtype) == recvcount*sizeof(recvtype). NCCL does not allow that, defining a single count and a "
+"single data-type."
+msgstr "在许多集体操作中，MPI 允许不同的发送和接收计数和类型，只要 sendcount*sizeof(sendtype) == recvcount*sizeof(recvtype)。NCCL 不允许这样做，定义了单个计数和单个数据类型。"
+
+#: ../../source/mpi.rst:23 8622aed1809346bc85ee4291a3ce1d5b
+msgid ""
+"For AllGather and ReduceScatter operations, the count is equal to the per-rank size, which is the smallest size; the "
+"other count being equal to nranks*count. The function prototype clearly shows which count is provided. ncclAllgather "
+"has a sendcount as argument, while ncclReduceScatter has a recvcount as argument."
+msgstr ""
+"对于AllGather和ReduceScatter操作，count等于每个rank的大小，即最小的大小；另一个count等于nranks*"
+"count。函数原型清楚地显示了提供的count。ncclAllgather有一个sendcount作为参数，而ncclReduceScatter有一个recvcount作为参数。"
+
+#: ../../source/mpi.rst:25 9e54045f15c74b23a6e4ad283f516271
+msgid ""
+"Note: When performing or comparing AllReduce operations using a combination of ReduceScatter and AllGather, define the "
+"sendcount and recvcount as the total count divided by the number of ranks, with the correct count rounding-up, if it is "
+"not a perfect multiple of the number of ranks."
+msgstr "注意：在使用ReduceScatter和AllGather组合进行AllReduce操作时，将sendcount和recvcount定义为总计数除以排名数，如果总数不是排名数的整数倍，则正确计数应向上取整。"
+
+#: ../../source/mpi.rst:28 9487c28fca93437c967bd08286b046fa
+msgid "Other collectives and point-to-point operations"
+msgstr "其他集体和点对点操作"
+
+#: ../../source/mpi.rst:30 0b6ad2c2f7f147fcacaec4708f928fde
+msgid ""
+"NCCL does not define specific verbs for sendrecv, gather, gatherv, scatter, scatterv, alltoall, alltoallv, alltoallw, "
+"nor neighbor collectives. All those operations can be simply expressed using a combination of ncclSend, ncclRecv, and "
+"ncclGroupStart/ncclGroupEnd, similarly to how they can be expressed with MPI_Isend, MPI_Irecv and MPI_Waitall."
+msgstr ""
+"NCCL并未为sendrecv、gather、gatherv、scatter、scatterv、alltoall、alltoallv、alltoallw以及neighbor "
+"collectives定义特定的动词。所有这些操作都可以简单地使用ncclSend、ncclRecv以及ncclGroupStart/ncclGroupEnd的组合来表达，类似于它们可以用MPI_Isend、MPI_Irecv和MPI_"
+"Waitall来表达。"
+
+#: ../../source/mpi.rst:35 c2bb4321c7c14c62b4a662d4b8823b30
+msgid "In-place operations"
+msgstr "原地操作"
+
+#: ../../source/mpi.rst:36 55d0dd2d4f8745f7b82e8e600c9508cd
+msgid "For more information, see :ref:`in-place-operations`."
+msgstr "有关更多信息，请参阅:ref:`in-place-operations`。"
+
+#: ../../source/mpi.rst:40 d59b9fb683554767a5ab256c11725fbf
+msgid "Using NCCL within an MPI Program"
+msgstr "在 MPI 程序中使用 NCCL。"
+
+#: ../../source/mpi.rst:42 a87ef4c2179f4dafa3b269f3d336ce2b
+msgid ""
+"NCCL can be easily used in conjunction with MPI. NCCL collectives are similar to MPI collectives, therefore, creating a "
+"NCCL communicator out of an MPI communicator is straightforward. It is therefore easy to use MPI for CPU-to-CPU "
+"communication and NCCL for GPU-to-GPU communication."
+msgstr ""
+"NCCL 可以很容易地与 MPI 结合使用。NCCL 集合类似于 MPI 集合，因此，将 MPI 通信器转换为 NCCL 通信器非常简单。因此，可以轻松地使用 MPI 进行 CPU 到 CPU 的通信，使用 NCCL 进行 GPU 到 "
+"GPU 的通信。"
+
+#: ../../source/mpi.rst:46 1a112f83475847cb9f770d35ab3b7f62
+msgid "However, some implementation details in MPI can lead to issues when using NCCL inside an MPI program."
+msgstr "然而，在MPI中的一些实现细节可能会导致在MPI程序中使用NCCL时出现问题。"
+
+#: ../../source/mpi.rst:49 bb2b76a4d8b348648da746bb585fbcf2
+msgid "MPI Progress"
+msgstr "MPI 进度"
+
+#: ../../source/mpi.rst:51 08d9a856e4784df984dee2a62364a4a3
+msgid ""
+"MPI defines a notion of progress which means that MPI operations need the program to call MPI functions (potentially "
+"multiple times) to make progress and eventually complete."
+msgstr "MPI定义了一个“进展”的概念，这意味着MPI操作需要程序调用MPI函数（可能多次）来取得进展并最终完成。"
+
+#: ../../source/mpi.rst:53 b804704042aa4bcbb6d00ab77cd22d86
+msgid ""
+"In some implementations, progress on one rank may need MPI to be called on another rank. While this is usually bad for "
+"performance, it can be argued that this is a valid MPI implementation."
+msgstr ""
+
+#: ../../source/mpi.rst:55 b810af163409431789018913507dc99c
+msgid ""
+"As a result, blocking in a NCCL collective operations, for example calling cudaStreamSynchronize, may create a deadlock "
+"in some cases because not calling MPI will not make other ranks progress, hence reach the NCCL call, hence unblock the "
+"NCCL operation."
+msgstr "因此，在NCCL集体操作中阻塞，例如调用cudaStreamSynchronize，在某些情况下可能会造成死锁，因为不调用MPI将无法使其他排名继续前进，因此无法达到NCCL调用，从而无法解除NCCL操作的阻塞。"
+
+#: ../../source/mpi.rst:57 cbd38c42d1bb45368b58f51ed234ec5d
+msgid "In that case, the cudaStreamSynchronize call should be replaced by a loop like the following:"
+msgstr "在这种情况下，`cudaStreamSynchronize` 调用应该被替换为以下循环："
+
+#: ../../source/mpi.rst:70 1849ffb38d304af690b0e49d615fa8d4
+msgid "Inter-GPU Communication with CUDA-aware MPI"
+msgstr "使用 CUDA-aware MPI 进行 GPU 间通信"
+
+#: ../../source/mpi.rst:72 3347867bbe36439db502d91505aa3375
+msgid "Using NCCL to perform inter-GPU communication concurrently with CUDA-aware MPI may create deadlocks."
+msgstr "使用NCCL与CUDA-aware MPI同时进行GPU间通信可能会导致死锁。"
+
+#: ../../source/mpi.rst:74 f6362b61cce34f67a2ea0f1f14db4614
+msgid ""
+"NCCL creates inter-device dependencies, meaning that after it has been launched, a NCCL kernel will wait (and "
+"potentially block the CUDA device) until all ranks in the communicator launch their NCCL kernel. CUDA-aware MPI may "
+"also create such dependencies between devices depending on the MPI implementation."
+msgstr "NCCL会创建设备间的依赖关系，这意味着在它启动后，一个NCCL核心将等待（并可能阻塞CUDA设备），直到通信器中的所有rank启动它们的NCCL核心。基于CUDA的MPI也可能根据MPI实现在设备之间创建这样的依赖关系。"
+
+#: ../../source/mpi.rst:78 4da9a305bac14fcdaf12aa15e35f2ad9
+msgid ""
+"Using both MPI and NCCL to perform transfers between the same sets of CUDA devices concurrently is therefore not "
+"guaranteed to be safe."
+msgstr "因此，同时在相同的CUDA设备集之间使用MPI和NCCL执行传输并不一定安全。"

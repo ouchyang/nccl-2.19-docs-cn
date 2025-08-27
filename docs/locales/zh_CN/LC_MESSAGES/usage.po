@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the Basic Sphinx
 # Example Project package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Basic Sphinx Example Project \n"
+"Project-Id-Version: Basic Sphinx Example Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 10:58+0800\n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -20,36 +20,66 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage.rst:2 19fd0af2b8bc4347822893ca96840911
-msgid "Usage"
-msgstr ""
+#: ../../source/usage.rst:3 1894dda544884ba5ba4a4542ab25c5ee
+msgid "Using NCCL"
+msgstr "使用 NCCL"
 
-#: ../../source/usage.rst:7 5722499e3e50452a8d53ce7c30af3256
-msgid "Installation"
-msgstr ""
+#: ../../source/usage.rst:5 f1976a05f1ff4d06bb50673d08600b39
+msgid "Using NCCL is similar to using any other library in your code:"
+msgstr "使用NCCL就像在您的代码中使用任何其他库一样："
 
-#: ../../source/usage.rst:9 f65f054d974048ff8365c3a53412dcaa
-msgid "To use Lumache, first install it using pip:"
-msgstr ""
+#: ../../source/usage.rst:7 57feb578a44b437e8a137f9aad4e1409
+msgid "Install the NCCL library on your system"
+msgstr "在您的系统上安装NCCL库"
 
-#: ../../source/usage.rst:16 317781a4730d475b8dcf0e9e6079289c
-msgid "Creating recipes"
-msgstr ""
+#: ../../source/usage.rst:9 e7396d36cc0345a0a9a6f10e40719a3f
+msgid "Modify your application to link to that library"
+msgstr "修改您的应用程序以链接到该库"
 
-#: ../../source/usage.rst:18 10c9b32babf74a499d0bc53b8bc58e79
+#: ../../source/usage.rst:11 17dcdc9811d4478d841f38eb7df1242c
+msgid "Include the header file nccl.h in your application"
+msgstr "在你的应用程序中包含头文件 `nccl.h`。"
+
+#: ../../source/usage.rst:13 cf742cbdfe8443ae94e557ebe9bed288
+msgid "Create a communicator (see :ref:`communicator-label`)"
+msgstr "创建一个通信器（参见：:ref:`communicator-label`）"
+
+#: ../../source/usage.rst:15 d52d0075fc7841b0a1351cc43ef13519
 msgid ""
-"To retrieve a list of random ingredients, you can use the "
-"``lumache.get_random_ingredients()`` function:"
-msgstr ""
+"Use NCCL collective communication primitives to perform data communication. You can familiarize yourself with the "
+":ref:`api-label` documentation to maximize your usage performance."
+msgstr "使用NCCL集合通信原语执行数据通信。您可以熟悉:ref:`api-label`文档，以最大化您的使用性能。"
 
-#: ../../source/usage.rst:23 2e372a6005454cf8b7582eb2f7bd942a
+#: ../../source/usage.rst:17 13c9c313dbf4471b88457bbf87d9f209
 msgid ""
-"The ``kind`` parameter should be either ``\"meat\"``, ``\"fish\"``, or "
-"``\"veggies\"``. Otherwise, :py:func:`lumache.get_random_ingredients` "
-"will raise an exception."
+"Collective communication primitives are common patterns of data transfer among a group of CUDA devices. A communication "
+"algorithm involves many processors that are communicating together. Each CUDA device is identified within the "
+"communication group by a zero-based index or rank. Each rank uses a communicator object to refer to the collection of "
+"GPUs that are intended to work together. The creation of a communicator is the first step needed before launching any "
+"communication operation."
 msgstr ""
+"集体通信原语是CUDA设备组中常见的数据传输模式。通信算法涉及许多一起通信的处理器。在通信组中，每个CUDA设备通过从零开始的索引或秩进行标识。每个秩使用通信器对象来引用打算一起工作的GPU集合。在启动任何通信操作之前，创建通信器是必需的第"
+"一步。"
 
-#: ../../source/usage.rst:29 16786f3d51f047bc891a7f2ee0adea2b
-msgid "For example:"
-msgstr ""
+#~ msgid "Usage"
+#~ msgstr "使用"
 
+#~ msgid "Installation"
+#~ msgstr "安装"
+
+#~ msgid "To use Lumache, first install it using pip:"
+#~ msgstr "使用 Lumache，首先使用 pip 进行安装："
+
+#~ msgid "Creating recipes"
+#~ msgstr "创建食谱"
+
+#~ msgid "To retrieve a list of random ingredients, you can use the ``lumache.get_random_ingredients()`` function:"
+#~ msgstr "要检索随机食材清单，您可以使用 ``lumache.get_random_ingredients()`` 函数："
+
+#~ msgid ""
+#~ "The ``kind`` parameter should be either ``\"meat\"``, ``\"fish\"``, or ``\"veggies\"``. Otherwise, "
+#~ ":py:func:`lumache.get_random_ingredients` will raise an exception."
+#~ msgstr "``kind`` 参数应为 ``\"meat\"``, ``\"fish\"`` 或 ``\"veggies\"`` 中的一个。否则，:py:func:`lumache.get_random_ingredients` 将引发异常。"
+
+#~ msgid "For example:"
+#~ msgstr "例如："

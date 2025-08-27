@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: gpt-po v1.0.11\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/overview.rst:3 19087a557be545ca8bc298d2b32bad91
+msgid "Overview of NCCL"
+msgstr "NCCL概述"
+
+#: ../../source/overview.rst:5 c7c1670845764e0d88e9d315c7c2969a
+msgid ""
+"The NVIDIA Collective Communications Library (NCCL, pronounced \"Nickel\") is a library providing inter-GPU "
+"communication primitives that are topology-aware and can be easily integrated into applications."
+msgstr "NVIDIA 集体通信库（NCCL，发音为“Nickel”）是一个库，提供了拓扑感知的 GPU 通信基元，可以轻松集成到应用程序中。"
+
+#: ../../source/overview.rst:7 820d1d9a3a154972957d68a28d050418
+msgid ""
+"NCCL implements both collective communication and point-to-point send/receive primitives. It is not a full-blown "
+"parallel programming framework; rather, it is a library focused on accelerating inter-GPU communication."
+msgstr "NCCL实现了集体通信和点对点发送/接收原语。它不是一个完整的并行编程框架；相反，它是一个专注于加速GPU间通信的库。"
+
+#: ../../source/overview.rst:9 71b14a3f73f241dea5bf1fe9a7a0e201
+msgid "NCCL provides the following collective communication primitives :"
+msgstr "NCCL提供以下集体通信原语："
+
+#: ../../source/overview.rst:11 76eea1dd00ac4049ae4068e57c40d4b8
+msgid "AllReduce"
+msgstr "全局归约"
+
+#: ../../source/overview.rst:12 e1ee1cee4fa544abbb5add7cad336391
+msgid "Broadcast"
+msgstr "广播"
+
+#: ../../source/overview.rst:13 30a2a37acf6847f896f316d604746b57
+msgid "Reduce"
+msgstr "减少"
+
+#: ../../source/overview.rst:14 308e7e08b0444e95aaafb440376dfa89
+msgid "AllGather"
+msgstr "AllGather"
+
+#: ../../source/overview.rst:15 fd210cf4bf0444a6985e4edd793d34a4
+msgid "ReduceScatter"
+msgstr "减少分散"
+
+#: ../../source/overview.rst:17 daa131c4a388475e957a3900f8521e67
+msgid ""
+"Additionally, it allows for point-to-point send/receive communication which allows for scatter, gather, or all-to-all "
+"operations."
+msgstr "此外，它允许点对点的发送/接收通信，从而支持分散、聚集或全对全操作。"
+
+#: ../../source/overview.rst:19 de81114f6c92498fad8c6b90b8937913
+msgid ""
+"Tight synchronization between communicating processors is a key aspect of collective communication. CUDA based "
+"collectives would traditionally be realized through a combination of CUDA memory copy operations and CUDA kernels for "
+"local reductions. NCCL, on the other hand, implements each collective in a single kernel handling both communication "
+"and computation operations. This allows for fast synchronization and minimizes the resources needed to reach peak "
+"bandwidth."
+msgstr ""
+"通信处理器之间的紧密同步是集体通信的关键方面。基于CUDA的集体通信通常通过CUDA内存复制操作和CUDA内核实现本地归约。另一方面，NCCL在单个内核中实现每个集体，处理通信和计算操作。这样可以实现快速同步，并最大限度地减少达到峰值带宽所"
+"需的资源。"
+
+#: ../../source/overview.rst:21 1b62f720e8d841b0b32bdbfc9d50d797
+msgid ""
+"NCCL conveniently removes the need for developers to optimize their applications for specific machines. NCCL provides "
+"fast collectives over multiple GPUs both within and across nodes. It supports a variety of interconnect technologies "
+"including PCIe, NVLINK, InfiniBand Verbs, and IP sockets."
+msgstr "NCCL方便地消除了开发人员需要为特定机器优化其应用程序的需求。NCCL在多个GPU之间以及跨节点之间提供快速的集合操作。它支持多种互连技术，包括PCIe、NVLINK、InfiniBand Verbs和IP sockets。"
+
+#: ../../source/overview.rst:23 2fcd348de91a4ee58c875b9c248f5e24
+msgid ""
+"Next to performance, ease of programming was the primary consideration in the design of NCCL. NCCL uses a simple C API, "
+"which can be easily accessed from a variety of programming languages. NCCL closely follows the popular collectives API "
+"defined by MPI (Message Passing Interface). Anyone familiar with MPI will thus find NCCL's API very natural to use. In "
+"a minor departure from MPI, NCCL collectives take a \"stream\" argument which provides direct integration with the CUDA "
+"programming model. Finally, NCCL is compatible with virtually any multi-GPU parallelization model, for example:"
+msgstr ""
+"在设计NCCL时，性能之外，编程的便利性是主要考虑因素。NCCL采用简单的C "
+"API，可以轻松地从各种编程语言中访问。NCCL紧随MPI（消息传递接口）定义的流行集合API。熟悉MPI的人会发现NCCL的API非常易于使用。与MPI略有不同的是，NCCL集合采用“流”参数，可与CUDA编程模型直接集成。最后，NCCL"
+"与几乎任何多GPU并行化模型兼容，例如："
+
+#: ../../source/overview.rst:25 f22e6bf331d74bbd9fcea8e827411941
+msgid "single-threaded control of all GPUs"
+msgstr "控制所有 GPU 的单线程控制"
+
+#: ../../source/overview.rst:26 edba37c72c864b7ebbe0d37fbb17681a
+msgid "multi-threaded, for example, using one thread per GPU"
+msgstr "多线程，例如，使用一个线程来控制一个GPU"
+
+#: ../../source/overview.rst:27 7025975489cf49fca976ad057a05d63c
+msgid "multi-process, for example, MPI"
+msgstr "多进程，例如，MPI"
+
+#: ../../source/overview.rst:29 ff56ff4466ab408992a7ed21e62b841a
+msgid ""
+"NCCL has found great application in Deep Learning Frameworks, where the AllReduce collective is heavily used for neural "
+"network training. Efficient scaling of neural network training is possible with the multi-GPU and multi node "
+"communication provided by NCCL."
+msgstr "NCCL在深度学习框架中得到了广泛应用，其中AllReduce集合被大量用于神经网络训练。通过NCCL提供的多GPU和多节点通信，可以实现神经网络训练的高效扩展。"

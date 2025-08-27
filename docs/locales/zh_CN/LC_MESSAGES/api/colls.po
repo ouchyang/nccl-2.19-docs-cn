@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19) \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/api/colls.rst:3 f8e79c06b5c0465fa2ea0245dd378a20
+msgid "Collective Communication Functions"
+msgstr ""
+
+#: ../../source/api/colls.rst:6 6cb5968866e843ba8a943243cc66a466
+msgid "The following NCCL APIs provide some commonly used collective operations."
+msgstr ""
+
+#: ../../source/api/colls.rst:9 3473f45470dc4a75b0cf879ea0762321
+msgid "ncclAllReduce"
+msgstr ""
+
+#: ../../source/api/colls.rst:13 235ca8dec504466290f64d7677856977
+msgid ""
+"Reduce data arrays of length ``count`` in ``sendbuff`` using ``op`` "
+"operation and leaves identical copies of the result on each ``recvbuff``."
+msgstr ""
+
+#: ../../source/api/colls.rst:15 ../../source/api/colls.rst:28
+#: ../../source/api/colls.rst:51 0b71ffcad58c420098943f77b1b6410f
+#: 6c134585d70a4524b0052e48b017ff0a f4d44283f7724e19b873cef3acc9f802
+msgid "In-place operation will happen if ``sendbuff == recvbuff``."
+msgstr ""
+
+#: ../../source/api/colls.rst:17 132e01caf87848f68b5269d94e6ccc16
+msgid "Related links: :ref:`allreduce`."
+msgstr ""
+
+#: ../../source/api/colls.rst:21 5bb31c49ab0a4fa982644164cd6c9b93
+msgid "ncclBroadcast"
+msgstr ""
+
+#: ../../source/api/colls.rst:25 c4f0564b4cba4ffeaf8127bade4be74d
+msgid ""
+"Copies ``count`` elements from ``sendbuff`` on the ``root` rank to all "
+"ranks' ``recvbuff``. ``sendbuff`` is only used on rank ``root`` and "
+"ignored for other ranks."
+msgstr ""
+
+#: ../../source/api/colls.rst:33 fcbb5b45e71343c1ad2d23c9e33d64ca
+msgid ""
+"Legacy in-place version of ``ncclBroadcast`` in a similar fashion to "
+"MPI_Bcast. A call to ::"
+msgstr ""
+
+#: ../../source/api/colls.rst:37 7b024595e27842138b2178b42fea00d9
+msgid "is equivalent to ::"
+msgstr ""
+
+#: ../../source/api/colls.rst:41 4d55e0cf55324555a942ef735e0c770b
+msgid "Related links: :ref:`broadcast`"
+msgstr ""
+
+#: ../../source/api/colls.rst:44 64142c2f2fea4d17871d4291a1ee1a42
+msgid "ncclReduce"
+msgstr ""
+
+#: ../../source/api/colls.rst:48 679905cb99974f62b0e7dd1a9ef08af3
+msgid ""
+"Reduce data arrays of length ``count`` in ``sendbuff`` into ``recvbuff`` "
+"on the ``root`` rank using the ``op`` operation. ``recvbuff`` is only "
+"used on rank ``root`` and ignored for other ranks."
+msgstr ""
+
+#: ../../source/api/colls.rst:53 045f04b0ceac4542a14eeba4761dc13f
+msgid "Related links: :ref:`reduce`."
+msgstr ""
+
+#: ../../source/api/colls.rst:56 3d91f00fe19946529badea1c3d05882d
+msgid "ncclAllGather"
+msgstr ""
+
+#: ../../source/api/colls.rst:60 ffe597f9384c48f98327edefa56849d5
+msgid ""
+"Gather ``sendcount`` values from all GPUs into ``recvbuff``, receiving "
+"data from rank ``i`` at offset ``i*sendcount``."
+msgstr ""
+
+#: ../../source/api/colls.rst:62 41eba676d8f34d6a9bccbec806065c03
+msgid ""
+"Note: This assumes the receive count is equal to ``nranks*sendcount``, "
+"which means that ``recvbuff`` should have a size of at least "
+"``nranks*sendcount`` elements."
+msgstr ""
+
+#: ../../source/api/colls.rst:64 38496f60ff864a229edbf3e49582307b
+msgid ""
+"In-place operation will happen if ``sendbuff == recvbuff + rank * "
+"sendcount``."
+msgstr ""
+
+#: ../../source/api/colls.rst:66 6d089a7d280d429688206dfa1bec156e
+msgid "Related links: :ref:`allgather`, :ref:`in-place-operations`."
+msgstr ""
+
+#: ../../source/api/colls.rst:69 4e609de012ee4b74a2df98218d522f89
+msgid "ncclReduceScatter"
+msgstr ""
+
+#: ../../source/api/colls.rst:73 908eaca0257348949cfc7509993777c7
+msgid ""
+"Reduce data in ``sendbuff`` from all GPUs using the ``op`` operation and "
+"leave the reduced result scattered over the devices so that the "
+"``recvbuff`` on rank ``i`` will contain the i-th block of the result."
+msgstr ""
+
+#: ../../source/api/colls.rst:76 f2246be1232c4e098d19e0ad0017c987
+msgid ""
+"Note:  This assumes the send count is equal to ``nranks*recvcount``, "
+"which means that ``sendbuff`` should have a size of at least "
+"``nranks*recvcount`` elements."
+msgstr ""
+
+#: ../../source/api/colls.rst:78 6811f094589145ee9edfe07786b79c4f
+msgid ""
+"In-place operation will happen if ``recvbuff == sendbuff + rank * "
+"recvcount``."
+msgstr ""
+
+#: ../../source/api/colls.rst:80 f16c88b80a6b40f4a7b545ef1f07971d
+msgid "Related links: :ref:`reducescatter`, :ref:`in-place-operations`."
+msgstr ""
+

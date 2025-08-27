@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19) \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/api/group.rst:3 6bdbca2a11084cdba8aff87b5b99d0c3
+msgid "Group Calls"
+msgstr ""
+
+#: ../../source/api/group.rst:5 7c8b04245a234b18b9d77e0ce95bd280
+msgid ""
+"Group primitives define the behavior of the current thread to avoid "
+"blocking. They can therefore be used from multiple threads independently."
+msgstr ""
+
+#: ../../source/api/group.rst:7 aa3d02515042402496a0a7529b1c738c
+msgid "Related links: :ref:`group-calls`."
+msgstr ""
+
+#: ../../source/api/group.rst:10 e0cc3c60063e4d6d877af9e5b58d9119
+msgid "ncclGroupStart"
+msgstr ""
+
+#: ../../source/api/group.rst:14 5c26c879a2694b84b5cc54206aa7981e
+msgid "Start a group call."
+msgstr ""
+
+#: ../../source/api/group.rst:16 3fa6ca446b08415baf0266f01862be0d
+msgid ""
+"All subsequent calls to NCCL may not block due to inter-CPU "
+"synchronization."
+msgstr ""
+
+#: ../../source/api/group.rst:19 7a00692b45a646cf947acf55206ec44f
+msgid "ncclGroupEnd"
+msgstr ""
+
+#: ../../source/api/group.rst:23 e8a119ffa9194b3eb277e973f50b6f17
+msgid "End a group call."
+msgstr ""
+
+#: ../../source/api/group.rst:25 76bc93dda04242b78ce266434907881a
+msgid ""
+"Returns when all operations since ncclGroupStart have been processed. "
+"This means communication primitives have been enqueued to the provided "
+"streams, but are not necessary complete."
+msgstr ""
+
+#: ../../source/api/group.rst:28 18d800fb53e84dee8c41c78da292cff3
+msgid ""
+"When used with the ncclCommInitRank call, the ncclGroupEnd call waits for"
+" all communicators to be initialized."
+msgstr ""
+

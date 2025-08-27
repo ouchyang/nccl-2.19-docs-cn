@@ -1,0 +1,175 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19) \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/usage/collectives.rst:3 00d5559700cb4297b4731a6af5bb6559
+msgid "Collective Operations"
+msgstr ""
+
+#: ../../source/usage/collectives.rst:5 cb85c9a762394616bf9c78d20cce694f
+msgid ""
+"Collective operations have to be called for each rank (hence CUDA device)"
+" to form a complete collective operation. Failure to do so will result in"
+" other ranks waiting indefinitely."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:10 585839b208c54991a6d40851cad26630
+msgid "AllReduce"
+msgstr ""
+
+#: ../../source/usage/collectives.rst:12 54a416056ad645629e5716c981fd6ae7
+msgid ""
+"The AllReduce operation is performing reductions on data (for example, "
+"sum, min, max) across devices and writing the result in the receive "
+"buffers of every rank."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:14 9f33731449874e6c9a65d08a498a26d3
+msgid ""
+"In an allreduce operation between k ranks and performing a sum, each rank"
+" will provide an array Vk of N values, and receive an identical arrays S "
+"of N values, where S[i] = V0[i]+V1[i]+...+Vk-1[i]."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:20 250b3fc3ae5f4fdb93a78835407135c5
+msgid ""
+"All-Reduce operation: each rank receives the reduction of input values "
+"across ranks."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:22 e3e775b85ba242d88ac234c82853bea2
+msgid "Related links: :c:func:`ncclAllReduce`."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:27 f8140fbe029d4f9d83236a019aad4ddd
+msgid "Broadcast"
+msgstr ""
+
+#: ../../source/usage/collectives.rst:29 9d7df68ca52b454580be45afd8ae190f
+msgid ""
+"The Broadcast operation copies an N-element buffer on the root rank to "
+"all ranks."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:34 23a567e088b347fe9bbb30c21780424c
+msgid "Broadcast operation: all ranks receive data from a 鈥渞oot鈥� rank."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:36 46d30570b9bc47479365516a89664a08
+msgid ""
+"Important note: The root argument is one of the ranks, not a device "
+"number, and is therefore impacted by a different rank to device mapping."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:38 18e7d8a2025746dfb190b51075b3b24c
+msgid "Related links: :c:func:`ncclBroadcast`."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:43 f89d9a41f6a24ce0862624017f3c8426
+msgid "Reduce"
+msgstr ""
+
+#: ../../source/usage/collectives.rst:45 c0038b752e1d4226821d8420b16f2887
+msgid ""
+"The Reduce operation is performing the same operation as AllReduce, but "
+"writes the result only in the receive buffers of a specified root rank."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:50 c4606b7a3cc7436e98fe33f450fe54d8
+msgid ""
+"Reduce operation : one rank receives the reduction of input values across"
+" ranks."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:52 7426a0debbb8423e832d688a390994d4
+msgid ""
+"Important note : The root argument is one of the ranks (not a device "
+"number), and is therefore impacted by a different rank to device mapping."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:54 7be249d22ce046088d5b643a8f6420ed
+msgid ""
+"Note: A Reduce, followed by a Broadcast, is equivalent to the AllReduce "
+"operation."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:56 2f8ac10bc4174cc5bd3ec727d60cf920
+msgid "Related links: :c:func:`ncclReduce`."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:61 2510f757785d4a2483af5063f4c16891
+msgid "AllGather"
+msgstr ""
+
+#: ../../source/usage/collectives.rst:63 55535df6019a4767a158c41e0314eae3
+msgid ""
+"The AllGather operation gathers N values from k ranks into an output of "
+"size k*N, and distributes that result to all ranks."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:65 026f80035cb44c79ad79f2cc6caed39b
+msgid ""
+"The output is ordered by rank index. The AllGather operation is therefore"
+" impacted by a different rank or device mapping."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:70 830a88e5234243f098ca7137b8d493e2
+msgid ""
+"AllGather operation: each rank receives the aggregation of data from all "
+"ranks in the order of the ranks."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:72 f71ce9de925745bd8636eb2b5b576baa
+msgid ""
+"Note: Executing ReduceScatter, followed by AllGather, is equivalent to "
+"the AllReduce operation."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:74 792d03fe96d3467a9441169994131864
+msgid "Related links: :c:func:`ncclAllGather`."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:79 bf9d9787123a443a8a791acf04c27110
+msgid "ReduceScatter"
+msgstr ""
+
+#: ../../source/usage/collectives.rst:81 b47bf0c3373f4637b5bda81a8ec06806
+msgid ""
+"The ReduceScatter operation performs the same operation as the Reduce "
+"operation, except the result is scattered in equal blocks between ranks, "
+"each rank getting a chunk of data based on its rank index."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:84 9660c660b03c4b80bc199d4c10ace40f
+msgid ""
+"The ReduceScatter operation is impacted by a different rank or device "
+"mapping since the ranks determine the data layout."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:89 21d479be9e144c3c840699badc724e6b
+msgid ""
+"Reduce-Scatter operation: input values are reduced across ranks, with "
+"each rank receiving a subpart of the result."
+msgstr ""
+
+#: ../../source/usage/collectives.rst:92 419945d7aeef4b1a9262987281e7c98a
+msgid "Related links: :c:func:`ncclReduceScatter`"
+msgstr ""
+

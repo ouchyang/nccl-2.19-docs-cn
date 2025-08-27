@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19) \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/usage/inplace.rst:5 e935480ef1d3420da795681d03aac6ec
+msgid "In-place Operations"
+msgstr ""
+
+#: ../../source/usage/inplace.rst:7 6c4fc18183694c008784b02bbf5e7c4a
+msgid ""
+"Contrary to MPI, NCCL does not define a special \"in-place\" value to "
+"replace pointers. Instead, NCCL optimizes the case where the provided "
+"pointers are effectively \"in place\"."
+msgstr ""
+
+#: ../../source/usage/inplace.rst:9 97c8b5d0d230431db2eccecadb37940f
+msgid ""
+"For ncclBroadcast, ncclReduce and ncclAllreduce functions, this means "
+"that passing ``sendBuff == recvBuff`` will perform in place operations, "
+"storing final results at the same place as initial data was read from."
+msgstr ""
+
+#: ../../source/usage/inplace.rst:12 3cdaefc8f31a470c90d818dc3a128f04
+msgid ""
+"For ncclReduceScatter and ncclAllGather, in place operations are done "
+"when the per-rank pointer is located at the rank offset of the global "
+"buffer. More precisely, these calls are considered in place : ::"
+msgstr ""
+

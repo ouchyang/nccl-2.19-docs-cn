@@ -1,0 +1,515 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19) \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/usage/communicators.rst:5 41d1c1e46e2c43dc8e7f286440da2be1
+msgid "Creating a Communicator"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:7 5845f106052148b38d6605b142365743
+msgid ""
+"When creating a communicator, a unique rank between 0 and n-1 has to be "
+"assigned to each of the n CUDA devices which are part of the "
+"communicator. Using the same CUDA device multiple times as different "
+"ranks of the same NCCL communicator is not supported and may lead to "
+"hangs."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:11 2251b78209364067bd9a3bde6eab9c9f
+msgid ""
+"Given a static mapping of ranks to CUDA devices, the "
+":c:func:`ncclCommInitRank`, :c:func:`ncclCommInitRankConfig` and "
+":c:func:`ncclCommInitAll` functions will create communicator objects, "
+"each communicator object being associated to a fixed rank and CUDA "
+"device. Those objects will then be used to launch communication "
+"operations."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:15 7e8625ec064d450a9378cf8f24ec3c2e
+msgid ""
+"Before calling :c:func:`ncclCommInitRank`, you need to first create a "
+"unique object which will be used by all processes and threads to "
+"synchronize and understand they are part of the same communicator. This "
+"is done by calling the :c:func:`ncclGetUniqueId` function."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:19 efd1915684bf4287baa89cb19fc6e55e
+msgid ""
+"The :c:func:`ncclGetUniqueId` function returns an ID which has to be "
+"broadcast to all participating threads and processes using any CPU "
+"communication system, for example, passing the ID pointer to multiple "
+"threads, or broadcasting it to other processes using MPI or another "
+"parallel environment using, for example, sockets."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:23 70ad93e5b3b54527b23d6b91ba9802a2
+msgid ""
+"You can also call the ncclCommInitAll operation to create n communicator "
+"objects at once within a single process. As it is limited to a single "
+"process, this function does not permit inter-node communication. "
+"ncclCommInitAll is equivalent to calling a combination of ncclGetUniqueId"
+" and ncclCommInitRank."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:27 6ca1d57949ae4fbaa1b0f3ac0815155a
+msgid ""
+"The following sample code is a simplified implementation of "
+"ncclCommInitAll."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:42
+#: ../../source/usage/communicators.rst:118
+#: ../../source/usage/communicators.rst:293 02c75fe054a04510a6351675377d5ea9
+#: 4883f738170f46d7a4050f21d5a4ef27 819e21d0bf764da1af0c0bf1fa14fd2f
+msgid "Related links:"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:44 07970188f2d343c7a09bd07682468655
+msgid ":c:func:`ncclCommInitAll`"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:45 760019e329a043048e13773104d2e866
+msgid ":c:func:`ncclGetUniqueId`"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:46 b007aa87b87e4367b79d16ab6f88cc39
+msgid ":c:func:`ncclCommInitRank`"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:51 7803b30891cb4e719f4344ac41e2b104
+msgid "Creating a communication with options"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:53 193152dcc4964192a24fb5d98008b8d5
+msgid ""
+"The :c:func:`ncclCommInitRankConfig` function allows to create a NCCL "
+"communication with specific options."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:55 074b47ce0da549cbb71bb05569e787c0
+msgid "The config parameters NCCL supports are listed here :ref:`ncclconfig`."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:57 ef6369812ba541ca9673b90d9fb063f3
+msgid ""
+"For example, \"blocking\" can be set to 0 to ask NCCL to never block in "
+"any NCCL call, and at the same time other config parameters can be set as"
+" well to more precisely define communicator behavior. A simple example "
+"code is shown below:"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:75 6197b59afe68464d84ac575f9105ed0a
+msgid "Related link: :c:func:`ncclCommGetAsyncError`"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:78 64988bd6a28b4b089fbea270912bf8bc
+msgid "Creating more communicators"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:80 eaf0b1d3248147b185626b708e64b464
+msgid ""
+"The ncclCommSplit function can be used to create a communicators based on"
+" existing one. This allows to split an existing communicator into "
+"multiple sub-partitions, duplicate an existing communicator, or even "
+"create a single communicator with less ranks."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:84 4a81340b1fd1411b96b7e70997ff35a6
+msgid ""
+"The ncclCommSplit function needs to be called by all ranks in the "
+"original communicator. If some ranks will not be part of any sub-group, "
+"they still need to call ncclCommSplit with color being "
+"NCCL_SPLIT_NOCOLOR."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:87 707189995eae4322a7e763e7dca98463
+msgid ""
+"Newly created communicators will inherit the parent communicator "
+"configuration (e.g. non-blocking). If the parent communicator operates in"
+" non-blocking mode, a ncclCommSplit operation may be stopped by calling "
+"ncclCommAbort on the parent communicator, then on any new communicator "
+"returned. This is because a hang could happen during operations on any of"
+" the two communicators."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:92 528cf6b55d4342a8a5c52734ce80c763
+msgid "The following code duplicates an existing communicator:"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:100 505590f3709c4a98ab3f0964de5b6657
+msgid "This splits a communicator in two halves:"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:109 06728fb656b441b79ea190bbac75bc31
+msgid "This creates a communicator with only the first 2 ranks:"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:120 b2db00783a9943448db22152e813936d
+msgid ":c:func:`ncclCommSplit`"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:123 67d566fd37804488b5cb879b0868a4bb
+msgid "Using multiple NCCL communicators concurrently"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:125 6d869f09d66b435c81e5c238373a41d9
+msgid ""
+"Using multiple NCCL communicators requires careful synchronization, or "
+"can lead to deadlocks."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:127 1521cf9eb20c43c7aceaa923ac88700a
+msgid ""
+"NCCL kernels are blocking (waiting for data to arrive), and any CUDA "
+"operation can cause a device synchronization, meaning it will wait for "
+"all NCCL kernels to complete. This can quickly lead to deadlocks since "
+"NCCL operations perform CUDA calls themselves."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:131 5ab7f07ae41f422da7bd6040fa6eb1e4
+msgid ""
+"Operations on different communicators should therefore be used at "
+"different epochs with a locking mechanism, and applications should ensure"
+" operations are submitted in the same order across ranks."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:134 349df2b184264c788bdc098d8248f2a2
+msgid ""
+"Launching multiple communication operations (on different streams) might "
+"work provided they can fit within the GPU, but could break at any time if"
+" NCCL were to use more CUDA blocks per operation, or if some calls used "
+"inside NCCL collectives were to perform a device synchronization (e.g. "
+"allocate some CUDA memory dynamically)."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:139 a412ecfe49d14b37b27745c6aa3dbaa8
+msgid "Finalizing a communicator"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:141 4c47d508fb7f434e9556633db60d5ea4
+msgid ""
+"ncclCommFinalize will transition a communicator from the *ncclSuccess* "
+"state to the *ncclInProgress* state, start completing all operations in "
+"the background and synchronize with other ranks which may be using "
+"resources for their communications with other ranks. All uncompleted "
+"operations and network-related resources associated to a communicator "
+"will be flushed and freed with ncclCommFinalize. Once all NCCL operations"
+" are complete, the communicator will transition to the *ncclSuccess* "
+"state. Users can query that state with ncclCommGetAsyncError. If a "
+"communicator is marked as nonblocking, this operation is nonblocking; "
+"otherwise, it is blocking."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:150 00cc504aefe24707b270a8e93a01b458
+msgid "Related link: :c:func:`ncclCommFinalize`"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:153 4363ae2da8b14e6e914ece7cfc31c4fa
+msgid "Destroying a communicator"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:155 31d5b056597f43ef94ed837782763db0
+msgid ""
+"Once a communicator has been finalized, the next step is to free all "
+"resources, including the communicator itself. Local resources associated "
+"to a communicator can be destroyed with ncclCommDestroy. If the state of "
+"a communicator become *ncclSuccess* before calling ncclCommDestroy, "
+"ncclCommDestroy call will guarantee nonblocking; on the contrary, "
+"ncclCommDestroy might be blocked. In all cases, ncclCommDestroy call will"
+" free resources of the communicator and return, and the communicator "
+"should not longer be accessed after ncclCommDestroy returns."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:162 7792f545856e4a79bf1bdae1a215c447
+msgid "Related link: :c:func:`ncclCommDestroy`"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:166 772ae12c023f4e269d7f75207b97b265
+msgid "Error handling and communicator abort"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:168 3bbcd32518d044be8318744fa59e1e0d
+msgid ""
+"All NCCL calls return a NCCL error code which is sumarized in the table "
+"below. If a NCCL call returns an error code different from ncclSuccess "
+"and ncclInternalError, NCCL will print a human-readable message "
+"explaining what happened if NCCL_DEBUG is set to WARN. If NCCL_DEBUG is "
+"set to INFO, it will also print the call stack which lead to the error. "
+"This message is intended to help the user fix the problem."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:173 da2a62f306a544d79b69cafb805cf1ab
+msgid ""
+"The table below summarizes how different errors should be understood and "
+"handled. Each case is explained in details in the following sections."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:176 1b4b5366126446b2bf80235a1def5a63
+msgid "NCCL Errors"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:180 514b7f95e881437fa1045e9c78b6ea8f
+msgid "Error"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:181 339645ef5c524ad0a6158225c71865ec
+msgid "Description"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:182 60ae4bcc91b44085ae390e2848489d8d
+msgid "Resolution"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:183 43017fe3370e4bb8bf24b4844e0520f5
+msgid "Error handling"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:184 a5557f24408e447d88cda2d662626ab5
+msgid "Group behavior"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:185 202cfc619db24db9a72bf70056dbeb8b
+msgid "ncclSuccess"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:186 3651fbf03a784bc489ebbfe9f5e18911
+msgid "No error"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:187
+#: ../../source/usage/communicators.rst:188
+#: ../../source/usage/communicators.rst:189
+#: ../../source/usage/communicators.rst:218
+#: ../../source/usage/communicators.rst:219 01f1f8493c7945b3bf2e4fdb5739715f
+#: 02f59428e64048acb37a0ba67fbb911d 2e3aadc2457f4bfdb0b163583e9a7f60
+#: 66a8658dc7764b90be02a4b0d5c55755 dc7bdeda86814767b7627859d0c42e84
+msgid "None"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:190 7df9315cdcb74fefa44f6e18700de154
+msgid "ncclUnhandledCudaError"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:191 894594b4ca49404d99a8b799a6d743fe
+msgid "Error during a CUDA call (1)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:192 4f6cb3341d5f4125af89d7a09e4a6c37
+msgid "CUDA configuration / usage (1)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:193
+#: ../../source/usage/communicators.rst:198
+#: ../../source/usage/communicators.rst:203
+#: ../../source/usage/communicators.rst:213 0ad1bdf2da7a444a8982e2acc4b409e7
+#: 3b42e92856c04f649ee4a49cb251a1fb 3e1f6738c2d5418f930f462ffef9f463
+#: c9a960cade6d45378dd6238efe8d6394
+msgid "Communicator abort (5)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:194
+#: ../../source/usage/communicators.rst:199
+#: ../../source/usage/communicators.rst:204
+#: ../../source/usage/communicators.rst:214 0962f46e26774c1fa60e1ba6ef79c1dd
+#: 3205b77cf4ce4a65be625906926ebadb 3aafbd97b0e041f0bc1f46ee6a1a93a2
+#: e6b08c7465224b1a89679a81a889f36b
+msgid "Global (6)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:195 4a026078958b437bb3d678e6e42838dc
+msgid "ncclSystemError"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:196 372ceb267c52451e917d8fd0be7276a4
+msgid "Error during a system call (1)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:197 b913f12b13df4a4ba8192837f9fd4662
+msgid "System configuration / usage (1)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:200 23ba10bfcfc34b5db0346b7bc23350c4
+msgid "ncclInternalError"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:201 0370bb90c50d4a18995d48f73691d8b1
+msgid "Error inside NCCL (2)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:202 4468656be1b74096b58c1fc0e23e6c9d
+msgid "Fix in NCCL (2)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:205 c7f18bb3924e46059d022ca1ded789a7
+msgid "ncclInvalidArgument"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:206 f6c3c80cd2ec49588c8aeb2c523f5309
+msgid "An argument to a NCCL call is invalid (3)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:207 b1a435b4e1e246ea8324bfff7a7be606
+msgid "Fix in the application (3)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:208 20698c5533f744f59f5cb9b632651557
+msgid "None (3)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:209 139a8d2f3fdc4b479f66f9e87322c911
+msgid "Individual (3)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:210 450e68d0a6444f78ba2b1ecdf7bf8aac
+msgid "ncclInvalidUsage"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:211 6664e3df95644520a48f250f6765bdb8
+msgid "The usage of NCCL calls is invalid (4)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:212 9843692037aa4c239d6a897216d6136c
+msgid "Fix in the application (4)"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:215 520e4b8a566e4dcc968f42a66326b097
+msgid "ncclInProgress"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:216 69a150c20f36418abe9260bdad590d54
+msgid "The NCCL call is still in progress"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:217 c9a38b000af84440b22ce49e81537aa0
+msgid "Poll for completion using ncclCommGetAsyncError"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:222 f9c7cf24ed1947209e56a6197674d7ac
+msgid ""
+"(1) ncclUnhandledCudaError and ncclSystemError indicate that a call NCCL "
+"made to an external component failed, which caused the NCCL operation to "
+"fail. The error message should explain which component the user should "
+"look at and try to fix, potentially with the help of the administrators "
+"of the system."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:226 ec91ddce57f74c19aa73c710d08b637f
+msgid ""
+"(2) ncclInternalError denotes a NCCL bug. It might not report a message "
+"with NCCL_DEBUG=WARN since it requires a fix in the NCCL source code. "
+"NCCL_DEBUG=INFO will print the back trace which lead to the error."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:229 e88a3b21bd64437699e3b60facb23fc9
+msgid ""
+"(3) ncclInvalidArgument indicates an argument value is incorrect, like a "
+"NULL pointer, or an out-of-bounds value. When this error is returned, the"
+" NCCL call had no effect. The group state remains unchanged, the "
+"communicator is still functioning normally. The application can call "
+"ncclCommAbort or continue as if the call did not happen. This error will "
+"be returned immediately for a call happening within a group and applies "
+"to that specific NCCL call. It will not be returned by ncclGroupEnd since"
+" ncclGroupEnd takes no argument."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:235 a1c9c08b15be4949b0ee137cd25f7a08
+msgid ""
+"(4) ncclInvalidUsage is returned when a dynamic condition causes a "
+"failure, which denotes an incorrect usage of the NCCL API."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:238 f87f2bd5cedf417e99461473dae71cb3
+msgid ""
+"(5) These errors are fatal for the communicator. To recover, the "
+"application needs to call ncclCommAbort on the communicator and re-create"
+" it."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:241 41081f69c004402e9b69814d1cd4b546
+msgid ""
+"(6) Dynamic errors for operations within a group are always reported by "
+"ncclGroupEnd and apply to all operations within the group, which may or "
+"may not have completed. The application must call ncclCommAbort on all "
+"communicators within the group."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:246 8b8485369ef84cde831b0d498b4816ad
+msgid "Asynchronous errors and error handling"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:248 80f64453837e4bde878beac42c69458b
+msgid ""
+"Some communication errors, and in particular network errors, are reported"
+" through the ncclCommGetAsyncError function. Operations experiencing an "
+"asynchronous error will usually not progress and never complete. When an "
+"asynchronous error happens, the operation should be aborted and the "
+"communicator destroyed using ncclCommAbort. When waiting for NCCL "
+"operations to complete, applications should call ncclCommGetAsyncError "
+"and destroy the communicator when an error happens."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:254 cb22fe21de304978b2d9976a4058c930
+msgid ""
+"The following code shows how to wait on NCCL operations and poll for "
+"asynchronous errors, instead of using cudaStreamSynchronize."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:295 d353774451094bb28d72a513b4eeae28
+msgid ":c:func:`ncclCommGetAsyncError`"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:296 2042fe0d225f4701804476141373a5b9
+msgid ":c:func:`ncclCommAbort`"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:300 20e67e46444b4707a3d537c7a69afbf9
+msgid "Fault Tolerance"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:302 6441a774f51f4c27bba44b6e027ad4a4
+msgid ""
+"NCCL provides a set of features to allow applications to recover from "
+"fatal errors such as network failure, node failure, or process failure. "
+"When such an error happens, the application should be able to call "
+"ncclCommAbort on the communicator to free all resources, then recreate a "
+"new communicator to continue. All NCCL calls can be non-blocking to "
+"ensure ncclCommAbort can be called at any point, during initialization, "
+"communication or when finalizing the communicator."
+msgstr ""
+
+#: ../../source/usage/communicators.rst:308 bbfdc020ff1849d188cb81c96403afed
+msgid ""
+"To correctly abort, when any rank in a communicator fails (e.g., due to "
+"segmentation fault), all other ranks need to call *ncclCommAbort* to "
+"abort their own NCCL communicator. Users can implement methods to decide "
+"when and whether to abort the communicators and restart the NCCL "
+"operation. Here is an example showing how to initialize and split a "
+"communicator in a non-blocking manner, allowing for abort at any point:"
+msgstr ""
+
+#: ../../source/usage/communicators.rst:357 9bdc3b4fe16e40e2a530763dbd70960a
+msgid ""
+"*checkTimeout* function is just an example and provided by users to "
+"determine what is the longest time the application should wait for NCCL "
+"initialization; likewise, users can apply other methods to detect errors "
+"besides timeout function. Similar methods can be applied to NCCL "
+"finalization as well."
+msgstr ""
+

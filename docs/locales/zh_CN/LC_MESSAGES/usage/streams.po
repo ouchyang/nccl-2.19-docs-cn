@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19) \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/usage/streams.rst:3 0c6b6b4e11bb46c99a6955ada526479f
+msgid "CUDA Stream Semantics"
+msgstr ""
+
+#: ../../source/usage/streams.rst:6 d12256562c654441ba51b6b5ac265214
+msgid ""
+"NCCL calls are associated to a stream and are passed as the last argument"
+" of the collective communication function. The NCCL call returns when the"
+" operation has been effectively enqueued to the given stream, or returns "
+"an error. The collective operation is then executed asynchronously on the"
+" CUDA device. The operation status can be queried using standard CUDA "
+"semantics, for example, calling cudaStreamSynchronize or using CUDA "
+"events."
+msgstr ""
+
+#: ../../source/usage/streams.rst:10 f0f0b8129d28434084349c3c21a8065a
+msgid "Mixing Multiple Streams within the same ncclGroupStart/End() group"
+msgstr ""
+
+#: ../../source/usage/streams.rst:12 ad124faf23a34077bbf9787377f9b224
+msgid ""
+"NCCL allows for using multiple streams within a group call. This will "
+"enforce a stream dependency of all streams before the NCCL kernel starts "
+"and block all streams until the NCCL kernel completes."
+msgstr ""
+
+#: ../../source/usage/streams.rst:16 8506436b0f954f05a78044d7c66d51c0
+msgid ""
+"It will behave as if the NCCL group operation was posted on every stream,"
+" but given it is a single operation, it will cause a global "
+"synchronization point between the streams."
+msgstr ""
+

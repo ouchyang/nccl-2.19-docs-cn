@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19) \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/api/ops.rst:3 4685526f1d754ba895c68a7c9f1c56e4
+msgid "User Defined Reduction Operators"
+msgstr ""
+
+#: ../../source/api/ops.rst:5 369dab31f7474e9f93ec07290c1ec6c1
+msgid ""
+"The following functions are public APIs exposed by NCCL to create and "
+"destroy custom reduction operators for use in reduction collectives."
+msgstr ""
+
+#: ../../source/api/ops.rst:9 717ae8ffb708400ea9fbd0593c768a73
+msgid "ncclRedOpCreatePreMulSum"
+msgstr ""
+
+#: ../../source/api/ops.rst:13 e88b28bad69a4449b4f9a1ace617970f
+msgid ""
+"Creates a new reduction operator which pre-multiplies input values by a "
+"given scalar locally before reducing them with peer values via summation."
+" For use only with collectives launched against *comm* and *datatype*. "
+"The *residence* argument indicates whether the memory pointed to by "
+"*scalar* should be dereferenced immediately by the host before this "
+"function returns (ncclScalarHostImmediate), or by the device during "
+"execution of the reduction collective (ncclScalarDevice). Upon return, "
+"the newly created operator's handle is stored in *op*."
+msgstr ""
+
+#: ../../source/api/ops.rst:23 e364a488345949f9938e2df8e3a29a4d
+msgid "ncclRedOpDestroy"
+msgstr ""
+
+#: ../../source/api/ops.rst:27 3d0cbcf59eaa4ce5ab327cd04e56f002
+msgid ""
+"Destroys the reduction operator *op*. The operator must have been created"
+" by ncclRedOpCreatePreMul with the matching communicator *comm*. An "
+"operator may be destroyed as soon as the last NCCL function which is "
+"given that operator returns."
+msgstr ""
+

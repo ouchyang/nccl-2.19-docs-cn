@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19) \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/usage/p2p.rst:5 a94b1b042a214299af2a878601ffb282
+msgid "Point-to-point communication"
+msgstr ""
+
+#: ../../source/usage/p2p.rst:7 a956296aae314106a8df09b8ecc94e41
+msgid ""
+"(Since NCCL 2.7) Point-to-point communication can be used to express any "
+"communication pattern between ranks. Any point-to-point communication "
+"needs two NCCL calls : a call to :c:func:`ncclSend` on one rank and a "
+"corresponding :c:func:`ncclRecv` on the other rank, with the same count "
+"and data type."
+msgstr ""
+
+#: ../../source/usage/p2p.rst:13 51d0fec3bbd64435a9e4bfd21cf944f3
+msgid ""
+"Multiple calls to :c:func:`ncclSend` and :c:func:`ncclRecv` targeting "
+"different peers can be fused together with :c:func:`ncclGroupStart` and "
+":c:func:`ncclGroupEnd` to form more complex communication patterns such "
+"as one-to-all (scatter), all-to-one (gather), all-to-all or communication"
+" with neighbors in a N-dimensional space."
+msgstr ""
+
+#: ../../source/usage/p2p.rst:18 5a5db00b35eb46acb01ee15cf341d349
+msgid ""
+"Point-to-point calls within a group will be blocking until that group of "
+"calls completes, but calls within a group can be seen as progressing "
+"independently, hence should never block each other. It is therefore "
+"important to merge calls that need to progress concurrently to avoid "
+"deadlocks."
+msgstr ""
+
+#: ../../source/usage/p2p.rst:23 d4bb4720f0f349c380429b0e8813f67a
+msgid ""
+"Below are a few examples of classic point-to-point communication patterns"
+" used by parallel applications. NCCL semantics allow for all variants "
+"with different sizes, datatypes, and buffers, per rank."
+msgstr ""
+
+#: ../../source/usage/p2p.rst:28 828308f4109444ac9454461d9a4c0bff
+msgid "Sendrecv"
+msgstr ""
+
+#: ../../source/usage/p2p.rst:30 7495e82cd4124cc893b033773a446881
+msgid ""
+"In MPI terms, a sendrecv operation is when two ranks exchange data, both "
+"sending and receiving at the same time. This can be done by merging both "
+"ncclSend and ncclRecv calls into one :"
+msgstr ""
+
+#: ../../source/usage/p2p.rst:41 c469629ee25b4d47bfcd722679cada18
+msgid "One-to-all (scatter)"
+msgstr ""
+
+#: ../../source/usage/p2p.rst:43 c10f5045679640a0a598bed831cc2ab4
+msgid ""
+"A one-to-all operation from a ``root`` rank can be expressed by merging "
+"all send and receive operations in a group :"
+msgstr ""
+
+#: ../../source/usage/p2p.rst:57 05872da63ee343fe9656143fb48b75dc
+msgid "All-to-one (gather)"
+msgstr ""
+
+#: ../../source/usage/p2p.rst:59 9d0f49fb9b8b4b5a9c31c1e31a85028b
+msgid ""
+"Similarly, an all-to-one operations to a ``root`` rank would be "
+"implemented this way :"
+msgstr ""
+
+#: ../../source/usage/p2p.rst:72 2fba901a5a6a420fa58f636f731ed1b6
+msgid "All-to-all"
+msgstr ""
+
+#: ../../source/usage/p2p.rst:74 a4a8a6ed8df34d30a16b3b7ad6540697
+msgid ""
+"An all-to-all operation would be a merged loop of send/recv operations "
+"to/from all peers :"
+msgstr ""
+
+#: ../../source/usage/p2p.rst:87 c8f84526ee09440d9f39a0147bcb0970
+msgid "Neighbor exchange"
+msgstr ""
+
+#: ../../source/usage/p2p.rst:89 0c1678490b4346f39d25706f49b30540
+msgid ""
+"Finally, exchanging data with neighbors in an N-dimensions space could be"
+" done with :"
+msgstr ""
+

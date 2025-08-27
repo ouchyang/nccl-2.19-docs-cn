@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the Basic Sphinx
 # Example Project package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Basic Sphinx Example Project \n"
+"Project-Id-Version: Basic Sphinx Example Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 10:58+0800\n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -20,7 +20,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/api.rst:2 6a9b74c2a8f74a2986171baaf382eb62
-msgid "API"
-msgstr "接口"
+#: ../../source/api.rst:5 06ea1bc1c2e34dd7ae41172ec5e20d04
+msgid "NCCL API"
+msgstr "NCCL API"
 
+#: ../../source/api.rst:7 feaea8d073c448c3b6ca0ad40d0751c6
+msgid "The following sections describe the collective communications methods and operations."
+msgstr ""
+
+#~ msgid "API"
+#~ msgstr "接口"

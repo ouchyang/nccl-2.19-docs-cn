@@ -1,0 +1,270 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C)
+# This file is distributed under the same license as the NCCL(2.19) package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NCCL(2.19)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: gpt-po v1.0.11\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/troubleshooting.rst:3 5d903b0e2ef34061b2cd1c95e0fff353
+msgid "Troubleshooting"
+msgstr "故障排除"
+
+#: ../../source/troubleshooting.rst:5 c1216e52b9f04950894194dc88d36d8d
+msgid "Ensure you are familiar with the following known issues and useful debugging strategies."
+msgstr "确保您熟悉以下已知问题和有用的调试策略。"
+
+#: ../../source/troubleshooting.rst:9 29138fe15ed24b29ae0fcb87e6e735d3
+msgid "Errors"
+msgstr "错误"
+
+#: ../../source/troubleshooting.rst:11 811f27277c9e4d6e85e5450047274156
+msgid ""
+"NCCL calls may return a variety of return codes. Ensure that the return codes are always equal to ncclSuccess. If any "
+"call fails and returns a value different from ncclSuccess, setting NCCL_DEBUG to \"WARN\" will make NCCL print an "
+"explicit warning message before returning the error."
+msgstr ""
+"NCCL 调用可能会返回各种返回代码。确保返回代码始终等于 ncclSuccess。如果任何调用失败并返回与 ncclSuccess 不同的值，则将 NCCL_DEBUG 设置为 \"WARN\" 将使 NCCL "
+"在返回错误之前打印明确的警告消息。"
+
+#: ../../source/troubleshooting.rst:13 9d69b8ef673546bdb1b7c920c652e7cc
+msgid "Errors are grouped into different categories."
+msgstr "错误被分成不同的类别。"
+
+#: ../../source/troubleshooting.rst:15 6e45809f602248c4a16991d74bca3c41
+msgid "ncclUnhandledCudaError and ncclSystemError indicate that a call to an external library failed."
+msgstr "ncclUnhandledCudaError和ncclSystemError表示调用外部库失败。"
+
+#: ../../source/troubleshooting.rst:16 f29a29b49dc749498cb256b2bf3234d2
+msgid "ncclInvalidArgument and ncclInvalidUsage indicates there was a programming error in the application using NCCL."
+msgstr "`ncclInvalidArgument`和`ncclInvalidUsage`表示在使用NCCL的应用程序中存在编程错误。"
+
+#: ../../source/troubleshooting.rst:18 5517a2f630604ec28a17d3843feb6a53
+msgid "In either case, refer to the NCCL warning message to understand how to resolve the problem."
+msgstr "在任何情况下，请参考NCCL警告消息以了解如何解决问题。"
+
+#: ../../source/troubleshooting.rst:22 d12d6bec0d864042acb1b00df8f93c78
+msgid "GPU Direct"
+msgstr "GPU 直通"
+
+#: ../../source/troubleshooting.rst:24 e69a330cbda446588ea2b6fa2544b6ee
+msgid ""
+"NCCL heavily relies on GPU Direct for inter-GPU communication. This refers to the ability for a GPU to directly "
+"communicate with another device, such as another GPU or a network card, using direct point-to-point PCI messages."
+msgstr "NCCL在GPU之间的通信中大量依赖GPU Direct。这指的是GPU直接与另一设备通信的能力，比如另一个GPU或网络卡，使用直接点对点的PCI消息。"
+
+#: ../../source/troubleshooting.rst:27 0e2914e640e94b739dc5aa701d96a938
+msgid ""
+"Direct point-to-point PCI messages can fail or perform poorly for a variety of reasons, like missing components, a bad "
+"configuration of a virtual machine or a container, or some BIOS settings."
+msgstr "直接点对点的PCI消息可能因各种原因而失败或性能不佳，比如缺少组件、虚拟机或容器的错误配置，或者一些BIOS设置。"
+
+#: ../../source/troubleshooting.rst:31 d0fe7bdffdf4477e8b5ec9da641a8947
+msgid "GPU-to-GPU communication"
+msgstr "GPU 到 GPU 的通信"
+
+#: ../../source/troubleshooting.rst:33 3db5e246c3004ef88542dec4c75b68cf
+msgid "To make sure GPU-to-GPU communication is working correctly, look for the p2pBandwidthLatencyTest from the CUDA samples."
+msgstr "为了确保 GPU 之间的通信正常工作，请查找 CUDA 示例中的 p2pBandwidthLatencyTest。"
+
+#: ../../source/troubleshooting.rst:42 cc3be64afa1a4caf91ab0e0eb4b3f904
+msgid "The test should run to completion and report good performance between GPUs."
+msgstr "测试应该运行到完成并报告GPU之间的良好性能。"
+
+#: ../../source/troubleshooting.rst:44 f1b0a84befda443796e011b41b594ec8
+msgid ""
+"Another tool for checking GPU-to-GPU performance is called ``nvbandwidth``. This can be downloaded and built from the "
+"code and instructions found here: https://github.com/NVIDIA/nvbandwidth"
+msgstr "另一个用于检查 GPU 到 GPU 性能的工具称为 ``nvbandwidth``。可以从以下链接找到代码和说明，下载并构建该工具：https://github.com/NVIDIA/nvbandwidth"
+
+#: ../../source/troubleshooting.rst:48 4a7d371abd834f29bd34fa2f19bdb98f
+msgid "GPU-to-NIC communication"
+msgstr "GPU-to-NIC通信"
+
+#: ../../source/troubleshooting.rst:50 307c5507c1224a598718b30fee1de811
+msgid ""
+"GPUs can also communicate directly with network cards using GPU Direct RDMA. This requires having a compatible network "
+"cards and drivers, plus loading an extra kernel module called ``nvidia-peermem``. The ``nvidia-peermem`` module is now "
+"supplied with the CUDA drivers, however it must be loaded on each node boot with:"
+msgstr ""
+"GPU也可以使用GPU Direct "
+"RDMA直接与网络卡通信。这需要具有兼容的网络卡和驱动程序，以及加载一个名为``nvidia-peermem``的额外内核模块。``nvidia-peermem``模块现在随CUDA驱动程序一起提供，但必须在每个节点启动时加载："
+
+#: ../../source/troubleshooting.rst:60 9656ec9dbbda4cae85b1e90227276820
+msgid "PCI Access Control Services (ACS)"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:62 7c90481f8de2462698c9665b12794eac
+msgid ""
+"IO virtualization (also known as, VT-d or IOMMU) can interfere with GPU Direct by redirecting all PCI point-to-point "
+"traffic to the CPU root complex, causing a significant performance reduction or even a hang. You can check whether ACS "
+"is enabled on PCI bridges by running:"
+msgstr "IO虚拟化（也称为VT-d或IOMMU）可能会通过将所有PCI点对点流量重定向到CPU根复杂结构来干扰GPU直通，导致显著的性能降低甚至挂起。您可以通过运行以下命令来检查PCI桥上是否启用了ACS："
+
+#: ../../source/troubleshooting.rst:70 3a102230144c4a77ac1a7a597661c5ab
+msgid ""
+"If lines show \"SrcValid+\", then ACS might be enabled. Looking at the full output of lspci, one can check if a PCI "
+"bridge has ACS enabled."
+msgstr "如果行中显示\"SrcValid+\"，那么ACS可能已启用。查看lspci的完整输出，可以检查PCI桥是否已启用ACS。"
+
+#: ../../source/troubleshooting.rst:77 0b8b5d420339452196260a7711a0f6eb
+msgid ""
+"If PCI switches have ACS enabled, it needs to be disabled. On some systems this can be done from the BIOS by disabling "
+"IO virtualization or VT-d. For Broadcom PLX devices, it can be done from the OS but needs to be done again after each "
+"reboot."
+msgstr "如果 PCI 开关启用了 ACS，需要将其禁用。在某些系统上，可以通过在 BIOS 中禁用 IO 虚拟化或 VT-d 来完成此操作。对于 Broadcom PLX 设备，可以在操作系统中完成此操作，但需要在每次重新启动后再次执行。"
+
+#: ../../source/troubleshooting.rst:81 fcb58612002b4595895cb501e4d14f19
+msgid "Use the command below to find the PCI bus IDs of PLX PCI bridges:"
+msgstr "使用以下命令查找 PLX PCI 桥接器的 PCI 总线 ID："
+
+#: ../../source/troubleshooting.rst:87 74ac7ae0e6204e38962e7fcab2b3f623
+msgid "Next, use setpci to disable ACS with the command below, replacing 03:00.0 by the PCI bus ID of each PCI bridge."
+msgstr "接下来，请使用以下命令中的setpci来禁用ACS，将03:00.0替换为每个PCI桥梁的PCI总线ID。"
+
+#: ../../source/troubleshooting.rst:95 a4f5ca1a3ddf49c094025e9e14c357c6
+msgid "Topology detection"
+msgstr "拓扑检测"
+
+#: ../../source/troubleshooting.rst:97 06ed2f8b68354c10b78a19e054e652b1
+msgid ""
+"NCCL relies on /sys to discover the PCI topology of GPUs and network cards. When running inside a virtual machine or "
+"container, make sure /sys is properly mounted. Having /sys expose a virtual PCI topology can result in sub-optimal "
+"performance."
+msgstr "NCCL 依赖 /sys 来发现 GPU 和网络卡的 PCI 拓扑结构。在虚拟机或容器中运行时，请确保 /sys 被正确挂载。如果 /sys 暴露了虚拟 PCI 拓扑结构，可能会导致性能下降。"
+
+#: ../../source/troubleshooting.rst:103 2fee01d493354be788d3bbc3757150a5
+msgid "Shared memory"
+msgstr "共享内存"
+
+#: ../../source/troubleshooting.rst:105 f75093005baa4d2db8e42ca7338d357e
+msgid ""
+"To communicate between processes and even between threads of a process, NCCL creates shared memory segments in "
+"/dev/shm. The operating system's limits on these resources may need to be increased accordingly. Please see your "
+"system's documentation for details."
+msgstr "为了在进程之间甚至在进程的线程之间进行通信，NCCL 在 /dev/shm 中创建共享内存段。操作系统对这些资源的限制可能需要相应地增加。请查阅您系统的文档以获取详细信息。"
+
+#: ../../source/troubleshooting.rst:109 eb231a2c0baa4b7faf6bc39631e47d72
+msgid ""
+"If insufficient shared memory is available, NCCL will fail to initialize. Running with NCCL_DEBUG=WARN will show a "
+"message similar to this:"
+msgstr "如果可用的共享内存不足，NCCL 将无法初始化。使用 NCCL_DEBUG=WARN 运行将显示类似于以下消息："
+
+#: ../../source/troubleshooting.rst:117 7ebe168ca5f64cf2a57b9459d55f691c
+msgid "Docker"
+msgstr "Docker"
+
+#: ../../source/troubleshooting.rst:119 6fb2c18f2fc14070a5522c359446292a
+msgid ""
+"In particular, Docker containers default to limited shared and pinned memory resources. When using NCCL inside a "
+"container, please make sure to adjust the shared memory size inside the container, for example by adding the following "
+"arguments to the docker launch command line:"
+msgstr "具体来说，Docker 容器默认使用有限的共享和固定内存资源。在容器内使用 NCCL 时，请确保调整容器内的共享内存大小，例如通过将以下参数添加到 Docker 启动命令行中："
+
+#: ../../source/troubleshooting.rst:128 3e36b71e809e4fe89b81ff762fb7331a
+msgid "Systemd"
+msgstr "Systemd"
+
+#: ../../source/troubleshooting.rst:130 b52b06877e9c4be19d7db58abb1d0a20
+msgid ""
+"When running jobs using mpirun or SLURM, systemd may remove files in shared memory when it detects that the "
+"corresponding user is not logged in, in an attempt to clean up old temporary files. This can cause NCCL to crash during "
+"init with an error like:"
+msgstr "在使用 mpirun 或 SLURM 运行作业时，systemd 可能会在检测到相应用户未登录时删除共享内存中的文件，以清理旧的临时文件。这可能会导致 NCCL 在初始化期间崩溃，并显示类似以下错误："
+
+#: ../../source/troubleshooting.rst:138 2db6e2e001d043f2989b697078607a4f
+msgid ""
+"Given mpirun and SLURM jobs can run on the node without the user being seen as logged in by systemd, system "
+"administrators need to disable that clean-up mechanism, which can be performed by SLURM epilogue scripts instead. To do "
+"this, the following line needs to be set in /etc/systemd/logind.conf:"
+msgstr ""
+"由于 mpirun 和 SLURM 作业可以在节点上运行，而用户不会被 systemd 视为已登录，因此系统管理员需要禁用清理机制，可以通过 SLURM epilogue 脚本来执行。为此，需要在 "
+"/etc/systemd/logind.conf 中设置以下行："
+
+#: ../../source/troubleshooting.rst:146 a17551a4437d49dbb1e68de912b80416
+msgid "Once updated, the daemons should be restarted with:"
+msgstr "更新完成后，应使用以下命令重新启动守护程序："
+
+#: ../../source/troubleshooting.rst:154 10d50dc20eac4a9b881a555e86b68169
+msgid "Networking issues"
+msgstr "网络问题"
+
+#: ../../source/troubleshooting.rst:157 317d3d08e76244efb8ddc9cde81307dd
+msgid "IP Network Interfaces"
+msgstr "IP 网络接口"
+
+#: ../../source/troubleshooting.rst:159 0e3d101f2f354797b19f791b56f4c044
+msgid ""
+"NCCL auto-detects which network interfaces to use for inter-node communication. If some interfaces are in state up, "
+"however are not able to communicate between nodes, NCCL may try to use them anyway and therefore fail during the init "
+"functions or even hang."
+msgstr "NCCL 会自动检测用于节点间通信的网络接口。如果某些接口处于启用状态，但节点之间无法通信，NCCL 可能会尝试使用它们，因此在初始化函数期间甚至会出现失败或挂起。"
+
+#: ../../source/troubleshooting.rst:161 631db3e480614a149fbaa56614e5d01b
+msgid ""
+"For information about how to specify which interfaces to use, see NCCL Knobs section, particularly the "
+"NCCL_SOCKET_IFNAME knob."
+msgstr "有关如何指定要使用的接口的信息，请参阅NCCL旋钮部分，特别是NCCL_SOCKET_IFNAME旋钮。"
+
+#: ../../source/troubleshooting.rst:164 2ca3028c9782449ea42785ff029a8148
+msgid "IP Ports"
+msgstr "IP端口"
+
+#: ../../source/troubleshooting.rst:166 72737ee915f344a3869f37782b348b0c
+msgid ""
+"NCCL opens TCP ports to connect processes together and exchange connection information. To restrict the range of ports "
+"used by NCCL, one can set the net.ipv4.ip_local_port_range property of the Linux kernel."
+msgstr "NCCL打开TCP端口以连接进程并交换连接信息。要限制NCCL使用的端口范围，可以设置Linux内核的net.ipv4.ip_local_port_range属性。"
+
+#: ../../source/troubleshooting.rst:169 c87669ee6bea4929bb54cdc3ddea7cc2
+msgid "This example shows how to restrict NCCL ports to 50000-51000:"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:175 c786cd7b61634383b6e662c973c44766
+msgid "Or to make this permanent, add a line to /set/sysctl.conf:"
+msgstr "或者要使此更改永久生效，请在 `/set/sysctl.conf` 中添加一行："
+
+#: ../../source/troubleshooting.rst:181 ed2e50bdd42b439ba29235c53caab582
+msgid "Restricting the port range can be useful to open a corresponding range in the firewall, for example on Google Cloud:"
+msgstr "限制端口范围可以帮助在防火墙中打开相应的范围，例如在Google Cloud上："
+
+#: ../../source/troubleshooting.rst:188 0ae0ae345bb54349b171df6ceb58c5b2
+msgid "InfiniBand"
+msgstr "InfiniBand"
+
+#: ../../source/troubleshooting.rst:190 a8ca6ce8dcf542ad8566efecdec55d9d
+msgid ""
+"Before running NCCL on InfiniBand, running low-level InfiniBand tests (and in particular the ib_write_bw test) can help "
+"verify which nodes are able to communicate properly."
+msgstr "在在 InfiniBand 上运行 NCCL 之前，运行低级别的 InfiniBand 测试（特别是 ib_write_bw 测试）可以帮助验证哪些节点能够正确通信。"
+
+#: ../../source/troubleshooting.rst:192 a04f3965176c47e59c0a2e6158b4b37a
+msgid ""
+"A common issue seen with InfiniBand is the library not being able to register sufficient pinned memory. In such cases "
+"you may see an error like:"
+msgstr "InfiniBand 经常出现的问题是库无法注册足够的固定内存。在这种情况下，您可能会看到以下错误："
+
+#: ../../source/troubleshooting.rst:198 dbd2e3d503554b31a347c3ba5385102d
+msgid "or"
+msgstr "或"
+
+#: ../../source/troubleshooting.rst:204 1fe21edcf4ec43efb5dbee380231d795
+msgid "The solution is to remove the user limits on registering pinned memory. This can be done by adding these lines:"
+msgstr "解决方案是取消注册固定内存用户限制。可以通过添加以下行来实现："
+
+#: ../../source/troubleshooting.rst:211 32c8c40bc78645738e0624b549f5fec3
+msgid "To the /etc/security/limits.conf configuration file or equivalent on your Linux distribution."
+msgstr "将此内容添加到您的Linux发行版上的/etc/security/limits.conf配置文件或等效文件中。"

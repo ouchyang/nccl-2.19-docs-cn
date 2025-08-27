@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the Basic Sphinx
 # Example Project package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Basic Sphinx Example Project \n"
+"Project-Id-Version: Basic Sphinx Example Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 10:58+0800\n"
+"POT-Creation-Date: 2025-08-27 10:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
 "Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -20,33 +20,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/index.rst:21
-msgid "Home"
-msgstr ""
+#: ../../source/index.rst:3 70b51d59e04849b9b3d2c879a14f069f
+msgid "NVIDIA Collective Communication Library (NCCL) Documentation"
+msgstr "NVIDIA 集体通信库（NCCL）文档"
 
-#: ../../source/index.rst:4 7b109fe8b73f48f69804068fbbe6675e
-msgid "Welcome to Lumache's documentation!"
-msgstr ""
+#: ../../source/index.rst:5 1cdde0e4339d4a998da3d786fb11c297
+#, fuzzy
+msgid "Contents:"
+msgstr "内容"
 
-#: ../../source/index.rst:6 947ddf2a38ac4c288d59b73f0c4425fa
-msgid ""
-"**Lumache** (/lu'make/) is a Python library for cooks and food lovers "
-"that creates recipes mixing random ingredients. It pulls data from the "
-"`Open Food Facts database <https://world.openfoodfacts.org/>`_ and offers"
-" a *simple* and *intuitive* API."
-msgstr ""
+#: ../../source/index.rst:19 876b98b97f9f499c9ee57689820572cd
+msgid "Indices and tables"
+msgstr "索引和表格"
 
-#: ../../source/index.rst:11 655aaa4b91734f848c2c1674d03ff7c4
-msgid ""
-"Check out the :doc:`usage` section for further information, including how"
-" to :ref:`installation` the project."
-msgstr ""
+#: ../../source/index.rst:21 31c5f0b063e24c9a89a36b89987fa994
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
 
-#: ../../source/index.rst:16 3ebd487b97b040c899c564f06c4335d4
-msgid "This project is under active development."
-msgstr ""
+#: ../../source/index.rst:22 5c6c69d8e4054b189ee76c4994b0e25c
+msgid ":ref:`modindex`"
+msgstr ":ref:`modindex`"
 
-#: ../../source/index.rst:19 f1abf993256a4c9a88de25ec76cd0f3c
-msgid "Contents"
-msgstr ""
+#: ../../source/index.rst:23 5219d5eec9e9418a8278d331c479e3af
+msgid ":ref:`search`"
+msgstr ":ref:`搜索`"
 
+#~ msgid "Home"
+#~ msgstr "家"
+
+#~ msgid "Welcome to Lumache's documentation!"
+#~ msgstr "欢迎来到Lumache的文档！"
+
+#~ msgid ""
+#~ "**Lumache** (/lu'make/) is a Python library for cooks and food lovers that creates recipes mixing random ingredients. "
+#~ "It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_ and offers a *simple* and "
+#~ "*intuitive* API."
+#~ msgstr ""
+#~ "**Lumache** (/lu'make/) 是一个供厨师和美食爱好者使用的 Python 库，它可以混合随机食材来创建食谱。它从 `Open Food Facts database "
+#~ "<https://world.openfoodfacts.org/>`_ 获取数据，并提供一个 *简单* 和 *直观* 的 API。"
+
+#~ msgid "Check out the :doc:`usage` section for further information, including how to :ref:`installation` the project."
+#~ msgstr "请查看:doc:`usage`部分以获取更多信息，包括如何:ref:`installation`该项目。"
+
+#~ msgid "This project is under active development."
+#~ msgstr "这个项目正在积极开发中。"
