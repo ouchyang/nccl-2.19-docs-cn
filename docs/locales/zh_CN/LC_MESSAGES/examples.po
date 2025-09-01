@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,188 +19,188 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/examples.rst:3 9a68e6bc03c54f75933036622b23fe4e
+#: ../../source/examples.rst:3 2c13fe28014b498c9eebd184c80e05e6
 msgid "Examples"
 msgstr "示例"
 
-#: ../../source/examples.rst:5 2f02cc8d32df47cdba1f67f19201ad35
+#: ../../source/examples.rst:5 2e71da0af87948f4afd30b1e9844248c
 msgid ""
 "The examples in this section provide an overall view of how to use NCCL in various environments, combining one or "
 "multiple techniques:"
-msgstr "本节中的示例提供了如何在不同环境中使用NCCL的整体视图，结合了一种或多种技术："
+msgstr "本节示例综合展示了如何在不同环境中运用NCCL，融合单项或多项技术方案："
 
-#: ../../source/examples.rst:8 f72d7ea360f04379af83734f6d86c59f
+#: ../../source/examples.rst:8 820962741d5946a09457217bf97f8a6a
 msgid "using multiple GPUs per thread/process"
-msgstr "使用多个GPU每个线程/进程"
+msgstr "每个线程/进程使用多个GPU"
 
-#: ../../source/examples.rst:9 3b5b4bb5842e45948e1545cf34c589a9
+#: ../../source/examples.rst:9 c6957b8c5d1d415dbd707905bc191ffd
 msgid "using multiple threads"
-msgstr "使用多个线程"
+msgstr "使用多线程"
 
-#: ../../source/examples.rst:10 4b632b1f25bd4709a1ed0f382970ea87
+#: ../../source/examples.rst:10 356f16b30bf84766b01773cf339df6e5
 msgid ""
 "using multiple processes - the examples with multiple processes use MPI as parallel runtime environment, but any "
 "multi-process system should be able to work similarly."
-msgstr "使用多个进程 - 使用多个进程的示例使用MPI作为并行运行时环境，但任何多进程系统都应该能够类似地工作。"
+msgstr "使用多进程 - 采用多进程的示例使用MPI作为并行运行时环境，但任何多进程系统都应能以类似方式工作。"
 
-#: ../../source/examples.rst:13 5693f908eac5481db2ad465cf725dafe
+#: ../../source/examples.rst:13 6d8a4b598d1f4ea09d1eeeb9232d8a58
 msgid ""
 "Ensure that you always check the return codes from the NCCL functions.  For clarity, the following examples do not "
 "contain error checking."
-msgstr "请务必始终检查来自 NCCL 函数的返回代码。为了清晰起见，以下示例不包含错误检查。"
+msgstr "请务必始终检查NCCL函数的返回码。为清晰起见，以下示例未包含错误检查。"
 
-#: ../../source/examples.rst:17 e1d2d9da7bbb45369bbc5103b4cf34e0
+#: ../../source/examples.rst:17 7ad1bbdb7ddd490f8285356ea6b677fe
 msgid "Communicator Creation and Destruction Examples"
-msgstr "通信器创建和销毁示例"
+msgstr "通信器创建与销毁示例"
 
-#: ../../source/examples.rst:19 a45d3fff87224afa84f8fdcc92743088
+#: ../../source/examples.rst:19 ed38c3d8daf6430b8b8a64f6d8997885
 msgid "The following examples demonstrate common use cases for NCCL initialization."
-msgstr "以下示例展示了NCCL初始化的常见用例。"
+msgstr "以下示例展示了NCCL初始化的常见使用场景。"
 
-#: ../../source/examples.rst:23 2e7e85d4913a4e989043b876fda8aee4
+#: ../../source/examples.rst:23 36e2b6a8f6a748fb856f2bdff0999e07
 msgid "Example 1: Single Process, Single Thread, Multiple Devices"
-msgstr "示例 1：单进程，单线程，多设备"
+msgstr "示例1：单进程、单线程、多设备"
 
-#: ../../source/examples.rst:26 37f34b63abe64bb6b414a73e5f77b216
+#: ../../source/examples.rst:26 3aa742663872409c9d9eeda1100f7f26
 msgid ""
 "In the specific case of a single process, ncclCommInitAll can be used. Here is an example creating a communicator for 4 "
 "devices, therefore, there are 4 communicator objects:"
-msgstr "在单个进程的特定情况下，可以使用ncclCommInitAll。以下是一个创建包含4个设备的通信器的示例，因此有4个通信器对象："
+msgstr "在单进程特定场景中，可使用 ncclCommInitAll 函数。以下示例创建包含4个设备的通信器，对应生成4个通信器对象："
 
-#: ../../source/examples.rst:34 c55654baf75845ce8a673beab9869ae3
+#: ../../source/examples.rst:34 de594e87cd464840a6b02993cbc90458
 msgid ""
 "Next, you can call NCCL collective operations using a single thread, and group calls, or multiple threads, each "
 "provided with a comm object."
-msgstr "接下来，您可以使用单个线程调用 NCCL 集体操作，并进行组调用，或者使用多个线程，每个线程都提供一个 comm 对象。"
+msgstr "接下来，您可以使用单个线程调用NCCL集合通信操作，进行分组调用，或者使用多个线程，每个线程都提供一个通信对象。"
 
-#: ../../source/examples.rst:37 68b654e666984e74bbdf01588578e162
+#: ../../source/examples.rst:37 61ab8b7c4ece44fd81fafdb273e68441
 msgid "At the end of the program, all of the communicator objects are destroyed:"
-msgstr "在程序结束时，所有的通信对象都会被销毁："
+msgstr "程序结束时，所有通信器对象均被销毁："
 
-#: ../../source/examples.rst:44 a33b3856a7074f45b6b44f88887bd4fb
+#: ../../source/examples.rst:44 8fc33336c7ec438b9808571ab68d4e86
 msgid "The following code depicts a complete working example with a single process that manages multiple devices:"
-msgstr "以下代码展示了一个完整的工作示例，其中一个进程管理多个设备："
+msgstr "以下代码展示了一个完整可运行的示例，其中单个进程管理多个设备："
 
-#: ../../source/examples.rst:137 fbabc71262c64a5f9489498a82677e8e
+#: ../../source/examples.rst:137 a720f48d650f4224ad980fdecd2fcae1
 msgid "Example 2: One Device per Process or Thread"
-msgstr "示例 2：每个进程或线程一个设备"
+msgstr "示例二：每个进程或线程对应一个设备"
 
-#: ../../source/examples.rst:139 f1b8af22adde47a984f19856abf12d43
+#: ../../source/examples.rst:139 fac2cbd2c8be4e28a835b995bfb39b2c
 msgid ""
 "When a process or host thread is responsible for at most one GPU, ncclCommInitRank can be used as a collective call to "
 "create a communicator. Each thread or process will get its own object."
-msgstr "当一个进程或主机线程最多负责一个GPU时，ncclCommInitRank可以用作一个集体调用来创建一个通信器。每个线程或进程将获得自己的对象。"
+msgstr "当单个进程或主机线程最多负责一个GPU时，可使用ncclCommInitRank作为集合通信调用来创建通信器。每个线程或进程将获得其独立的通信器对象。"
 
-#: ../../source/examples.rst:142 3ccfa9fa9df84cbd89370956f9857c9e
+#: ../../source/examples.rst:142 edeecac735184a66ba21db675a9912b2
 msgid "The following code is an example of a communicator creation in the context of MPI, using one device per MPI rank."
-msgstr "以下代码是在MPI上下文中创建通信器的示例，每个MPI排名使用一个设备。"
+msgstr "以下代码展示了在MPI环境中创建通信器的示例，其中每个MPI秩对应一个设备。"
 
 #: ../../source/examples.rst:145 ../../source/examples.rst:330
-#: 4d8109695e2e446688c55850aa8a093c 98c7346614c04165a0f606280466059f
+#: 3797c34164e742f087ea29b9c262a23c c55a888c7f4f49178619bbb056a19411
 msgid "First, we retrieve MPI information about processes:"
-msgstr "首先，我们检索有关进程的 MPI 信息："
+msgstr "首先，我们获取有关进程的MPI信息："
 
 #: ../../source/examples.rst:153 ../../source/examples.rst:338
-#: 00bcea62ba87457ba6518f8562e8dec1 bd00ec6668a44146846004151c0d2ac3
+#: 1b794fccd2f54c5691b164c488794b23 5b1a3cd46ff448bc875ea3c11bbf3798
 msgid "Next, a single rank will create a unique ID and send it to all other ranks to make sure everyone has it:"
-msgstr "下一步，一个单一的等级将创建一个唯一的ID，并将其发送给所有其他等级，以确保每个人都拥有它："
+msgstr "接下来，单个秩将生成唯一标识符并将其发送至所有其他秩，以确保所有参与者均持有该标识符："
 
-#: ../../source/examples.rst:161 96b70cf2f9674ef18e795704b4fdf355
+#: ../../source/examples.rst:161 c8f7c5a4565f42cb894b4886efe5b108
 msgid "Finally, we create the communicator:"
 msgstr "最后，我们创建通信器："
 
-#: ../../source/examples.rst:168 f5f2f3353eee4614a667dcb1ed7f46fd
+#: ../../source/examples.rst:168 0b357b9a18bd4c1d9fef54db61f1d90d
 msgid "We can now call the NCCL collective operations using the communicator."
-msgstr "我们现在可以使用通信器调用NCCL集合操作。"
+msgstr "现在我们可以使用通信器调用NCCL集合通信操作。"
 
-#: ../../source/examples.rst:174 932c3f5b13aa4bc49489b6fc7321be76
+#: ../../source/examples.rst:174 5981b505ed404d3babf3aa7aaba801df
 msgid "Finally, we destroy the communicator object:"
-msgstr "最后，我们销毁通信对象："
+msgstr "最后，我们销毁通信器对象："
 
-#: ../../source/examples.rst:181 c6ea1f3e4c574089b2cc57525f3fc2bd
+#: ../../source/examples.rst:181 9f9ec5c9507742f08f07e8d8636e002a
 msgid "The following code depicts a complete working example with multiple MPI processes and one device per process:"
-msgstr "以下代码展示了一个完整的工作示例，其中包含多个MPI进程和每个进程一个设备："
+msgstr "以下代码展示了一个完整的多MPI进程示例，每个进程对应一个设备："
 
-#: ../../source/examples.rst:322 7aebf1ee31ed4653b227618b1ada0035
+#: ../../source/examples.rst:322 29a1cccc91e1453886afb2b905b2d2cb
 msgid "Example 3: Multiple Devices per Thread"
-msgstr "示例 3：每个线程多个设备"
+msgstr "示例3：单线程多设备"
 
-#: ../../source/examples.rst:324 35ec744a0f744ac39fd9b3f1cce77175
+#: ../../source/examples.rst:324 b6dc1b49a96344a09f4b86084f6b49d2
 msgid ""
 "You can combine both multiple process or threads and multiple device per process or thread. In this case, we need to "
 "use group semantics."
-msgstr "您可以将多个进程或线程与每个进程或线程的多个设备结合起来。在这种情况下，我们需要使用组语义。"
+msgstr "可以同时结合多进程或多线程与每个进程/线程的多设备。在这种情况下，需要使用组语义。"
 
-#: ../../source/examples.rst:327 7e0cec7de60b459fa491d8d5d97635f1
+#: ../../source/examples.rst:327 095552d0b2a24491b26f54e1ecabd839
 msgid "The following example combines MPI and multiple devices per process (=MPI rank)."
-msgstr "以下示例结合了MPI和每个进程（=MPI rank）上的多个设备。"
+msgstr "以下示例结合了MPI与每个进程（=MPI秩）中的多个设备。"
 
-#: ../../source/examples.rst:346 d9c30e78929142d385f2e0cb4b011244
+#: ../../source/examples.rst:346 e9fa2be55ba94565bec1b8786b13e785
 msgid "Then, we create our ngpus communicator objects, which are part of a larger group of ngpus*nRanks:"
-msgstr "然后，我们创建我们的 ngpus 通信对象，这些对象是 ngpus*nRanks 的一个更大组成部分："
+msgstr "随后，我们创建包含 ngpus*nRanks 更大组内的 ngpus 个通信器对象。"
 
-#: ../../source/examples.rst:358 ba035168df184395911584647599eeaf
+#: ../../source/examples.rst:358 bff5e6cec37e433da810201d872943ec
 msgid ""
 "Next, we call NCCL collective operations using a single thread, and group calls, or multiple threads, each provided "
 "with a comm object."
-msgstr "接下来，我们使用单个线程调用 NCCL 集合操作，并进行组调用，或者使用多个线程，每个线程都提供一个 comm 对象。"
+msgstr "接下来，我们使用单线程调用NCCL集合通信操作，并通过分组调用或多个线程（每个线程配备一个通信对象）来执行。"
 
-#: ../../source/examples.rst:360 d6bd3a59e99d4870b9eb33ac07476957
+#: ../../source/examples.rst:360 07e44b34de264ec3a50acbbf7111420c
 msgid "At the end of the program, we destroy all communicators objects:"
-msgstr "在程序结束时，我们销毁所有通信器对象："
+msgstr "程序结束时，我们销毁所有通信器对象："
 
-#: ../../source/examples.rst:367 c4ed4a9d24a440b3965d1e726e9d6985
+#: ../../source/examples.rst:367 a4fc414e3b584fcfa47a769292442f30
 msgid "The following code depicts a complete working example with multiple MPI processes and multiple devices per process:"
-msgstr "以下代码展示了一个完整的工作示例，其中包括多个MPI进程和每个进程多个设备："
+msgstr "以下代码展示了一个包含多MPI进程且每个进程含多设备的完整可运行示例："
 
-#: ../../source/examples.rst:532 cab92098ee164275b8398a9248874094
+#: ../../source/examples.rst:532 74d90820b0b94b4e92b80f91c8dc9ba2
 msgid "Communication Examples"
 msgstr "通信示例"
 
-#: ../../source/examples.rst:534 2975ec43cdb344e9ba80d44b58ed59d9
+#: ../../source/examples.rst:534 defeb0a6175742d0884ba08c4b12da7d
 msgid "The following examples demonstrate common patterns for executing NCCL collectives."
-msgstr "以下示例展示了执行NCCL集合操作的常见模式。"
+msgstr "以下示例展示了执行NCCL集合通信操作的常见模式。"
 
-#: ../../source/examples.rst:538 40a28c69d989406bbbbf118d37d32a90
+#: ../../source/examples.rst:538 1b7a7e88ae254319a78fd0b3c45236e1
 msgid "Example 1: One Device per Process or Thread"
-msgstr "示例 1: 每个进程或线程一个设备"
+msgstr "示例一：每个进程或线程对应一个设备"
 
-#: ../../source/examples.rst:541 46c2a28a18ea4d5b978b847d1fb05ebd
+#: ../../source/examples.rst:541 b3d51458fb7043ed8b4b71fa2c690616
 msgid ""
 "If you have a thread or process per device, then each thread calls the collective operation for its device,for example, "
 "AllReduce:"
-msgstr "如果您针对每个设备有一个线程或进程，那么每个线程为其设备调用集合操作，例如，AllReduce:"
+msgstr "若每个设备对应一个线程或进程，则每个线程将为其设备调用集合通信操作，例如：AllReduce："
 
-#: ../../source/examples.rst:548 7bc65803a5324514b5e46c388b59f492
+#: ../../source/examples.rst:548 fe803cc1e74344d0a335b6760a5cdf5a
 msgid ""
 "After the call, the operation has been enqueued to the stream.  Therefore, you can call cudaStreamSynchronize if you "
 "want to wait for the operation to be complete:"
-msgstr "通话结束后，操作已被排入流队列。因此，如果您希望等待操作完成，可以调用cudaStreamSynchronize："
+msgstr "调用完成后，该操作已被加入流中。因此，若需等待操作完成，可调用cudaStreamSynchronize："
 
-#: ../../source/examples.rst:554 f6534f54739f41e4b43d77336fa38260
+#: ../../source/examples.rst:554 626882a0de654c519f04b02b071d03b9
 msgid ""
 "For a complete working example with MPI and single device per MPI process, see \"Example 2: One Device per Process or "
 "Thread\"."
-msgstr "有关MPI和每个MPI进程一个设备的完整工作示例，请参阅“示例2：每个进程或线程一个设备”。"
+msgstr "有关使用MPI且每个MPI进程对应单个设备的完整可运行示例，请参阅“示例2：每个进程或线程对应一个设备”。"
 
-#: ../../source/examples.rst:557 ffe6800953c94cf6b2cc8b472260ada0
+#: ../../source/examples.rst:557 62299037d29246028cf26c3ca7d5692f
 msgid "Example 2: Multiple Devices per Thread"
-msgstr "示例 2：每个线程多个设备"
+msgstr "示例二：单线程多设备"
 
-#: ../../source/examples.rst:559 0f831f60d51149359a7a81e192ae0852
+#: ../../source/examples.rst:559 63c6f1ac2eb74332badf1fb1fbc51dfe
 msgid ""
 "When a single thread manages multiple devices, you need to use group semantics to launch the operation on multiple "
 "devices at once:"
-msgstr "当单个线程管理多个设备时，您需要使用组语义一次性在多个设备上启动操作："
+msgstr "当单个线程管理多个设备时，需要使用组语义（group semantics）同时在多个设备上启动操作："
 
-#: ../../source/examples.rst:568 457c104364d44b508d8f91a8c9b3ddb1
+#: ../../source/examples.rst:568 5dc6ade2bd534dab90daea7300ab340e
 msgid ""
 "After ncclGroupEnd, all of the operations have been enqueued to the stream.  Therefore, you can now call "
 "cudaStreamSynchronize if you want to wait for the operation to be complete:"
-msgstr "在 `ncclGroupEnd` 之后，所有操作都已经被加入到流中。因此，如果你想要等待操作完成，现在可以调用 `cudaStreamSynchronize`："
+msgstr "调用ncclGroupEnd后，所有操作均已加入流中。因此，如需等待操作完成，此时可调用cudaStreamSynchronize："
 
-#: ../../source/examples.rst:576 fa863f5fe3184fa2abbf9760fd73b8bb
+#: ../../source/examples.rst:576 bffb12a6d53f4a7bbb62e3c217252219
 msgid ""
 "For a complete working example with MPI and multiple devices per MPI process, see :ref:`Example 3: Multiple Devices per "
 "Thread<Ex3>`."
-msgstr "有关MPI和每个MPI进程多个设备的完整工作示例，请参阅:ref:`示例3: 每个线程多个设备<Ex3>`。"
+msgstr "有关使用MPI且每个MPI进程包含多个设备的完整可运行示例，请参阅：:ref:`示例3：每个线程多个设备<Ex3>`。"

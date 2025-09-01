@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,46 +19,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/api/group.rst:3 136ccb4c6cbc441796d4342bf4315b97
+#: ../../source/api/group.rst:3 76a6b39a7325443ca5f2fe5c6b8d4425
 msgid "Group Calls"
-msgstr "群组通话"
+msgstr "群组调用"
 
-#: ../../source/api/group.rst:5 38dd72b289f34774802235934e933d97
+#: ../../source/api/group.rst:5 c746b1a9786841799f26dd6bac918859
 msgid ""
 "Group primitives define the behavior of the current thread to avoid blocking. They can therefore be used from multiple "
 "threads independently."
-msgstr "原语组定义了当前线程的行为，以避免阻塞。因此，它们可以独立地从多个线程中使用。"
+msgstr "集合通信原语定义了当前线程的行为以避免阻塞。因此，它们可以被多个线程独立使用。"
 
-#: ../../source/api/group.rst:7 1defd04bf8ba4627afeddf92752e256d
+#: ../../source/api/group.rst:7 706b9e48fa174a35b280e300c55d3ab9
 msgid "Related links: :ref:`group-calls`."
-msgstr "相关链接：:ref:`group-calls`."
+msgstr "相关链接：:ref:`group-calls`。"
 
-#: ../../source/api/group.rst:10 f7d7e218a3114d528a85f1323226448e
+#: ../../source/api/group.rst:10 24fbeb104ceb4eac9555ba5a672b7364
 msgid "ncclGroupStart"
 msgstr "ncclGroupStart"
 
-#: ../../source/api/group.rst:14 bb63a587d87444f381714db058137e85
+#: ../../source/api/group.rst:14 d53b204d30aa470b90bc28a4e404e11f
 msgid "Start a group call."
-msgstr "开始一个群组通话。"
+msgstr "当前功能仅支持文本处理，无法发起或管理群组通话。若需进行多人实时通信，建议使用专业的会议软件（如Zoom、Microsoft Teams等）或社交平台内置的群组通话功能。"
 
-#: ../../source/api/group.rst:16 ad7acd507ab14892b2eb9ebbbe077aa6
+#: ../../source/api/group.rst:16 5c5234df05474f258733e894b0b4687d
 msgid "All subsequent calls to NCCL may not block due to inter-CPU synchronization."
-msgstr "所有对 NCCL 的后续调用可能不会因为 CPU 间的同步而阻塞。"
+msgstr "所有后续对NCCL的调用不得因CPU间同步而产生阻塞。"
 
-#: ../../source/api/group.rst:19 5fbadf0279a1491ea77f7810f2746835
+#: ../../source/api/group.rst:19 c17fa1b05aa6427ba78653e4446bf6aa
 msgid "ncclGroupEnd"
 msgstr "ncclGroupEnd"
 
-#: ../../source/api/group.rst:23 9c22f08b72a6411aa0d01bb4c4ba1c0b
+#: ../../source/api/group.rst:23 92b5dbc704774a299d25cf63ac3b7263
 msgid "End a group call."
 msgstr "结束群组通话。"
 
-#: ../../source/api/group.rst:25 6d4fd6693cb5407fbee81c78074e7641
+#: ../../source/api/group.rst:25 1eeeea44249449128395f1544e11f1f1
 msgid ""
 "Returns when all operations since ncclGroupStart have been processed. This means communication primitives have been "
 "enqueued to the provided streams, but are not necessary complete."
-msgstr "自从 ncclGroupStart 以来的所有操作都已处理完毕时返回。这意味着通信原语已被加入到提供的流中，但并不一定已经完成。"
+msgstr "在调用ncclGroupStart后加入的所有操作均被处理完成时返回。这意味着集合通信原语已加入所提供的流中，但不一定已完成执行。"
 
-#: ../../source/api/group.rst:28 107bc402d1384697b2ec9323b6247158
+#: ../../source/api/group.rst:28 340754504e14488c9a34a39b29dc4e2a
 msgid "When used with the ncclCommInitRank call, the ncclGroupEnd call waits for all communicators to be initialized."
-msgstr "当与`ncclCommInitRank`调用一起使用时，`ncclGroupEnd`调用会等待所有通信器被初始化。"
+msgstr "当与`ncclCommInitRank`调用配合使用时，`ncclGroupEnd`调用会等待所有通信器完成初始化。"

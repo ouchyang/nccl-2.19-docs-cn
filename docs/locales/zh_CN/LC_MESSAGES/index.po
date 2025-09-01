@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,22 +19,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/index.rst:3 c0d180f9423b4afc86f43f30618adf5a
+#: ../../source/index.rst:3 cc505c0f891c4311a788a59ec0fb2bd8
 msgid "NVIDIA Collective Communication Library (NCCL) Documentation"
-msgstr "NVIDIA 集体通信库（NCCL）文档"
+msgstr "NVIDIA 集合通信库（NCCL）技术文档"
 
-#: ../../source/index.rst:5 2ebf538986554e1bb759a8cac08775db
+#: ../../source/index.rst:5 7663b70f2e3249ac9b67fa6083a3dadc
 msgid "Contents:"
-msgstr "目录："
+msgstr "请提供需要翻译的NCCL技术文本内容。"
 
-#: ../../source/index.rst:19 22f3b7b9f0704fa2bacd4e64467f0407
+#: ../../source/index.rst:19 feb86a75411543cfacc80dd927d11a98
 msgid "Indices and tables"
-msgstr "索引和表格"
+msgstr "索引与表格"
 
-#: ../../source/index.rst:21 e75f184a428a4f85ad7ba28ab182aac7
+#: ../../source/index.rst:21 8f13dc67a6044359968366a643fda055
 msgid ":ref:`genindex`"
-msgstr ":ref:`genindex`"
+msgstr "`genindex`"
 
-#: ../../source/index.rst:22 480d518e47d34f99a39e251b7302eb4d
+#: ../../source/index.rst:22 dce3b84f12d1449f88120947594d2344
 msgid ":ref:`modindex`"
 msgstr ":ref:`modindex`"

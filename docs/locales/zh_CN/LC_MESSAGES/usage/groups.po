@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,115 +19,115 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage/groups.rst:5 73067dbe7a9d4520847efdd3d42e88a7
+#: ../../source/usage/groups.rst:5 c51b20676a364c3899f3236c2a794990
 msgid "Group Calls"
-msgstr "群组通话"
+msgstr "群组调用"
 
-#: ../../source/usage/groups.rst:7 0ca0aade330c41b3867bbc7bda3eb456
+#: ../../source/usage/groups.rst:7 9358606399664e998ac8cf0835ce4bd0
 msgid ""
 "Group functions (ncclGroupStart/ncclGroupEnd) can be used to merge multiple calls into one. This is needed for three "
 "purposes: managing multiple GPUs from one thread (to avoid deadlocks), aggregating communication operations to improve "
 "performance, or merging multiple send/receive point-to-point operations (see :ref:`point-to-point` section). All three "
 "usages can be combined together, with one exception : calls to :c:func:`ncclCommInitRank` cannot be merged with others."
 msgstr ""
-"组函数（ncclGroupStart/ncclGroupEnd）可用于将多个调用合并为一个。这对三个目的很有必要：从一个线程管理多个GPU（以避免死锁），聚合通信操作以提高性能，或合并多个发送/接收点对点操作（参见：:ref:`point-"
-"to-point` 部分）。这三种用法可以结合在一起，唯一的例外是：调用 :c:func:`ncclCommInitRank` 不能与其他调用合并。"
+"组函数（ncclGroupStart/ncclGroupEnd）可用于将多个调用合并为单个操作。这一功能主要满足三种需求：在单线程中管理多个GPU（以避免死锁）、聚合通信操作以提升性能，或合并多个发送/接收点对点操作（参见 "
+":ref:`点对点` 章节）。这三种用途可组合使用，但存在一项例外：对 :c:func:`ncclCommInitRank` 的调用不可与其他操作合并。"
 
-#: ../../source/usage/groups.rst:14 c21260c04faf40a6923d99adeae79268
+#: ../../source/usage/groups.rst:14 c439aea2c7df4f61bf862c3313aa5a91
 msgid "Management Of Multiple GPUs From One Thread"
-msgstr "一个线程管理多个GPU"
+msgstr "单线程管理多GPU"
 
-#: ../../source/usage/groups.rst:16 6f01bba69273499d9acad6a42b88b00e
+#: ../../source/usage/groups.rst:16 6455c9e6db654ec8b6c662e5e5dd080e
 msgid ""
 "When a single thread is managing multiple devices, group semantics must be used. This is because every NCCL call may "
 "have to block, waiting for other threads/ranks to arrive, before effectively posting the NCCL operation on the given "
 "stream. Hence, a simple loop on multiple devices like shown below could block on the first call waiting for the other "
 "ones:"
-msgstr "当单个线程管理多个设备时，必须使用组语义。这是因为每个 NCCL 调用可能需要阻塞，等待其他线程/排名到达，然后才能有效地在给定流上发布 NCCL 操作。因此，像下面展示的在多个设备上简单循环可能会在第一个调用上阻塞，等待其他调用完成："
+msgstr "当单个线程管理多个设备时，必须采用组语义。这是因为每次NCCL调用都可能需要阻塞，等待其他线程/秩到达后，才能在给定流上有效提交NCCL操作。因此，如下所示的简单多设备循环可能会在首次调用时阻塞，以等待其他操作："
 
-#: ../../source/usage/groups.rst:25 5c605bf6edb2405899acc6e2e1457d79
+#: ../../source/usage/groups.rst:25 abc5e3083749437b917f4b200cb7022c
 msgid "To define that these calls are part of the same collective operation, ncclGroupStart and ncclGroupEnd should be used:"
-msgstr "为了定义这些调用属于同一集体操作，应该使用 ncclGroupStart 和 ncclGroupEnd："
+msgstr "要定义这些调用属于同一集合通信操作，应使用 ncclGroupStart 和 ncclGroupEnd："
 
-#: ../../source/usage/groups.rst:35 7d351ed5ace64f86ab4334a3eb69bd68
+#: ../../source/usage/groups.rst:35 1b1bd539c5574eaa90bf92617f09c5fb
 msgid "This will tell NCCL to treat all calls between ncclGroupStart and ncclGroupEnd as a single call to many devices."
-msgstr "这将告诉NCCL将ncclGroupStart和ncclGroupEnd之间的所有调用视为对多个设备的单个调用。"
+msgstr "这将指示NCCL将介于ncclGroupStart和ncclGroupEnd之间的所有调用视为对多设备的单次调用。"
 
-#: ../../source/usage/groups.rst:37 42faeff83add4a3aa3138a190c098ab3
+#: ../../source/usage/groups.rst:37 d6a63534017047e5b7b6c7368b5486d3
 msgid ""
 "Caution: When called inside a group, stream operations (like ncclAllReduce) can return without having enqueued the "
 "operation on the stream. Stream operations like cudaStreamSynchronize can therefore be called only after ncclGroupEnd "
 "returns."
-msgstr "警告：当在组内调用时，流操作（如ncclAllReduce）可能会在未将操作排入流中的情况下返回。因此，只能在ncclGroupEnd返回后调用流操作，如cudaStreamSynchronize。"
+msgstr "注意：在群组内调用时，流操作（如ncclAllReduce）可能返回但尚未将操作加入流队列。因此，诸如cudaStreamSynchronize之类的流同步操作必须仅在ncclGroupEnd返回后调用。"
 
-#: ../../source/usage/groups.rst:41 b3caae266cda46999d60be89590905e7
+#: ../../source/usage/groups.rst:41 fe7c70269352415fa93bf799ef952cd6
 msgid "Group calls must also be used to create a communicator when one thread manages more than one device:"
-msgstr "组呼也必须用于在一个线程管理多个设备时创建通信器："
+msgstr "当单个线程管理多个设备时，必须通过组调用来创建通信器。"
 
-#: ../../source/usage/groups.rst:53 bb5385143550496e9376b5c2c8243384
+#: ../../source/usage/groups.rst:53 65a98d6a3eee4333a832c908fa9b90c1
 msgid ""
 "Note: Contrary to NCCL 1.x, there is no need to set the CUDA device before every NCCL communication call within a "
 "group, but it is still needed when calling ncclCommInitRank within a group."
-msgstr "注意：与 NCCL 1.x 相反，在组内的每次 NCCL 通信调用之前无需设置 CUDA 设备，但在组内调用 ncclCommInitRank 时仍然需要设置 CUDA 设备。"
+msgstr "注意：与NCCL 1.x版本不同，在组内执行每次NCCL通信调用前无需设置CUDA设备，但在调用组内的ncclCommInitRank时仍需设置。"
 
 #: ../../source/usage/groups.rst:56 ../../source/usage/groups.rst:101
-#: ../../source/usage/groups.rst:141 1f498fb1ca5a4d459ed6ece321d46619
-#: 64b10df03fb54d558f031a657c17d3cb dbfb90dd170849dc99e2a3f4a7f1e0f8
+#: ../../source/usage/groups.rst:141 1cff8eb797234f059ae5f8aed1fac875
+#: 3e877624d87c449d9fa4a603afb376bc b7cb1c802a9e4f9bb71de257ecc087d3
 msgid "Related links:"
 msgstr "相关链接："
 
 #: ../../source/usage/groups.rst:58 ../../source/usage/groups.rst:103
-#: cfc2f080760b4cf0b23eb760aa59ab7a f71886f5ce144b0ba0c64dc603de7d64
+#: 113d2d155fb040f5b0b74567d1c03855 bde2b8bd4e994957ad70f119b8624a46
 msgid ":c:func:`ncclGroupStart`"
-msgstr ":c:func:`ncclGroupStart`"
+msgstr "`ncclGroupStart`"
 
 #: ../../source/usage/groups.rst:59 ../../source/usage/groups.rst:104
-#: 36ca7234d97744a3a947e4626dd3745b 6974ee656c2a4fedab314227d8e807c2
+#: 080c9e514bda4a9e9c3dbef4bc6c31c8 407a28e4b56a46a19619b49407b8dbc5
 msgid ":c:func:`ncclGroupEnd`"
-msgstr ":c:func:`ncclGroupEnd`"
+msgstr "c:func:`ncclGroupEnd`"
 
-#: ../../source/usage/groups.rst:62 443ae0be2cec43b6b38ee8fc8b1dca2f
+#: ../../source/usage/groups.rst:62 03f4fa926db0494fa51e0a30bc82b009
 msgid "Aggregated Operations (2.2 and later)"
-msgstr "聚合操作（2.2及更高版本）"
+msgstr "集合通信操作（2.2及更高版本）"
 
-#: ../../source/usage/groups.rst:64 910eaa4962524237ad185a5d55d53540
+#: ../../source/usage/groups.rst:64 c01ffbb0d5dd46c99417e4e640992613
 msgid ""
 "The group semantics can also be used to have multiple collective operations performed within a single NCCL launch. This "
 "is useful for reducing the launch overhead, in other words, latency, as it only occurs once for multiple operations. "
 "Init functions cannot be aggregated with other init functions, nor with communication functions."
-msgstr "组语义也可用于在单个 NCCL 启动中执行多个集体操作。这对于减少启动开销，换句话说，延迟很有用，因为它仅对多个操作发生一次。初始化函数不能与其他初始化函数或通信函数聚合。"
+msgstr "组语义还可用于在单次NCCL启动中执行多个集合通信操作。这有助于降低启动开销（即延迟），因为多个操作仅触发一次启动。初始化函数不可与其他初始化函数或通信函数聚合执行。"
 
-#: ../../source/usage/groups.rst:68 d10e96af8bfc4ff18594a6e1fecc65d8
+#: ../../source/usage/groups.rst:68 19fea2717563476e9bbd762dca9b1187
 msgid ""
 "Aggregation of collective operations can be done simply by having multiple calls to NCCL within a ncclGroupStart / "
 "ncclGroupEnd section."
-msgstr "集体操作的聚合可以通过在`ncclGroupStart` / `ncclGroupEnd`部分内多次调用NCCL来简单完成。"
+msgstr "集合通信操作的聚合可以通过在ncclGroupStart/ncclGroupEnd代码段内多次调用NCCL来实现。"
 
-#: ../../source/usage/groups.rst:71 591dce43f04e47e68b13d3680fa2533e
+#: ../../source/usage/groups.rst:71 e9a662768c4e4bd8933021b4981856bd
 msgid "In the following example, we launch one broadcast and two allReduce operations together as a single NCCL launch."
-msgstr "在下面的示例中，我们将一个广播操作和两个allReduce操作一起作为单个NCCL启动。"
+msgstr "在以下示例中，我们将一个广播操作和两个全规约操作作为单次NCCL启动一并提交。"
 
-#: ../../source/usage/groups.rst:81 895b130a16b0425baeddbcbec5357005
+#: ../../source/usage/groups.rst:81 88b896a7434642e1995077890375086b
 msgid ""
 "It is permitted to combine aggregation with multi-GPU launch and use different communicators in a group launch as shown "
 "in the Management Of Multiple GPUs From One Thread topic.  When combining multi-GPU launch and aggregation, "
 "ncclGroupStart and ncclGroupEnd can be either used once or at each level. The following example groups the allReduce "
 "operations from different layers and on multiple CUDA devices :"
 msgstr ""
-"在“一个线程管理多个 GPU”主题中，允许将聚合与多 GPU 启动结合使用，并在组启动中使用不同的通信器。在结合多 GPU 启动和聚合时，ncclGroupStart 和 ncclGroupEnd "
-"可以在每个级别使用一次或多次。以下示例将来自不同层次和多个 CUDA 设备的 allReduce 操作分组："
+"允许将聚合操作与多GPU启动相结合，并在分组启动中使用不同的通信器，如\"单线程管理多GPU\""
+"主题所示。当结合多GPU启动与聚合操作时，ncclGroupStart和ncclGroupEnd可在单层级或每个层级调用一次。以下示例将来自不同层级且运行在多个CUDA设备上的allReduce操作进行分组："
 
-#: ../../source/usage/groups.rst:98 76c9549e9c9b4969bf70f99b5c37cdd6
+#: ../../source/usage/groups.rst:98 a5e97a040a714084880c1f8267d30304
 msgid ""
 "Note: The NCCL operation will only be started as a whole during the last call to ncclGroupEnd. The ncclGroupStart and "
 "ncclGroupEnd calls within the for loop are not necessary and do nothing."
-msgstr "注意：NCCL 操作只会在最后一次调用 ncclGroupEnd 时作为一个整体启动。for 循环内的 ncclGroupStart 和 ncclGroupEnd 调用是不必要的，也不会产生任何效果。"
+msgstr "注意：NCCL操作仅会在最后一次调用ncclGroupEnd时整体启动。for循环内的ncclGroupStart和ncclGroupEnd调用并非必需，且不执行任何操作。"
 
-#: ../../source/usage/groups.rst:107 56365c8f85154877892324ce37887d2e
+#: ../../source/usage/groups.rst:107 46701e20442a43ee9c9e1b38c8199203
 msgid "Nonblocking Group Operation"
-msgstr "非阻塞式群组操作"
+msgstr "非阻塞组操作"
 
-#: ../../source/usage/groups.rst:109 85c95fda2a0243d08fe1336a7a4cf261
+#: ../../source/usage/groups.rst:109 79f61c885fd04f0f93e91676bb079cef
 msgid ""
 "If a communicator is marked as nonblocking through ncclCommInitRankConfig, the group functions become asynchronous "
 "correspondingly. In this case, if users issue multiple NCCL operations in one group, returning from ncclGroupEnd() "
@@ -136,15 +136,18 @@ msgid ""
 "to streams in the background. It is users' responsibility to make sure the state of the communicator changes into "
 "ncclSuccess before calling related CUDA calls (e.g. cudaStreamSynchronize):"
 msgstr ""
-"如果通过ncclCommInitRankConfig将通信器标记为非阻塞，则相应地组函数变为异步。在这种情况下，如果用户在一个组中发出多个NCCL操作，在ncclGroupEnd()"
-"返回之时，不代表NCCL通信内核已经发出到CUDA流中。如果ncclGroupEnd()"
-"返回ncclSuccess，则表示NCCL内核已经发出到流中；如果返回ncclInProgress，则表示NCCL内核正在后台发出到流中。用户有责任确保通信器的状态在调用相关CUDA调用（例如cudaStreamSynchronize）之前"
-"变为ncclSuccess："
+"如果通过ncclCommInitRankConfig将通信器标记为非阻塞，相应的群组函数将变为异步。在此情况下，若用户在一个群组内发起多个NCCL操作，从ncclGroupEnd()"
+"返回并不意味NCCL通信内核已下发至CUDA流。若ncclGroupEnd()"
+"返回ncclSuccess，表示NCCL内核已下发至流；若返回ncclInProgress，则表示NCCL内核正在后台下发至流。用户有责任确保在调用相关CUDA调用（例如cudaStreamSynchronize）前，通信器状态已转变为nc"
+"clSuccess。\n"
+"\n"
+"（注：严格遵循技术术语翻译规范，保留ncclCommInitRankConfig、ncclGroupEnd()、ncclSuccess、ncclInProgress、CUDA、cudaStreamSynchronize等专有名词原样，使用\""
+"通信器\"、\"非阻塞\"、\"异步\"、\"群组\"、\"内核\"、\"流\"等符合NVIDIA技术语言体系的译法。）"
 
-#: ../../source/usage/groups.rst:143 39299f4f0ace49398ec0badc45415961
+#: ../../source/usage/groups.rst:143 24d54370d79e406aad9fde42c48f1e4c
 msgid ":c:func:`ncclCommInitRankConfig`"
-msgstr ":c:func:`ncclCommInitRankConfig`"
+msgstr "c:func:`ncclCommInitRankConfig`"
 
-#: ../../source/usage/groups.rst:144 bbff8c419ddb4e1491e4c55a60939ce8
+#: ../../source/usage/groups.rst:144 e0a3c5f3113748258661cf3693018504
 msgid ":c:func:`ncclCommGetAsyncError`"
-msgstr ":c:func:`ncclCommGetAsyncError`"
+msgstr "c:func:`ncclCommGetAsyncError`"

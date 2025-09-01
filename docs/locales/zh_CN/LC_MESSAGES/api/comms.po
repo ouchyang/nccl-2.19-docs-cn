@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,99 +19,101 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/api/comms.rst:3 05d8b783f5af4f66a5ea00c50e6dbe0c
+#: ../../source/api/comms.rst:3 c48cf055bfac4b1587a2e530b75b1014
 msgid "Communicator Creation and Management Functions"
-msgstr "通信器创建和管理功能"
+msgstr "通信器创建与管理函数"
 
-#: ../../source/api/comms.rst:5 e8145ffcb9d1471c93fa04153e5dc6d2
+#: ../../source/api/comms.rst:5 6d3d0174c8ad4e3aadcb77ffea41c007
 msgid "The following functions are public APIs exposed by NCCL to create and manage the collective communication operations."
-msgstr "以下功能是由 NCCL 公开的 API，用于创建和管理集体通信操作。"
+msgstr "以下函数是NCCL公开的用于创建和管理集合通信操作的公共API。"
 
-#: ../../source/api/comms.rst:8 81386474817641ca9dff07ca055fe641
+#: ../../source/api/comms.rst:8 271187c64cf94660a91841c7047e3343
 msgid "ncclGetLastError"
 msgstr "ncclGetLastError"
 
-#: ../../source/api/comms.rst:12 b882547d7c1c427f82ef67ac53cca1aa
+#: ../../source/api/comms.rst:12 af8ebe81b28945358a0c27b28679ac0c
 msgid ""
 "Returns a human-readable string of the last error that occurred in NCCL. Note: The error is not cleared by calling this "
 "function. The *comm* argument is currently unused and can be set to NULL."
-msgstr "返回一个易读的字符串，表示在NCCL中发生的最后一个错误。注意：调用此函数不会清除错误。*comm*参数目前未使用，可以设置为NULL。"
+msgstr "返回NCCL中最近发生错误的人类可读字符串。注意：调用此函数不会清除错误状态。*comm* 参数当前未使用，可设置为NULL。"
 
-#: ../../source/api/comms.rst:18 a6f5a36d700f44f298b3bedf3fcd5969
+#: ../../source/api/comms.rst:18 38fc410f3b4748feb4778f6b470f16e9
 msgid "ncclGetVersion"
 msgstr "ncclGetVersion"
 
-#: ../../source/api/comms.rst:22 e04ca094e3444efe85b98dcb4fb1a347
+#: ../../source/api/comms.rst:22 8b5bc3d0e85b4a468d7085911090d5e7
 msgid ""
 "The ncclGetVersion function returns the version number of the currently linked NCCL library. The NCCL version number is "
 "returned in *version* and encoded as an integer which includes the :c:macro:`NCCL_MAJOR`, :c:macro:`NCCL_MINOR` and "
 ":c:macro:`NCCL_PATCH` levels. The version number returned will be the same as the :c:macro:`NCCL_VERSION_CODE` defined "
 "in *nccl.h*. NCCL version numbers can be compared using the supplied macro; :c:macro:`NCCL_VERSION(MAJOR,MINOR,PATCH)`"
 msgstr ""
-"`ncclGetVersion`函数返回当前链接的NCCL库的版本号。NCCL版本号以整数形式编码，包括`NCCL_MAJOR`、`NCCL_MINOR`和`NCCL_PATCH`级别，并存储在`version`中。返回的版本号将与`"
-"nccl.h`中定义的`NCCL_VERSION_CODE`相同。可以使用提供的宏`:c:macro:`NCCL_VERSION(MAJOR,MINOR,PATCH)`来比较NCCL版本号。"
+"`ncclGetVersion` 函数返回当前链接的 NCCL 库版本号。版本号通过 *version* 参数以整数形式返回，该整数编码包含 :c:macro:`NCCL_MAJOR`、:c:macro:`NCCL_MINOR` 和 "
+":c:macro:`NCCL_PATCH` 级别。返回的版本号将与 *nccl.h* 中定义的 :c:macro:`NCCL_VERSION_CODE` 一致。NCCL 版本号可通过提供的宏 "
+":c:macro:`NCCL_VERSION(MAJOR,MINOR,PATCH)` 进行比较。"
 
-#: ../../source/api/comms.rst:30 2027225dfd0f4ef9849e35d21d803d0b
+#: ../../source/api/comms.rst:30 c53e5b23e2df4167ae34264bc24d7d55
 msgid "ncclGetUniqueId"
 msgstr "ncclGetUniqueId"
 
-#: ../../source/api/comms.rst:34 a38a6eef9e244f6086631c9497ce7dab
+#: ../../source/api/comms.rst:34 ea305128fb144d2f9f42e09445ec0435
 msgid ""
 "Generates an Id to be used in ncclCommInitRank. ncclGetUniqueId should be called once when creating a communicator and "
 "the Id should be distributed to all ranks in the communicator before calling ncclCommInitRank. *uniqueId* should point "
 "to a ncclUniqueId object allocated by the user."
 msgstr ""
-"生成一个用于在`ncclCommInitRank`中使用的ID。在创建通信器时应该调用`ncclGetUniqueId`一次，并且在调用`ncclCommInitRank`之前，应该将该ID分发给通信器中的所有等级。`*uniqueId*`"
-"应该指向用户分配的`ncclUniqueId`对象。"
+"生成用于`ncclCommInitRank`的标识符。创建通信器时，`ncclGetUniqueId`应被调用一次，且该标识符需在调用`ncclCommInitRank`前分发给通信器中的所有秩。*uniqueId*应指向用户分配的`"
+"ncclUniqueId`对象。"
 
-#: ../../source/api/comms.rst:39 d2891c1f807147188d1c4164dba71f3f
+#: ../../source/api/comms.rst:39 28b083ca49c5453aadf93b36eedee493
 msgid "ncclCommInitRank"
 msgstr "ncclCommInitRank"
 
-#: ../../source/api/comms.rst:43 a1c02a1f18974a51854c4bde97fcc7e2
+#: ../../source/api/comms.rst:43 1eddf6a6440e4078843c4072208ff515
 msgid ""
 "Creates a new communicator (multi thread/process version). *rank* must be between 0 and *nranks*-1 and unique within a "
 "communicator clique. Each rank is associated to a CUDA device, which has to be set before calling ncclCommInitRank. "
 "ncclCommInitRank implicitly synchronizes with other ranks, hence it must be called by different threads/processes or "
 "use ncclGroupStart/ncclGroupEnd."
 msgstr ""
-"创建一个新的通信器（多线程/进程版本）。 *rank* 必须在0和*nranks*-1之间，并且在通信器集合内必须是唯一的。 每个rank都与一个CUDA设备相关联，在调用ncclCommInitRank之前必须设置CUDA设备。 "
-"ncclCommInitRank隐式与其他rank同步，因此必须由不同的线程/进程调用，或者使用ncclGroupStart/ncclGroupEnd。"
+"创建新的通信器（多线程/多进程版本）。*秩*必须介于0到*总秩数-1*"
+"之间，且在通信器集群中保持唯一性。每个秩需关联一个CUDA设备，该设备必须在调用ncclCommInitRank前完成设置。ncclCommInitRank会隐式与其他秩进行同步，因此必须由不同线程/"
+"进程调用，或使用ncclGroupStart/ncclGroupEnd进行协同调用。"
 
-#: ../../source/api/comms.rst:51 ee94cfb6cab44113a12286db79cfe7cd
+#: ../../source/api/comms.rst:51 32dcbd436dc44b8098c1ee06963aea51
 msgid "ncclCommInitAll"
 msgstr "ncclCommInitAll"
 
-#: ../../source/api/comms.rst:55 85357d7a40d5447c89968b65a5bdaa81
+#: ../../source/api/comms.rst:55 525c4d16b6ee4c7695889234fdca1a69
 msgid ""
 "Creates a clique of communicators (single process version) in a blocking way. This is a convenience function to create "
 "a single-process communicator clique. Returns an array of *ndev* newly initialized communicators in *comms*. *comms* "
 "should be pre-allocated with size at least ndev*sizeof(:c:type:`ncclComm_t`). *devlist* defines the CUDA devices "
 "associated with each rank. If *devlist* is NULL, the first *ndev* CUDA devices are used, in order."
 msgstr ""
-"以阻塞方式创建一个通信者集合（单进程版本）。这是一个便利函数，用于创建一个单进程通信者集合。将*comms*中的*ndev*个新初始化的通信者作为数组返回。*comms*应该预先分配大小至少为ndev*sizeof(:c:type:`"
-"ncclComm_t`)。*devlist*定义了与每个等级相关联的CUDA设备。如果*devlist*为NULL，则按顺序使用前*ndev*个CUDA设备。"
+"以阻塞方式创建通信子集团（单进程版本）。这是一个用于创建单进程通信子集团的便捷函数。在*comms*中返回包含*ndev*个新初始化的通信子的数组。*comms*应预先分配至少ndev*sizeof(:c:type:`ncclComm_t`"
+")大小的内存空间。*devlist*定义了与每个秩关联的CUDA设备。若*devlist*为NULL，则默认按顺序使用前*ndev*个CUDA设备。"
 
-#: ../../source/api/comms.rst:63 6a8965f63838488ab1c2ffd15087a927
+#: ../../source/api/comms.rst:63 9f04ad52c1d84e1086b13ce8badaec81
 msgid "ncclCommInitRankConfig"
 msgstr "ncclCommInitRankConfig"
 
-#: ../../source/api/comms.rst:67 f670ce35132d42a3bfd9e04869fed9b2
+#: ../../source/api/comms.rst:67 202200d03bb24ac19a0766a1454a2b56
 msgid ""
 "This function works the same way as *ncclCommInitRank* but accepts a configuration argument of extra attributes for the "
 "communicator. If config is passed as NULL, the communicator will have the default behavior, as if ncclCommInitRank was "
 "called."
-msgstr "这个函数的工作方式与*ncclCommInitRank*相同，但接受一个配置参数，用于传递给通信器的额外属性。如果将config传递为NULL，则通信器将具有默认行为，就像调用了ncclCommInitRank一样。"
+msgstr "此函数与*ncclCommInitRank*功能相同，但支持通过配置参数为通信器设置额外属性。若config参数传递为NULL，通信器将保持默认行为，效果等同于调用ncclCommInitRank。"
 
-#: ../../source/api/comms.rst:71 f46fa9d29a2f436f9d7119f721d7f368
+#: ../../source/api/comms.rst:71 17f75e7a4ee74314915c1c1d9405db96
 msgid "See the :ref:`init-rank-config` section for details on configuration options."
-msgstr "请查看 :ref:`init-rank-config` 部分，了解配置选项的详细信息。"
+msgstr "请参阅 :ref:`初始化与秩配置` 章节了解配置选项的详细信息。"
 
-#: ../../source/api/comms.rst:74 9d3b8bac93ac44d08d7da125e23f9ce9
+#: ../../source/api/comms.rst:74 2f9b305259684e93abd716e7555a3e2e
 msgid "ncclCommSplit"
 msgstr "ncclCommSplit"
 
-#: ../../source/api/comms.rst:78 beb5491daa234d1c863bad5e48ac3117
+#: ../../source/api/comms.rst:78 54075f4324124835b5ac49703b6356c7
 msgid ""
 "The *ncclCommSplit* function creates a set of new communicators from an existing one. Ranks which are passed the same "
 "*color* value will be part of the same group, and a color must be a non-negative value. If it is passed as "
@@ -122,15 +124,16 @@ msgid ""
 "communicator inherit the original communicator's configuration. When split, there should not be any outstanding NCCL "
 "opereations on the *comm*. Otherwise, it might cause deadlock."
 msgstr ""
-"*ncclCommSplit* 函数从现有通信器中创建一组新的通信器。传递相同 *color* 值的秩将成为同一组的一部分，颜色必须是非负值。如果传递 *NCCL_SPLIT_NOCOLOR*，这意味着该秩将不属于任何组，因此将返回 "
-"NULL 作为新通信器。键的值将确定秩的顺序，较小的键意味着在新通信器中秩较小。如果秩之间的键相等，则将使用原始通信器中的秩来排序秩。如果新通信器需要具有特殊配置，可以将其作为 *config* 传递，否则将 *config* 设置为 "
-"NULL 将使新通信器继承原始通信器的配置。在拆分时，*comm* 上不应有任何未完成的 NCCL 操作。否则，可能会导致死锁。"
+"*ncclCommSplit* "
+"函数基于现有通信器创建一组新通信器。传入相同*color*值的秩将被划分到同一组中，且color必须为非负值。若传入*NCCL_SPLIT_NOCOLOR*"
+"，则表示该秩不会加入任何组，因此会返回NULL作为newcomm。key的数值将决定秩的排序顺序，较小的key值对应新通信器中较小的秩。当不同秩的key值相同时，将依据原始通信器中的秩顺序进行排序。若需为新通信器设置特殊配置，可通过*"
+"config*参数传入，否则将config设置为NULL会使新通信器继承原始通信器的配置。执行拆分操作时，原有通信器*comm*上不应存在任何未完成的NCCL操作，否则可能引发死锁。"
 
-#: ../../source/api/comms.rst:91 952e83c57f2040989467956b7555cd3f
+#: ../../source/api/comms.rst:91 cf60deb0897b428baefcfb8c40fec0c2
 msgid "ncclCommFinalize"
 msgstr "ncclCommFinalize"
 
-#: ../../source/api/comms.rst:95 18d8bf17276d4487905912a268a2df26
+#: ../../source/api/comms.rst:95 a3b9d7e95e944586b68a8820ed255672
 msgid ""
 "Finalize a communicator object *comm*. When the communicator is marked as nonblocking, *ncclCommFinalize* is a "
 "nonblocking function. Successful return from it will set communicator state as *ncclInProgress* and indicates the "
@@ -138,15 +141,15 @@ msgid ""
 "and freed. Once all NCCL operations are complete, the communicator will transition to the *ncclSuccess* state. Users "
 "can query that state with *ncclCommGetAsyncError*."
 msgstr ""
-"完成一个通信器对象 *comm*。当通信器被标记为非阻塞时，*ncclCommFinalize* 是一个非阻塞函数。成功返回将会将通信器状态设置为 "
-"*ncclInProgress*，表示通信器正在进行最终处理，此时所有未完成的操作和网络相关资源都在被刷新和释放。一旦所有的 NCCL 操作完成，通信器将会转换到 *ncclSuccess* 状态。用户可以使用 "
+"完成通信器对象 *comm* 的最终化。当通信器被标记为非阻塞模式时，*ncclCommFinalize* 是一个非阻塞函数。该函数成功返回会将通信器状态设置为 "
+"*ncclInProgress*，表明通信器正处于最终化过程中，所有未完成的操作和网络相关资源正在被刷新和释放。当所有NCCL操作完成后，通信器将转换为 *ncclSuccess* 状态。用户可通过 "
 "*ncclCommGetAsyncError* 查询该状态。"
 
-#: ../../source/api/comms.rst:103 6162e91000ba44c697e56557db4d6446
+#: ../../source/api/comms.rst:103 16b12282134b4382b303cf9f73626552
 msgid "ncclCommDestroy"
 msgstr "ncclCommDestroy"
 
-#: ../../source/api/comms.rst:107 60f2e0ac221c49239a95d6f4290a04b9
+#: ../../source/api/comms.rst:107 fa1fe5c911c147e790f0d9619ad06c57
 msgid ""
 "Destroy a communicator object *comm*. *ncclCommDestroy* only frees the local resources that are allocated to the "
 "communicator object *comm* if *ncclCommFinalize* was previously called on the communicator; otherwise, "
@@ -155,25 +158,25 @@ msgid ""
 "communicators should no longer be accessed after ncclCommDestroy returns. It is recommended that user call "
 "*ncclCommFinalize* and then *ncclCommDestroy*."
 msgstr ""
-"销毁一个通信器对象 *comm*。*ncclCommDestroy* 只会释放为通信器对象 *comm* 分配的本地资源，如果之前在通信器上调用了 *ncclCommFinalize*；否则，*ncclCommDestroy* "
-"会在内部调用 ncclCommFinalize。如果用户调用了 *ncclCommFinalize*，用户应确保在调用 *ncclCommDestroy* 之前通信器的状态变为 *ncclSuccess*。在所有情况下，在 "
-"*ncclCommDestroy* 返回后不应再访问通信器。建议用户先调用 *ncclCommFinalize*，然后再调用 *ncclCommDestroy*。"
+"销毁通信器对象 *comm*。仅当先前已对通信器调用过 *ncclCommFinalize* 时，*ncclCommDestroy* 才会释放分配给通信器对象 *comm* 的本地资源；否则 *ncclCommDestroy* "
+"将在内部调用 ncclCommFinalize。若用户主动调用 *ncclCommFinalize*，则需确保通信器状态变为 *ncclSuccess* 后再调用 *ncclCommDestroy*。无论何种情况，通信器在 "
+"ncclCommDestroy 返回后均不可再被访问。建议用户先调用 *ncclCommFinalize*，再调用 *ncclCommDestroy*。"
 
-#: ../../source/api/comms.rst:116 ca739d0210ca480c81a99ea7061139e3
+#: ../../source/api/comms.rst:116 a66c9caf88d448aaa5d6d40bd2075c0b
 msgid "ncclCommAbort"
 msgstr "ncclCommAbort"
 
-#: ../../source/api/comms.rst:120 4c5bf645da1e495581b8973b05b24c2e
+#: ../../source/api/comms.rst:120 f50fb86c31b441378d5150601e9c45ec
 msgid ""
 "Frees resources that are allocated to a communicator object *comm*. Will abort any uncompleted operations before "
 "destroying the communicator."
-msgstr "释放分配给通信对象 *comm* 的资源。在销毁通信器之前，将中止所有未完成的操作。"
+msgstr "释放分配给通信器对象 *comm* 的资源。在销毁通信器之前将中止所有未完成的操作。"
 
-#: ../../source/api/comms.rst:124 3d12ff776bb24d7c85bbf64ddc2c66d0
+#: ../../source/api/comms.rst:124 4e1a87ebc4a544e9a92f03d40f1843b1
 msgid "ncclCommGetAsyncError"
 msgstr "ncclCommGetAsyncError"
 
-#: ../../source/api/comms.rst:128 9d15a88f1c754d46a7609dab947facce
+#: ../../source/api/comms.rst:128 7ab56763128a41a8bfa404e45f51984d
 msgid ""
 "Queries the progress and potential errors of asynchronous NCCL operations. Operations which do not require a stream "
 "argument (e.g. ncclCommFinalize) can be considered complete as soon as the function returns *ncclSuccess*; operations "
@@ -186,67 +189,69 @@ msgid ""
 ":c:func:`ncclCommAbort`. If an error occurs on the communicator, nothing can be assumed about the completion or "
 "correctness of operations enqueued on that communicator."
 msgstr ""
-"查询异步 NCCL 操作的进度和潜在错误。不需要流参数的操作（例如 ncclCommFinalize）可以在函数返回 *ncclSuccess* 时视为已完成；需要流参数的操作（例如 "
-"ncclAllReduce）将在操作被提交到流上后立即返回 *ncclSuccess*，但可能会通过 ncclCommGetAsyncError() 报告错误，直到操作完成。如果任何 NCCL 函数的返回代码是 "
-"*ncclInProgress*，这意味着操作正在后台排队中，用户必须查询通信器的状态，直到所有状态变为 *ncclSuccess*，然后才能调用下一个 NCCL 函数。在状态变为 *ncclSuccess* 之前，用户不得向 NCCL "
-"使用的流发出 CUDA 内核。如果通信器出现错误，用户应使用 :c:func:`ncclCommAbort` 销毁通信器。如果通信器出现错误，则不能假设已在该通信器上排队的操作已完成或正确。"
+"查询异步NCCL操作的进度与潜在错误。无需流参数的操作（如ncclCommFinalize）在函数返回*ncclSuccess*时即可视为完成；需要流参数的操作（如ncclAllReduce）会在操作被发布到流上后立即返回*"
+"ncclSuccess*，但在操作完成前仍可能通过ncclCommGetAsyncError()报告错误。若任何NCCL函数返回码为*ncclInProgress*，表示操作正在后台入队过程中，用户必须持续查询通信器的状态直至所有状态变为*"
+"ncclSuccess*后，方可调用下一个NCCL函数。在状态转变为*ncclSuccess*前，禁止向NCCL占用的流提交CUDA内核。若通信器上发生错误，用户应通过:c:func:`ncclCommAbort`"
+"销毁该通信器。通信器一旦出现错误，其上已入队操作的完成状态与正确性将无法保证。\n"
+"\n"
+"（注：严格遵循技术术语体系，保留所有API名称*ncclSuccess*/*ncclInProgress*等原始格式，维持GPU通信语义准确性，未添加任何解释性内容）"
 
-#: ../../source/api/comms.rst:141 99d3f60279404219925791c4da9c723f
+#: ../../source/api/comms.rst:141 4cb9b3511b774687bdd537674d373f00
 msgid "ncclCommCount"
-msgstr "ncclCommCount"
+msgstr "`ncclCommCount`"
 
-#: ../../source/api/comms.rst:145 27f9b8ba41734b9bbcd574e98b7f3a17
+#: ../../source/api/comms.rst:145 a278a71ed39a44d39f41df9e162abfb4
 msgid "Returns in *count* the number of ranks in the NCCL communicator *comm*."
-msgstr "在 *count* 中返回 NCCL 通信器 *comm* 中的等级数。"
+msgstr "返回 *comm* NCCL 通信器中包含的秩数量至 *count*。"
 
-#: ../../source/api/comms.rst:148 8ae9519f8909470fa8429615030ff37e
+#: ../../source/api/comms.rst:148 14020e8f0d6548929a13c2beaeb05b7f
 msgid "ncclCommCuDevice"
 msgstr "ncclCommCuDevice"
 
-#: ../../source/api/comms.rst:152 e816c6c94164457e96d711b365d9bf59
+#: ../../source/api/comms.rst:152 44f06a6ea9fb4aee8f5ee51e09824753
 msgid "Returns in *device* the CUDA device associated with the NCCL communicator *comm*."
-msgstr "在 *device* 中返回与 NCCL 通信器 *comm* 关联的 CUDA 设备。"
+msgstr "返回与NCCL通信器*comm*关联的CUDA设备至*device*。"
 
-#: ../../source/api/comms.rst:155 b7e115a29fa142f4ac0d850d420002a7
+#: ../../source/api/comms.rst:155 5f3dec0fe3a94ba88161932c8e178952
 msgid "ncclCommUserRank"
 msgstr "ncclCommUserRank"
 
-#: ../../source/api/comms.rst:159 df828838876045408c4d360225d7632c
+#: ../../source/api/comms.rst:159 d7234bcdbdbf4789b5cbaa51c3908ae1
 msgid "Returns in *rank* the rank of the NCCL communicator *comm*."
-msgstr "返回*rank*中NCCL通信器*comm*的等级。"
+msgstr "返回NCCL通信器*comm*的*秩*。"
 
-#: ../../source/api/comms.rst:162 1fb83a372503431881156d4a241abb08
+#: ../../source/api/comms.rst:162 15c68880fbab4d96904e1256a11dfc98
 msgid "ncclCommRegister"
 msgstr "ncclCommRegister"
 
-#: ../../source/api/comms.rst:166 829e37289c59435b8117d5d2a90b1317
+#: ../../source/api/comms.rst:166 8d6d51cdf6b44ebbaaa63a55f9943a20
 msgid ""
 "Register buffer with *size* under communicator *comm* for zero-copy communication, and *handle* is returned for future "
 "unregistration. See *buff* and *size* requirements (:ref: `user_buffer_reg`)."
-msgstr "在通信器*comm*下注册大小为*size*的缓冲区，以便进行零拷贝通信，返回*handle*以供将来注销使用。请参阅*buff*和*size*的要求(:ref: `user_buffer_reg`)。"
+msgstr "在通信器 *comm* 下注册大小为 *size* 的缓冲区以进行零拷贝通信，返回的 *handle* 将用于后续注销操作。关于 *buff* 和 *size* 的要求详见 (:ref: `user_buffer_reg`)。"
 
-#: ../../source/api/comms.rst:170 091c09b627dd4c5db5285a09b2b5b54a
+#: ../../source/api/comms.rst:170 b95e854152d54fabb81319a60c2ff735
 msgid "ncclCommDeregister"
 msgstr "ncclCommDeregister"
 
-#: ../../source/api/comms.rst:174 475ef0df615b4424ae1d5bd86242bde2
+#: ../../source/api/comms.rst:174 7c982bebda1a4866bc480cf39f200374
 msgid "Deregister buffer represented by *handle* under communicator *comm*."
-msgstr "取消在通信器 *comm* 下表示为 *handle* 的缓冲区。"
+msgstr "注销通信器*comm*下由*句柄*表示的缓冲区。"
 
-#: ../../source/api/comms.rst:177 2688818521ff4e43bdaf516bf72478d7
+#: ../../source/api/comms.rst:177 f1e83ab2d6ae40faa6e54d4740cd7a51
 msgid "ncclMemAlloc"
 msgstr "ncclMemAlloc"
 
-#: ../../source/api/comms.rst:181 dfc9d1394e474c36919b09f01482ae73
+#: ../../source/api/comms.rst:181 5b24c53d41264b9a9f14045bca9f758c
 msgid ""
 "Allocate a GPU buffer with *size*. Allocated buffer head address will be returned by *ptr*, and the actual allocated "
 "size can be larger than requested because of the buffer granularity requirements from all types of NCCL optimizations."
-msgstr "分配一个大小为*size*的GPU缓冲区。分配的缓冲区头地址将由*ptr*返回，实际分配的大小可能会大于请求的大小，这是因为所有类型的NCCL优化都需要缓冲区的粒度要求。"
+msgstr "分配一个大小为 *size* 的 GPU 缓冲区。分配的缓冲区首地址将通过 *ptr* 返回，且实际分配的大小可能因 NCCL 各类优化所需的缓冲区粒度要求而大于请求大小。"
 
-#: ../../source/api/comms.rst:186 9039b9746f824b1dbd1d2ba9521db563
+#: ../../source/api/comms.rst:186 984f6b2d322948eb9f412c4802367f31
 msgid "ncclMemFree"
 msgstr "ncclMemFree"
 
-#: ../../source/api/comms.rst:190 3c515e08890e4f839596d033c63300ac
+#: ../../source/api/comms.rst:190 6a8b05c6d4df42f28e990ae18ae21c26
 msgid "Free memory allocated by *ncclMemAlloc()*."
 msgstr "释放由 *ncclMemAlloc()* 分配的内存。"

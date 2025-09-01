@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,37 +19,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage.rst:3 557a9179fe2f43f2a43470385652a46b
+#: ../../source/usage.rst:3 42914daa492f431190d1e4b3d5804471
 msgid "Using NCCL"
-msgstr "NCCL 使用指南"
+msgstr "使用NCCL"
 
-#: ../../source/usage.rst:5 d138eab8cada459392ee8bcdb0e8f456
+#: ../../source/usage.rst:5 7700c42c4f0e4c60a1ba1bba506e602c
 msgid "Using NCCL is similar to using any other library in your code:"
-msgstr "使用NCCL就像在您的代码中使用任何其他库一样："
+msgstr "使用NCCL与在代码中使用其他库类似："
 
-#: ../../source/usage.rst:7 e3c6beb521a043f9b2d36a166971cbd0
+#: ../../source/usage.rst:7 6775af9f7bb64bf2986ca6366dc44d24
 msgid "Install the NCCL library on your system"
-msgstr "在您的系统上安装NCCL库"
+msgstr "安装NCCL库至您的系统"
 
-#: ../../source/usage.rst:9 3f3ab8cf201644deb4b0bfc21c1f47e3
+#: ../../source/usage.rst:9 fa12c26b3fa547ffb4538209087dffc5
 msgid "Modify your application to link to that library"
-msgstr "修改你的应用程序以链接到那个库。"
+msgstr "请修改您的应用程序以链接到该库。"
 
-#: ../../source/usage.rst:11 fb1d2389a570459db5a3677326a1908e
+#: ../../source/usage.rst:11 619daa9e1af244c589cd7410f7869e1f
 msgid "Include the header file nccl.h in your application"
-msgstr "在你的应用程序中包含头文件 `nccl.h`。"
+msgstr "在应用程序中包含头文件 nccl.h"
 
-#: ../../source/usage.rst:13 2bc28b0a3d9a4d14a397c6190bc11767
+#: ../../source/usage.rst:13 3395c522ef6e4cd2aedc2d691fa023fd
 msgid "Create a communicator (see :ref:`communicator-label`)"
-msgstr "创建一个通信器（参见：:ref:`communicator-label`）"
+msgstr "创建通信器（参见：ref:`communicator-label`）"
 
-#: ../../source/usage.rst:15 d8e0f2c37e2647c0bb775e35a929a156
+#: ../../source/usage.rst:15 2cbd2f333a084ab49a7d424c733ddfc7
 msgid ""
 "Use NCCL collective communication primitives to perform data communication. You can familiarize yourself with the "
 ":ref:`api-label` documentation to maximize your usage performance."
-msgstr "使用NCCL集体通信原语来执行数据通信。您可以熟悉:ref:`api-label`文档，以最大化您的使用性能。"
+msgstr "使用NCCL集合通信原语执行数据通信。您可参考 :ref:`api-label` 文档以最大化使用性能。"
 
-#: ../../source/usage.rst:17 1f6d2bc190694962ab80defbc58f9f73
+#: ../../source/usage.rst:17 bc67f9f61139405e97a1716b6aec7f22
 msgid ""
 "Collective communication primitives are common patterns of data transfer among a group of CUDA devices. A communication "
 "algorithm involves many processors that are communicating together. Each CUDA device is identified within the "
@@ -57,5 +57,5 @@ msgid ""
 "GPUs that are intended to work together. The creation of a communicator is the first step needed before launching any "
 "communication operation."
 msgstr ""
-"集体通信原语是CUDA设备组中常见的数据传输模式。通信算法涉及许多一起通信的处理器。每个CUDA设备在通信组中通过从零开始的索引或秩进行标识。每个秩使用通信器对象来引用打算一起工作的GPU集合。在启动任何通信操作之前，创建通信器是必需的第一"
-"步。"
+"集合通信原语是一组CUDA设备间常见的数据传输模式。通信算法涉及多个协同通信的处理器。在通信组中，每个CUDA设备通过一个从零开始的索引（即秩）进行标识。每个秩使用通信器对象来指代需要协同工作的GPU集合。在启动任何通信操作之前，创建通信器"
+"是必需的第一步。"

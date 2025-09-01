@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,110 +19,110 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/nccl1.rst:3 03df1c89823a4cb2a0d6adcef3163160
+#: ../../source/nccl1.rst:3 db56126f7f6c49279d42f0dd4478838e
 msgid "Migrating from NCCL 1 to NCCL 2"
-msgstr "从 NCCL 1 迁移到 NCCL 2"
+msgstr "从NCCL 1迁移至NCCL 2"
 
-#: ../../source/nccl1.rst:5 97e3db71c8f14722b7e6a30f6921758f
+#: ../../source/nccl1.rst:5 6b273b5cc61c4a51a9e3d6ecbce04e46
 msgid ""
 "If you are using NCCL 1.x and want to move to NCCL 2.x, be aware that the APIs have changed slightly. NCCL 2.x supports "
 "all of the collectives that NCCL 1.x supports, but with slight modifications to the API."
-msgstr "如果您正在使用 NCCL 1.x 并希望迁移到 NCCL 2.x，请注意 API 已略有更改。NCCL 2.x 支持 NCCL 1.x 支持的所有集合，但 API 稍有修改。"
+msgstr "如果您正在使用NCCL 1.x版本并希望迁移至NCCL 2.x，请注意其API已发生细微变更。NCCL 2.x支持NCCL 1.x的所有集合通信操作，但对API进行了小幅调整。"
 
-#: ../../source/nccl1.rst:8 806c30d4266745758ec7dcbc9f799390
+#: ../../source/nccl1.rst:8 94994ac09be940ecab5d926719fe3230
 msgid ""
 "In addition, NCCL 2.x also requires the usage of the \"Group API\" when a single thread manages NCCL calls for multiple "
 "GPUs."
-msgstr "此外，NCCL 2.x 版本还要求在单个线程管理多个 GPU 的 NCCL 调用时使用 \"Group API\"。"
+msgstr "此外，NCCL 2.x 还要求在单个线程管理多 GPU 的 NCCL 调用时使用“群组 API”。"
 
-#: ../../source/nccl1.rst:11 326667e4c4134c86b423d589d12e9b7d
+#: ../../source/nccl1.rst:11 7eeda064764b45448bac20971223e790
 msgid ""
 "The following list summarizes the changes that may be required in usage of NCCL API when using an application has a "
 "single thread that manages NCCL calls for multiple GPUs, and is ported from NCCL 1.x to 2.x:"
-msgstr "以下列表总结了在将应用程序从NCCL 1.x迁移到2.x时，当应用程序具有单个线程管理多个GPU的NCCL调用时，可能需要进行的更改："
+msgstr "以下列表总结了当应用程序使用单线程管理多GPU的NCCL调用，并从NCCL 1.x移植到2.x时可能需要进行的API使用变更："
 
-#: ../../source/nccl1.rst:15 3161bd7f55e34516b27ea96ad0c0b816
+#: ../../source/nccl1.rst:15 1f2f6bda753142939f092d6c7ac99f62
 msgid "Initialization"
 msgstr "初始化"
 
-#: ../../source/nccl1.rst:17 db6e4e346e914e329bd488413edea970
+#: ../../source/nccl1.rst:17 c135f12e7d6b458eac9475bb207737a9
 msgid ""
 "In versions 1.x, NCCL had to be initialized using ncclCommInitAll at a single thread or having one thread per GPU "
 "concurrently call ncclCommInitRank. NCCL 2.x retains these two modes of initialization. It adds a new mode with the "
 "Group API where ncclCommInitRank can be called in a loop, like a communication call, as shown below. The loop has to be "
 "guarded by the Group start and stop API."
 msgstr ""
-"在 1.x 版本中，NCCL 必须在单个线程中使用 ncclCommInitAll 进行初始化，或者每个 GPU 拥有一个线程同时调用 ncclCommInitRank。NCCL 2.x 保留了这两种初始化模式。它添加了一个新的模式，使用 "
-"Group API，其中可以像通信调用一样在循环中调用 ncclCommInitRank，如下所示。循环必须由 Group start 和 stop API 保护。"
+"在1.x版本中，NCCL必须通过单线程调用ncclCommInitAll，或由每个GPU对应的线程并发调用ncclCommInitRank来完成初始化。NCCL 2.x保留了这两种初始化模式，并通过Group "
+"API新增了第三种模式：可以像通信调用那样在循环中执行ncclCommInitRank，如下所示。该循环必须通过Group启动/终止API进行保护。"
 
-#: ../../source/nccl1.rst:33 5a828eb3b5304133a9c2b453ddd3f772
+#: ../../source/nccl1.rst:33 6f93b8e229a244728f0b3baf4f5b11cf
 msgid "Communication"
-msgstr "通讯"
+msgstr "通信"
 
-#: ../../source/nccl1.rst:35 a7728f0c1c724f479cda471e76d8d855
+#: ../../source/nccl1.rst:35 2a40e7f157194506a1b2dd5e26591228
 msgid ""
 "In NCCL 2.x, the collective operation can be initiated for different devices by making calls in a loop, on a single "
 "thread. This is similar to the usage in NCCL 1.x. However, this loop has to be guarded by the Group API in 2.x. Unlike "
 "in 1.x, the application does not have to select the relevant CUDA device before making the communication API call. NCCL "
 "runtime internally selects the device associated with the NCCL communicator handle. For example:"
 msgstr ""
-"在 NCCL 2.x 中，可以通过在单个线程上循环调用来为不同设备启动集体操作。这类似于 NCCL 1.x 中的用法。然而，在 2.x 中，此循环必须由 Group API 进行保护。与 1.x 不同的是，在进行通信 API "
-"调用之前，应用程序无需选择相关的 CUDA 设备。NCCL 运行时内部选择与 NCCL 通信句柄关联的设备。例如："
+"在NCCL 2.x版本中，可通过单线程循环调用的方式为不同设备发起集合通信操作，此方式与NCCL 1.x版本的使用方法类似。但需注意，2.x版本中的循环调用必须通过Group "
+"API进行保护。与1.x版本不同的是，应用程序无需在执行通信API调用前手动选择对应的CUDA设备——NCCL运行时会自动选择与NCCL通信器句柄关联的设备。例如："
 
-#: ../../source/nccl1.rst:48 7a3570e06ef14176a8cc212dd7b3e7bd
+#: ../../source/nccl1.rst:48 e87c8618b2714dd6a64ed2be578230d9
 msgid ""
 "When using only one device per thread or one device per process, the general usage of API remains unchanged from NCCL "
 "1.x to 2.x. The usage of the group API is not required in this case."
-msgstr "在每个线程或每个进程仅使用一个设备时，从 NCCL 1.x 到 2.x，API 的一般用法保持不变。在这种情况下，不需要使用 group API。"
+msgstr "当每个线程或每个进程仅使用一个设备时，从NCCL 1.x到2.x版本的通用API用法保持不变。此种情况下无需使用群组API。"
 
-#: ../../source/nccl1.rst:52 738c40d65b1044fa87540fcf415dd303
+#: ../../source/nccl1.rst:52 7e62496f44f449b59d34806fba0f89e0
 msgid "Counts"
 msgstr "计数"
 
-#: ../../source/nccl1.rst:53 4ea1cf6e3009413b9cdea3ef3cbeb47e
+#: ../../source/nccl1.rst:53 3ea6960115874bc6be56fbf2b2ac0d22
 msgid "Counts provided as arguments are now of type size_t instead of integer."
-msgstr "提供的计数现在是 size_t 类型，而不是整数类型。"
+msgstr "作为参数的计数值现采用 size_t 类型而非整型。"
 
-#: ../../source/nccl1.rst:56 0c48193821d64db89ab4a27111f30784
+#: ../../source/nccl1.rst:56 44002259458d4bd6b2c407e94bc26b3e
 msgid "In-place usage for AllGather and ReduceScatter"
-msgstr "对于 AllGather 和 ReduceScatter 的原地使用"
+msgstr "AllGather与ReduceScatter的就地使用"
 
-#: ../../source/nccl1.rst:57 dae6f2c120954557b51eb47f3ef23faa
+#: ../../source/nccl1.rst:57 0424ae41087340ec83cdc887a9c8c6e9
 msgid "For more information, see \"In-place Operations\"."
 msgstr "有关更多信息，请参阅“原地操作”。"
 
-#: ../../source/nccl1.rst:60 73f3b309f045483ca0d5534dffcaa8bb
+#: ../../source/nccl1.rst:60 d1cbd84498f34c6db45c6d91139bce88
 msgid "AllGather arguments order"
-msgstr "AllGather 参数顺序"
+msgstr "AllGather参数顺序"
 
-#: ../../source/nccl1.rst:61 17f52d98f1924dc0b9a79cd9167d19b2
+#: ../../source/nccl1.rst:61 db68c9c702884a5f96bbc23cb4996f59
 msgid "The AllGather function had its arguments reordered. The prototype changed from:"
-msgstr "AllGather 函数的参数已重新排序。原型已更改为："
+msgstr "AllGather函数的参数顺序已调整。函数原型从："
 
-#: ../../source/nccl1.rst:68 db9de6c2e6c940e4b2f5faa5eb4eed6c
+#: ../../source/nccl1.rst:68 b4e629e602cb4cde9062424d37a283ec
 msgid "to:"
-msgstr "Got it, waiting for your message."
+msgstr "请提供需要翻译的NCCL技术文本。"
 
-#: ../../source/nccl1.rst:75 2ab6952a856d4c44a0f4f67fadd92125
+#: ../../source/nccl1.rst:75 ecaf8c4eded448aebc46846d80dc179a
 msgid "The recvbuff argument has been moved after sendbuff to be consistent with all the other operations."
-msgstr "接收缓冲区参数已移动到发送缓冲区之后，以保持与所有其他操作的一致性。"
+msgstr "recvbuff参数已移至sendbuff之后，以保持与所有其他集合通信操作的一致性。"
 
-#: ../../source/nccl1.rst:78 95fb07221e47499d90d7335028f21039
+#: ../../source/nccl1.rst:78 0671cf826b704c5288c4afedb8ae436f
 msgid "Datatypes"
 msgstr "数据类型"
 
-#: ../../source/nccl1.rst:80 c8023a0c1faf416a9362e96f124585cf
+#: ../../source/nccl1.rst:80 ebe0740b284d4de58568384229f94cc1
 msgid ""
 "New datatypes have been added in NCCL 2.x.  The ones present in NCCL 1.x did not change and are still usable in NCCL "
 "2.x."
-msgstr "NCCL 2.x 中添加了新的数据类型。NCCL 1.x 中存在的数据类型没有更改，在 NCCL 2.x 中仍然可用。"
+msgstr "NCCL 2.x 中新增了数据类型。NCCL 1.x 中已有的数据类型保持不变，并仍可在 NCCL 2.x 中使用。"
 
-#: ../../source/nccl1.rst:83 a309b917cf6c4329aa62c284348641ea
+#: ../../source/nccl1.rst:83 334f96c06ddd41a8bcf59b1614868077
 msgid "Error codes"
 msgstr "错误代码"
 
-#: ../../source/nccl1.rst:85 04cd89bc34c149c7a84bcb8f4eeaeb75
+#: ../../source/nccl1.rst:85 ad4267396b2b43158d80252e149ebe67
 msgid ""
 "Error codes have been merged into the ncclInvalidArgument category and have been simplified. A new ncclInvalidUsage "
 "code has been created to cover new programming errors."
-msgstr "错误代码已合并到 ncclInvalidArgument 类别中，并已简化。创建了一个新的 ncclInvalidUsage 代码，用于涵盖新的编程错误。"
+msgstr "错误代码已合并至 ncclInvalidArgument 类别并进行了简化。新增 ncclInvalidUsage 错误码用于涵盖新的编程错误。"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,30 +19,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage/data.rst:3 b5875cc1e41b415f8a52d2bff791deb0
+#: ../../source/usage/data.rst:3 3b8fe13f2c2b4bef8f54fb31e245e412
 msgid "Data Pointers"
 msgstr "数据指针"
 
-#: ../../source/usage/data.rst:5 e9a65ea1cab7456985f9eff624b82e69
+#: ../../source/usage/data.rst:5 cdb947c7af6443d38876038c6b3641bd
 msgid ""
 "In general NCCL  will accept any CUDA pointers that are accessible from the CUDA device associated to the communicator "
 "object. This includes:"
-msgstr "通常情况下，NCCL 将接受与通信对象关联的 CUDA 设备可访问的任何 CUDA 指针。这包括："
+msgstr "通常，NCCL 接受与通信器对象关联的 CUDA 设备可访问的任何 CUDA 指针。这包括："
 
-#: ../../source/usage/data.rst:7 d82428d81c9748b7a1093ebf0d2a2134
+#: ../../source/usage/data.rst:7 aae05a678d484776969f9c4fe81dfbcd
 msgid "device memory local to the CUDA device"
-msgstr "设备内存局限于CUDA设备。"
+msgstr "CUDA设备本地设备内存"
 
-#: ../../source/usage/data.rst:8 6103624671514ea783d073b8fefe86fd
+#: ../../source/usage/data.rst:8 609da77e1e354b919221ba332eb4e002
 msgid "host memory registered using CUDA SDK APIs cudaHostRegister or cudaGetDevicePointer"
-msgstr "使用CUDA SDK API中的cudaHostRegister或cudaGetDevicePointer注册主机内存"
+msgstr "使用CUDA SDK API cudaHostRegister或cudaGetDevicePointer注册的主机内存"
 
-#: ../../source/usage/data.rst:9 59f20ba2e16d49f9a54316f659c0e118
+#: ../../source/usage/data.rst:9 291958d399854c1ab0183da8add776df
 msgid "managed and unified memory"
-msgstr "管理和统一内存"
+msgstr "托管与统一内存"
 
-#: ../../source/usage/data.rst:11 6af9270ee41f479d93e5255b87916347
+#: ../../source/usage/data.rst:11 c38daba89322426aa16df92ba35f0089
 msgid ""
 "The only exception is device memory located on another device but accessible from the current device using peer access. "
 "NCCL will return an error in that case to avoid programming errors (only when NCCL_CHECK_POINTERS=1 since 2.2.12)."
-msgstr "唯一的例外是位于另一设备上但可通过对等访问从当前设备访问的设备内存。在这种情况下，NCCL 将返回一个错误，以避免编程错误（仅当 NCCL_CHECK_POINTERS=1 时，自 2.2.12 起）。"
+msgstr "唯一例外是位于其他设备上但可通过点对点访问从当前设备访问的设备内存。NCCL将在此情况下返回错误以避免编程错误（自2.2.12版本起仅当NCCL_CHECK_POINTERS=1时生效）。"

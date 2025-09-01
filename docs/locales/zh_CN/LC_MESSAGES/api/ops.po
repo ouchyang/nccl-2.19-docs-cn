@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,21 +19,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/api/ops.rst:3 dcfd94336d3d4b979c8c88c8b46579ee
+#: ../../source/api/ops.rst:3 f639035400924577bec208c2d49763e3
 msgid "User Defined Reduction Operators"
-msgstr "用户定义的缩减运算符"
+msgstr "用户自定义规约操作符"
 
-#: ../../source/api/ops.rst:5 fe7b3259497448d985201299cf8545b9
+#: ../../source/api/ops.rst:5 13314b1fa5f84f4ea4c2035eb23c23be
 msgid ""
 "The following functions are public APIs exposed by NCCL to create and destroy custom reduction operators for use in "
 "reduction collectives."
-msgstr "以下函数是由NCCL公开的API，用于创建和销毁自定义的归约运算符，以便在归约集合中使用。"
+msgstr "以下是NCCL公开的用于创建和销毁自定义规约操作符的公共API，这些操作符可用于规约集合通信操作。"
 
-#: ../../source/api/ops.rst:9 34bc33578f704a87a9099e1fa63e12a9
+#: ../../source/api/ops.rst:9 72f48125e0a8426d9f5aa722a7ba7bc9
 msgid "ncclRedOpCreatePreMulSum"
 msgstr "ncclRedOpCreatePreMulSum"
 
-#: ../../source/api/ops.rst:13 aa3e71abfc084b2fa2b95dbbab1954bc
+#: ../../source/api/ops.rst:13 17b0413a95ab483eadb18d64183e5a99
 msgid ""
 "Creates a new reduction operator which pre-multiplies input values by a given scalar locally before reducing them with "
 "peer values via summation. For use only with collectives launched against *comm* and *datatype*. The *residence* "
@@ -41,16 +41,16 @@ msgid ""
 "function returns (ncclScalarHostImmediate), or by the device during execution of the reduction collective "
 "(ncclScalarDevice). Upon return, the newly created operator's handle is stored in *op*."
 msgstr ""
-"创建一个新的缩减运算符，在通过求和与对等值一起减少它们之前，本地预先将输入值乘以给定的标量。仅用于针对 *comm* 和 *datatype* 启动的集合。*residence* 参数指示在此函数返回之前主机是否应立即对 *scalar* "
-"指向的内存进行解引用（ncclScalarHostImmediate），或者在减少集合的执行期间由设备进行解引用（ncclScalarDevice）。返回时，新创建的运算符句柄存储在 *op* 中。"
+"创建一个新的规约操作符，该操作符在通过求和与对等体值进行规约之前，会先在本地将输入值乘以给定标量。此操作符仅适用于针对*comm*和*datatype*发起的集合通信操作。参数*residence*指示*scalar*"
+"所指向的内存应在此函数返回前由主机立即解引用（ncclScalarHostImmediate），还是在规约集合通信执行期间由设备解引用（ncclScalarDevice）。返回时，新创建操作符的句柄将存储于*op*中。"
 
-#: ../../source/api/ops.rst:23 6ed67719bc604989bfad49c7278a16ca
+#: ../../source/api/ops.rst:23 13048712d3504d94864c112e812ffda7
 msgid "ncclRedOpDestroy"
 msgstr "ncclRedOpDestroy"
 
-#: ../../source/api/ops.rst:27 475576b069e84608804a3b2f6290273a
+#: ../../source/api/ops.rst:27 0115813367b2491e8dd9875113fcb747
 msgid ""
 "Destroys the reduction operator *op*. The operator must have been created by ncclRedOpCreatePreMul with the matching "
 "communicator *comm*. An operator may be destroyed as soon as the last NCCL function which is given that operator "
 "returns."
-msgstr "销毁减少运算符 *op*。该运算符必须是通过 ncclRedOpCreatePreMul 与匹配的通信器 *comm* 创建的。只要给定该运算符的最后一个 NCCL 函数返回，就可以销毁运算符。"
+msgstr "销毁归约运算符 *op*。该运算符必须由具有匹配通信器 *comm* 的 ncclRedOpCreatePreMul 创建。在最后一个使用该运算符的 NCCL 函数返回后，即可立即销毁此运算符。"

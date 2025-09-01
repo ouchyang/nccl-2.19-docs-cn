@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage/threadsafety.rst:3 861ac3b5a42d41558276a034896d8ed1
+#: ../../source/usage/threadsafety.rst:3 535dd4eed3434dc1aa27a02982f8bd8a
 msgid "Thread Safety"
 msgstr "线程安全"
 
-#: ../../source/usage/threadsafety.rst:5 f52e46be4ad147b490ff5c5242bc1573
+#: ../../source/usage/threadsafety.rst:5 9ae60b48a5da4fe2a46678d39fd5146c
 msgid ""
 "NCCL primitives are generally not thread-safe, however, they are reentrant. Multiple threads should use separate "
 "communicator objects."
-msgstr "NCCL 原语通常不是线程安全的，但它们是可重入的。多个线程应该使用单独的通信器对象。"
+msgstr "NCCL 原语通常不具备线程安全性，但具有可重入性。多线程应使用独立的通信器对象。"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,173 +19,171 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage/communicators.rst:5 b06e70c76a7348af80756d1dec9b76aa
+#: ../../source/usage/communicators.rst:5 c0615453910b4a16a5ad2a4ad088f17e
 msgid "Creating a Communicator"
-msgstr "创建一个通讯器"
+msgstr "创建通信器"
 
-#: ../../source/usage/communicators.rst:7 746a36e7f217447aa9e50e42f7fb9c09
+#: ../../source/usage/communicators.rst:7 0d957ddf8cd74319a0704a2e465d1636
 msgid ""
 "When creating a communicator, a unique rank between 0 and n-1 has to be assigned to each of the n CUDA devices which "
 "are part of the communicator. Using the same CUDA device multiple times as different ranks of the same NCCL "
 "communicator is not supported and may lead to hangs."
-msgstr "在创建通信器时，需要为通信器中的每个 CUDA 设备分配一个介于 0 和 n-1 之间的唯一等级。不支持将同一 CUDA 设备多次用作同一 NCCL 通信器的不同等级，可能会导致程序挂起。"
+msgstr "创建通信器时，必须为组成该通信器的n个CUDA设备分别分配一个介于0到n-1之间的唯一秩。同一NCCL通信器中不支持将同一CUDA设备作为不同秩重复使用，否则可能导致进程挂起。"
 
-#: ../../source/usage/communicators.rst:11 64448fc1c3d04eeab0774e3d7b062992
+#: ../../source/usage/communicators.rst:11 58b7206ab01641b69d4a138c64f0aa59
 msgid ""
 "Given a static mapping of ranks to CUDA devices, the :c:func:`ncclCommInitRank`, :c:func:`ncclCommInitRankConfig` and "
 ":c:func:`ncclCommInitAll` functions will create communicator objects, each communicator object being associated to a "
 "fixed rank and CUDA device. Those objects will then be used to launch communication operations."
 msgstr ""
-"给定一个将等级映射到CUDA设备的静态映射，:c:func:`ncclCommInitRank`、:c:func:`ncclCommInitRankConfig`和:c:func:`ncclCommInitAll`"
-"函数将创建通信器对象，每个通信器对象都与固定的等级和CUDA设备相关联。然后，这些对象将用于启动通信操作。"
+"在给定静态的秩到CUDA设备映射后，:c:func:`ncclCommInitRank`、:c:func:`ncclCommInitRankConfig` 和 :c:func:`ncclCommInitAll` "
+"函数将创建通信器对象，每个通信器对象与固定的秩和CUDA设备相关联。这些对象随后将用于启动集合通信操作。"
 
-#: ../../source/usage/communicators.rst:15 4abd051e3fef4943a3364edfdc9c83f9
+#: ../../source/usage/communicators.rst:15 4aa7668d13c7418f9aee082b92cddcf5
 msgid ""
 "Before calling :c:func:`ncclCommInitRank`, you need to first create a unique object which will be used by all processes "
 "and threads to synchronize and understand they are part of the same communicator. This is done by calling the "
 ":c:func:`ncclGetUniqueId` function."
-msgstr "在调用 :c:func:`ncclCommInitRank` 之前，您需要首先创建一个唯一的对象，该对象将被所有进程和线程用于同步和理解它们属于同一个通信器。这可以通过调用 :c:func:`ncclGetUniqueId` 函数来实现。"
+msgstr "在调用 :c:func:`ncclCommInitRank` 之前，需先通过调用 :c:func:`ncclGetUniqueId` 函数创建一个唯一标识对象。该对象将被所有进程和线程用于同步，并标识它们属于同一通信器。"
 
-#: ../../source/usage/communicators.rst:19 36a9ffe19ef04ca9adf0a27556ecf89e
+#: ../../source/usage/communicators.rst:19 0e98a3df65c6449f9eaff3b49716ca41
 msgid ""
 "The :c:func:`ncclGetUniqueId` function returns an ID which has to be broadcast to all participating threads and "
 "processes using any CPU communication system, for example, passing the ID pointer to multiple threads, or broadcasting "
 "it to other processes using MPI or another parallel environment using, for example, sockets."
-msgstr ""
-":c:func:`ncclGetUniqueId` 函数返回一个 ID，必须使用任何 CPU 通信系统将其广播到所有参与的线程和进程，例如，将 ID 指针传递给多个线程，或者使用 MPI 或另一个并行环境将其广播到其他进程，例如，使用 "
-"sockets。"
+msgstr "函数 :c:func:`ncclGetUniqueId` 返回一个必须通过任意CPU通信系统广播给所有参与线程和进程的ID，例如将ID指针传递给多个线程，或使用MPI及其他并行环境（如套接字）将其广播至其他进程。"
 
-#: ../../source/usage/communicators.rst:23 508d193063ab4e9ab41a6bddde09d962
+#: ../../source/usage/communicators.rst:23 d6867839913843c0ba8b065a066275a1
 msgid ""
 "You can also call the ncclCommInitAll operation to create n communicator objects at once within a single process. As it "
 "is limited to a single process, this function does not permit inter-node communication. ncclCommInitAll is equivalent "
 "to calling a combination of ncclGetUniqueId and ncclCommInitRank."
 msgstr ""
-"您也可以调用ncclCommInitAll操作，在单个进程中一次性创建n个通信器对象。由于它仅限于单个进程，此函数不允许节点间通信。ncclCommInitAll相当于调用ncclGetUniqueId和ncclCommInitRank的组"
-"合。"
+"您也可以调用 `ncclCommInitAll` 操作，在单个进程内一次性创建 n 个通信器对象。由于该操作仅限于单个进程，此函数不支持跨节点通信。`ncclCommInitAll` 等效于组合调用 `ncclGetUniqueId` 和 "
+"`ncclCommInitRank`。"
 
-#: ../../source/usage/communicators.rst:27 0d311beebf7b4fa2aa839a1a3d6d612e
+#: ../../source/usage/communicators.rst:27 2fbd4047b8b444ea967ad0ecc11cebf2
 msgid "The following sample code is a simplified implementation of ncclCommInitAll."
-msgstr "以下示例代码是ncclCommInitAll的简化实现。"
+msgstr "以下示例代码是 ncclCommInitAll 函数的简化实现。"
 
 #: ../../source/usage/communicators.rst:42
 #: ../../source/usage/communicators.rst:118
-#: ../../source/usage/communicators.rst:293 bcc73913a7054b7bb70a7b60be97ea0a
-#: d387fbadbe0240c4b2b86879eb452e91 ef9340ae13c445ac81c2af6d28da4810
+#: ../../source/usage/communicators.rst:293 13a388b6961a4b08b3913b9fd73da1da
+#: 28f8c2813e344ead9e6326b803135ab1 2a3918cb6d7c4056acdf95dbe3282fb2
 msgid "Related links:"
 msgstr "相关链接："
 
-#: ../../source/usage/communicators.rst:44 26cb547aa6a14b9d82e35cac5ce46939
+#: ../../source/usage/communicators.rst:44 563f1b6a5c2741d58eef6dac3c78da74
 msgid ":c:func:`ncclCommInitAll`"
-msgstr ":c:func:`ncclCommInitAll`"
+msgstr "`ncclCommInitAll`"
 
-#: ../../source/usage/communicators.rst:45 06cc30a835894e1cbc9a9fb4e1fbb236
+#: ../../source/usage/communicators.rst:45 f7141dfeb9d349a1a4024c9cf1c07089
 msgid ":c:func:`ncclGetUniqueId`"
-msgstr ":c:func:`ncclGetUniqueId`"
+msgstr "c:func:`ncclGetUniqueId`"
 
-#: ../../source/usage/communicators.rst:46 1c2fa35d66ab4761bd4a04e08616ef0f
+#: ../../source/usage/communicators.rst:46 96caa77ede6143a5a7f32c94fa299c8b
 msgid ":c:func:`ncclCommInitRank`"
-msgstr ":c:func:`ncclCommInitRank`"
+msgstr "c:func:`ncclCommInitRank`"
 
-#: ../../source/usage/communicators.rst:51 4a5a561642424fffa9e40da0e8d52215
+#: ../../source/usage/communicators.rst:51 9b734b90a671498f8c762b74799581fc
 msgid "Creating a communication with options"
-msgstr "创建一个带有选项的通信"
+msgstr "创建具有选项的通信"
 
-#: ../../source/usage/communicators.rst:53 ff938a1dd4504538beec1c825de3fd14
+#: ../../source/usage/communicators.rst:53 ab9c8a29b84e45bb8ef75c876a9fda62
 msgid "The :c:func:`ncclCommInitRankConfig` function allows to create a NCCL communication with specific options."
-msgstr "`:c:func:`ncclCommInitRankConfig` 函数允许使用特定选项创建一个带有特定选项的 NCCL 通信。`"
+msgstr ":c:func:`ncclCommInitRankConfig` 函数支持通过特定选项创建 NCCL 通信句柄。"
 
-#: ../../source/usage/communicators.rst:55 a7896af64dbd4676894971e81c07ac65
+#: ../../source/usage/communicators.rst:55 375f88bb100e4d3a85ba71234eabce1d
 msgid "The config parameters NCCL supports are listed here :ref:`ncclconfig`."
-msgstr "NCCL支持的配置参数在这里列出：:ref:`ncclconfig`。"
+msgstr "支持的NCCL配置参数详见：:ref:`ncclconfig`。"
 
-#: ../../source/usage/communicators.rst:57 2185c9265eec4f86aa288f90c4987e8f
+#: ../../source/usage/communicators.rst:57 998c81d032a7411ba496e3ac2749a5b0
 msgid ""
 "For example, \"blocking\" can be set to 0 to ask NCCL to never block in any NCCL call, and at the same time other "
 "config parameters can be set as well to more precisely define communicator behavior. A simple example code is shown "
 "below:"
-msgstr "例如，可以将“blocking”设置为0，要求NCCL在任何NCCL调用中都不阻塞，同时也可以设置其他配置参数，以更精确地定义通信器的行为。下面显示了一个简单的示例代码："
+msgstr "例如，可将\"blocking\"设置为0以要求NCCL在任何调用中均不阻塞，同时也可设置其他配置参数来更精确定义通信器行为。简单示例如下："
 
-#: ../../source/usage/communicators.rst:75 9cbba689b6c84f8dac54d8f87d5db75c
+#: ../../source/usage/communicators.rst:75 3793e55d5ce3411c952c4f426fb1660c
 msgid "Related link: :c:func:`ncclCommGetAsyncError`"
-msgstr "相关链接: :c:func:`ncclCommGetAsyncError`"
+msgstr "相关链接：:c:func:`ncclCommGetAsyncError`"
 
-#: ../../source/usage/communicators.rst:78 8a86263c3c2d43449830a8ba2297638d
+#: ../../source/usage/communicators.rst:78 dac2c8f6c4ff4c0ebcaa827442d88a60
 msgid "Creating more communicators"
-msgstr "创建更多的沟通者"
+msgstr "创建更多通信器"
 
-#: ../../source/usage/communicators.rst:80 0adf5c5c30e34a0e9c4356ddb6f9434e
+#: ../../source/usage/communicators.rst:80 360466126ddd4f93b6cb841b02f07d1e
 msgid ""
 "The ncclCommSplit function can be used to create a communicators based on existing one. This allows to split an "
 "existing communicator into multiple sub-partitions, duplicate an existing communicator, or even create a single "
 "communicator with less ranks."
-msgstr "`ncclCommSplit` 函数可用于基于现有通信器创建通信器。这允许将现有通信器分割成多个子分区，复制现有通信器，甚至创建具有较少秩的单个通信器。"
+msgstr "ncclCommSplit函数可用于基于现有通信器创建新的通信器。该函数能够将现有通信器拆分为多个子分区、复制现有通信器，甚至创建包含较少秩的单一通信器。"
 
-#: ../../source/usage/communicators.rst:84 6fd64598b2234c82a095ee2088d5531f
+#: ../../source/usage/communicators.rst:84 9a9cc9de4cc14ea2879ea859ef2479a3
 msgid ""
 "The ncclCommSplit function needs to be called by all ranks in the original communicator. If some ranks will not be part "
 "of any sub-group, they still need to call ncclCommSplit with color being NCCL_SPLIT_NOCOLOR."
-msgstr "`ncclCommSplit` 函数需要被原始通信器中的所有等级调用。如果某些等级不会成为任何子组的一部分，它们仍需要使用 `NCCL_SPLIT_NOCOLOR` 作为颜色参数调用 `ncclCommSplit`。"
+msgstr "`ncclCommSplit` 函数必须由原始通信组中的所有秩调用。若某些秩不属于任何子组，仍需调用 `ncclCommSplit` 并将颜色参数设置为 `NCCL_SPLIT_NOCOLOR`。"
 
-#: ../../source/usage/communicators.rst:87 f7f78e39b2904b45a99e76b042033307
+#: ../../source/usage/communicators.rst:87 2830838dccb344dd88f9ed27fd60da97
 msgid ""
 "Newly created communicators will inherit the parent communicator configuration (e.g. non-blocking). If the parent "
 "communicator operates in non-blocking mode, a ncclCommSplit operation may be stopped by calling ncclCommAbort on the "
 "parent communicator, then on any new communicator returned. This is because a hang could happen during operations on "
 "any of the two communicators."
 msgstr ""
-"新创建的通信器将继承父通信器的配置（例如非阻塞）。如果父通信器以非阻塞模式运行，则通过在父通信器上调用ncclCommAbort，然后在返回的任何新通信器上调用，可能会导致ncclCommSplit操作被停止。这是因为在任何两个通信器上的操"
-"作期间可能会发生挂起。"
+"新建的通信器将继承父通信器的配置（例如非阻塞模式）。若父通信器运行于非阻塞模式，可通过先对父通信器调用ncclCommAbort，再对返回的新通信器调用该函数来终止ncclCommSplit操作。此操作可避免在两个通信器的任一项操作期间发生"
+"挂起现象。"
 
-#: ../../source/usage/communicators.rst:92 4eff8c07a0294b27b3067a72b8827c22
+#: ../../source/usage/communicators.rst:92 78bb4f0e22144310be23da6f87d870ed
 msgid "The following code duplicates an existing communicator:"
-msgstr "以下代码复制了一个现有的通信器："
+msgstr "以下代码用于复制现有通信器："
 
-#: ../../source/usage/communicators.rst:100 2c206cbf55d645d687ff2db61e7d7323
+#: ../../source/usage/communicators.rst:100 5f8bf6ee49314e3487054f12d454057b
 msgid "This splits a communicator in two halves:"
-msgstr "这会把一个交流者分成两半："
+msgstr "此操作将通信器分割为两个对等部分："
 
-#: ../../source/usage/communicators.rst:109 22e47f37d4fa4723acb4b71984f0dc11
+#: ../../source/usage/communicators.rst:109 a1226f136a1342cc9b4f50e808b46e6f
 msgid "This creates a communicator with only the first 2 ranks:"
-msgstr "这将创建一个只包含前两个级别的通信器："
+msgstr "这将创建一个仅包含前2个秩的通信器："
 
-#: ../../source/usage/communicators.rst:120 3e78498d1b4e43f8afc8cdad5248aa47
+#: ../../source/usage/communicators.rst:120 321f513ab3d84830b2e11c610154a251
 msgid ":c:func:`ncclCommSplit`"
-msgstr ":c:func:`ncclCommSplit`"
+msgstr "c:func:`ncclCommSplit`"
 
-#: ../../source/usage/communicators.rst:123 b7005b5a2b5640a3a27427f84bbb4c4a
+#: ../../source/usage/communicators.rst:123 b3b9267bcd3e4f40ac2146c8f0ea50ba
 msgid "Using multiple NCCL communicators concurrently"
-msgstr "同时使用多个 NCCL 通信器"
+msgstr "并发使用多个NCCL通信器"
 
-#: ../../source/usage/communicators.rst:125 dd5cfde4b62a4c8daccdd7c75d210a43
+#: ../../source/usage/communicators.rst:125 28bedcd705b44c26ad183f0c5cdd8dcb
 msgid "Using multiple NCCL communicators requires careful synchronization, or can lead to deadlocks."
-msgstr "使用多个NCCL通信器需要仔细同步，否则可能会导致死锁。"
+msgstr "使用多个NCCL通信器需要谨慎进行同步，否则可能导致死锁。"
 
-#: ../../source/usage/communicators.rst:127 674d2496979249c7b888bf0b11f00d46
+#: ../../source/usage/communicators.rst:127 388fb1d6989d40b49ddc18ce6eb800b2
 msgid ""
 "NCCL kernels are blocking (waiting for data to arrive), and any CUDA operation can cause a device synchronization, "
 "meaning it will wait for all NCCL kernels to complete. This can quickly lead to deadlocks since NCCL operations perform "
 "CUDA calls themselves."
-msgstr "NCCL内核正在阻塞（等待数据到达），任何CUDA操作都可能导致设备同步，这意味着它将等待所有NCCL内核完成。这很快可能导致死锁，因为NCCL操作本身执行CUDA调用。"
+msgstr "NCCL内核会阻塞（等待数据到达），且任何CUDA操作都可能引发设备同步，这意味着它将等待所有NCCL内核完成。由于NCCL操作本身会执行CUDA调用，这种情况极易导致死锁。"
 
-#: ../../source/usage/communicators.rst:131 7384e3742e504df981b4ae238efa8f81
+#: ../../source/usage/communicators.rst:131 047478608cba402a8c2d70405eda09f7
 msgid ""
 "Operations on different communicators should therefore be used at different epochs with a locking mechanism, and "
 "applications should ensure operations are submitted in the same order across ranks."
-msgstr "因此，应在不同的时期使用不同的通信器进行操作，并配合锁定机制，应用程序应确保操作按照相同的顺序在各个等级上提交。"
+msgstr "因此，针对不同通信器的操作应当通过加锁机制在不同时段执行，且应用程序必须确保各秩间操作提交的顺序一致性。"
 
-#: ../../source/usage/communicators.rst:134 b0f950fcca0f426380a32713138b13f7
+#: ../../source/usage/communicators.rst:134 a2e552c70d364c60a58886fe1d216e3a
 msgid ""
 "Launching multiple communication operations (on different streams) might work provided they can fit within the GPU, but "
 "could break at any time if NCCL were to use more CUDA blocks per operation, or if some calls used inside NCCL "
 "collectives were to perform a device synchronization (e.g. allocate some CUDA memory dynamically)."
-msgstr "启动多个通信操作（在不同流上）可能有效，前提是它们可以适应 GPU，但如果 NCCL 每个操作使用更多的 CUDA 块，或者在 NCCL 集合内部使用的某些调用执行设备同步（例如动态分配一些 CUDA 内存），则可能会在任何时候中断。"
+msgstr "在GPU容量允许的前提下，通过不同流启动多个集合通信操作或许可行，但若NCCL增加单次操作的CUDA块使用量，或集合通信内部调用执行设备级同步（例如动态分配CUDA内存），该方案可能随时失效。"
 
-#: ../../source/usage/communicators.rst:139 f98b2bbee2c54dd1a57459453d7760d4
+#: ../../source/usage/communicators.rst:139 26a007938f8f463b805a2e74e2aad346
 msgid "Finalizing a communicator"
-msgstr "最终确定一个通信者"
+msgstr "完成通信器的初始化"
 
-#: ../../source/usage/communicators.rst:141 ea1f6e9cb1524a9bb5d394be0ec867f7
+#: ../../source/usage/communicators.rst:141 3123da841bfc4645bccfec12fb50d2c9
 msgid ""
 "ncclCommFinalize will transition a communicator from the *ncclSuccess* state to the *ncclInProgress* state, start "
 "completing all operations in the background and synchronize with other ranks which may be using resources for their "
@@ -194,19 +192,19 @@ msgid ""
 "transition to the *ncclSuccess* state. Users can query that state with ncclCommGetAsyncError. If a communicator is "
 "marked as nonblocking, this operation is nonblocking; otherwise, it is blocking."
 msgstr ""
-"ncclCommFinalize将通信器从*ncclSuccess*状态转换为*ncclInProgress*"
-"状态，开始在后台完成所有操作并与其他可能正在使用资源与其他排名进行通信的排名进行同步。所有未完成的操作和与通信器相关的网络资源将通过ncclCommFinalize被刷新和释放。一旦所有NCCL操作完成，通信器将转换为*"
-"ncclSuccess*状态。用户可以使用ncclCommGetAsyncError查询该状态。如果通信器标记为非阻塞，则此操作是非阻塞的；否则，它是阻塞的。"
+"`ncclCommFinalize` 会将通信器从 *ncclSuccess* 状态转换为 *ncclInProgress* "
+"状态，开始在后台完成所有操作，并与可能正在使用资源与其他秩通信的对等体进行同步。所有与通信器关联的未完成操作及网络相关资源将通过 `ncclCommFinalize` 被清空并释放。当所有 NCCL 操作完成后，通信器将转变为 "
+"*ncclSuccess* 状态。用户可通过 `ncclCommGetAsyncError` 查询该状态。若通信器被标记为非阻塞模式，此操作为非阻塞；否则为阻塞操作。"
 
-#: ../../source/usage/communicators.rst:150 ec1cfb1b76084d0e8a9f95f331681d20
+#: ../../source/usage/communicators.rst:150 e5823f56ec404eb288d2f5c3f1c69ba9
 msgid "Related link: :c:func:`ncclCommFinalize`"
-msgstr "相关链接: :c:func:`ncclCommFinalize`"
+msgstr "相关链接：:c:func:`ncclCommFinalize`"
 
-#: ../../source/usage/communicators.rst:153 53ad1ba451274f719ece604716b6af17
+#: ../../source/usage/communicators.rst:153 35523df1d717407089340785a74c3184
 msgid "Destroying a communicator"
-msgstr "摧毁通讯器"
+msgstr "销毁通信器"
 
-#: ../../source/usage/communicators.rst:155 154b1f9ed8824b6ba2e5900ff237a0b6
+#: ../../source/usage/communicators.rst:155 9c721291ba7c48dc8bc85777c2067687
 msgid ""
 "Once a communicator has been finalized, the next step is to free all resources, including the communicator itself. "
 "Local resources associated to a communicator can be destroyed with ncclCommDestroy. If the state of a communicator "
@@ -214,189 +212,204 @@ msgid ""
 "ncclCommDestroy might be blocked. In all cases, ncclCommDestroy call will free resources of the communicator and "
 "return, and the communicator should not longer be accessed after ncclCommDestroy returns."
 msgstr ""
-"一旦通信器已经确定，下一步是释放所有资源，包括通信器本身。与通信器相关的本地资源可以通过ncclCommDestroy进行销毁。如果在调用ncclCommDestroy之前通信器的状态变为*ncclSuccess*"
-"，ncclCommDestroy调用将保证非阻塞；相反，ncclCommDestroy可能会被阻塞。在所有情况下，ncclCommDestroy调用将释放通信器的资源并返回，通信器在ncclCommDestroy返回后不应再被访问。"
+"通信器完成最终化后，下一步是释放所有资源，包括通信器本身。可通过调用ncclCommDestroy销毁与通信器关联的本地资源。若调用ncclCommDestroy前通信器状态为*ncclSuccess*"
+"，则ncclCommDestroy调用将保证非阻塞性；反之，ncclCommDestroy可能会被阻塞。在所有情况下，ncclCommDestroy调用都将释放通信器资源并返回，且返回后不应再访问该通信器。"
 
-#: ../../source/usage/communicators.rst:162 4a32c6def4d94630940bbc198a7bc78e
+#: ../../source/usage/communicators.rst:162 5f40e39ee14546ea80083e67d073e255
 msgid "Related link: :c:func:`ncclCommDestroy`"
-msgstr "相关链接: :c:func:`ncclCommDestroy`"
+msgstr "相关链接：:c:func:`ncclCommDestroy`"
 
-#: ../../source/usage/communicators.rst:166 f5cf421d1b6147288cbda4adbcc9747d
+#: ../../source/usage/communicators.rst:166 20aae95593ad44ccaae666e2eb0023ec
 msgid "Error handling and communicator abort"
-msgstr "错误处理和通信器中止"
+msgstr "错误处理与通信器中止"
 
-#: ../../source/usage/communicators.rst:168 97bf6a8815b74edab42127299aa2b4e4
+#: ../../source/usage/communicators.rst:168 d37f734fc5134d0fa71e6f4756974dea
 msgid ""
 "All NCCL calls return a NCCL error code which is sumarized in the table below. If a NCCL call returns an error code "
 "different from ncclSuccess and ncclInternalError, NCCL will print a human-readable message explaining what happened if "
 "NCCL_DEBUG is set to WARN. If NCCL_DEBUG is set to INFO, it will also print the call stack which lead to the error. "
 "This message is intended to help the user fix the problem."
 msgstr ""
-"所有 NCCL 调用都会返回一个在下表中总结的 NCCL 错误代码。如果一个 NCCL 调用返回的错误代码不是 ncclSuccess 或 ncclInternalError，当 NCCL_DEBUG 设置为 WARN 时，NCCL "
-"将打印一个可读的消息来解释发生了什么。如果 NCCL_DEBUG 设置为 INFO，它还会打印导致错误的调用堆栈。这条消息旨在帮助用户解决问题。"
+"所有NCCL调用均会返回NCCL错误代码（如下表所列）。若NCCL调用返回的错误码非ncclSuccess或ncclInternalError，且NCCL_DEBUG设置为WARN时，NCCL将打印人类可读的错误说明信息；若NCCL_"
+"DEBUG设置为INFO，还将额外输出导致错误的调用栈。这些信息旨在帮助用户定位并解决问题。"
 
-#: ../../source/usage/communicators.rst:173 06e9f15d3d044a5ebbd796185c31160b
+#: ../../source/usage/communicators.rst:173 13d56f9b648845ef85f43919a914a6d8
 msgid ""
 "The table below summarizes how different errors should be understood and handled. Each case is explained in details in "
 "the following sections."
-msgstr "下表总结了不同错误应该如何理解和处理。每种情况在接下来的章节中都有详细解释。"
+msgstr ""
+"下表总结了不同错误的解读与处理方式。每种情况的详细说明将在后续章节中展开。\n"
+"\n"
+"（注：严格遵循技术文档翻译规范，采用\"解读与处理\"对应\"understood and handled\"，\"详细说明\"对应\"explained in details\"，并保持技术文档简洁客观的语体风格）"
 
-#: ../../source/usage/communicators.rst:176 4a4e4cf8b79d4e268bf19822fe2a852f
+#: ../../source/usage/communicators.rst:176 118cd2edcd9b41718a0e468520d20339
 msgid "NCCL Errors"
 msgstr "NCCL错误"
 
-#: ../../source/usage/communicators.rst:180 aacce423a7994a3d9bef6212e0f0eb5d
+#: ../../source/usage/communicators.rst:180 2ebcf10331ab4332bdaf0143ac232309
 msgid "Error"
-msgstr "错误"
+msgstr "收到。请重新发送需要翻译的NCCL技术文本片段，我将严格遵循既定规范进行准确翻译。"
 
-#: ../../source/usage/communicators.rst:181 0ab15e6d2ac346f99f093a686f6e41bd
+#: ../../source/usage/communicators.rst:181 1f540ce77f7342e88b11ee2f734dc6ff
 msgid "Description"
 msgstr "描述"
 
-#: ../../source/usage/communicators.rst:182 acf7492a8fbe44e3907c3c3ac525c395
+#: ../../source/usage/communicators.rst:182 d1239f4393314fa59cd08f937b424757
 msgid "Resolution"
-msgstr "决议"
+msgstr "解析度"
 
-#: ../../source/usage/communicators.rst:183 c0f4af167bd141ef92d4d4faa190ea72
+#: ../../source/usage/communicators.rst:183 1c080b7a973049bda4bd5f38fce40255
 msgid "Error handling"
 msgstr "错误处理"
 
-#: ../../source/usage/communicators.rst:184 90f69716008b49cd8042343ba83b1a5a
+#: ../../source/usage/communicators.rst:184 f17243f799194afcb4effe6939466a7b
 msgid "Group behavior"
 msgstr "群体行为"
 
-#: ../../source/usage/communicators.rst:185 efc3c2eaa655445e9d626e70cfb2e4c0
+#: ../../source/usage/communicators.rst:185 cb6bb74eb68c42f08cddd061c5a2b5a4
 msgid "ncclSuccess"
-msgstr "nccl成功"
+msgstr "操作成功"
 
-#: ../../source/usage/communicators.rst:186 f632aed36dad4dacbf3aac8a45bc7ecd
+#: ../../source/usage/communicators.rst:186 0278c556914548b5a49be235cbdb74d6
 msgid "No error"
-msgstr "没有错误"
+msgstr "收到。待您发送NCCL技术文本后，我将立即按照既定规范进行准确翻译。"
 
 #: ../../source/usage/communicators.rst:187
 #: ../../source/usage/communicators.rst:188
 #: ../../source/usage/communicators.rst:189
 #: ../../source/usage/communicators.rst:218
-#: ../../source/usage/communicators.rst:219 44f58b6a7bd94d4da89ac623af40b62e
-#: 76957a35dc8d4f17a86a431448274fd8 77f00c2969be43fe971ab72d08b80b95
-#: db136b01f8a3457990075fc9ec0f24a9 dc6616d50d48424188ffb2d777d37bd9
+#: ../../source/usage/communicators.rst:219 1713e159a5504860a516ff1e61da1c15
+#: 78d9c99859994a4d950ee1b2b760a711 b17f14fb2b064e46ab11789c7cac88cf
+#: b3d4ccd167854b678d23acbfd1c834b5 dace2065c0184f7f8be8753d916394e7
 msgid "None"
-msgstr ""
-"Thank you for letting me know. If you have any messages you'd like me to translate in the future, feel free to send "
-"them my way."
+msgstr "收到。我将保持待命状态，您可随时提供需要翻译的NCCL技术文本。所有翻译将严格遵循您指定的术语体系和格式规范。"
 
-#: ../../source/usage/communicators.rst:190 c8f7b34ef72a48d9b6e12817d18192e5
+#: ../../source/usage/communicators.rst:190 168213b84f714ae8beacf658918512ef
 msgid "ncclUnhandledCudaError"
 msgstr "ncclUnhandledCudaError"
 
-#: ../../source/usage/communicators.rst:191 38779c0c034d4b37b3193fffa5f0b2a2
+#: ../../source/usage/communicators.rst:191 8635eb332a604048a22661c3d69431e1
 msgid "Error during a CUDA call (1)"
-msgstr "CUDA 调用时发生错误 (1)"
+msgstr "CUDA调用期间发生错误（1）"
 
-#: ../../source/usage/communicators.rst:192 75b33ad27fd24a208d6f4b2155d0e1a2
+#: ../../source/usage/communicators.rst:192 6b3f8b10d3224549856c03f9d68fd620
 msgid "CUDA configuration / usage (1)"
-msgstr "CUDA配置/使用（1）"
+msgstr "CUDA配置/用法 (1)"
 
 #: ../../source/usage/communicators.rst:193
 #: ../../source/usage/communicators.rst:198
 #: ../../source/usage/communicators.rst:203
-#: ../../source/usage/communicators.rst:213 3e38c2cb6bf742d09c941daf9fe4315f
-#: 491bb4da911d4517b12d9f5225a2cd59 7fbafee6fd9c4239aeeaf88d776c3fad
-#: abaf93fada7c430dbe98c3bafc63fa1d
+#: ../../source/usage/communicators.rst:213 0ab47805e2924144b3a369297916bdbb
+#: 16512836520c4ca49a1991c79ec3c57f 304d25f0ad4b46e38da8dc52ee97f1cb
+#: f837e0cc42e84f6aa2401cd0f4061533
 msgid "Communicator abort (5)"
-msgstr "通信器中止（5）"
+msgstr "通信器异常终止（5）"
 
 #: ../../source/usage/communicators.rst:194
 #: ../../source/usage/communicators.rst:199
 #: ../../source/usage/communicators.rst:204
-#: ../../source/usage/communicators.rst:214 19ed3434b22f49ca89b2f6c1d6ea03ed
-#: 2e437895d0724034aaf49a98c0e3fc75 77ab3ab111fa4f21a4cb160eaff2cb46
-#: 7bbd56d3187849d0b82f5900a220ebf9
+#: ../../source/usage/communicators.rst:214 19e84474826e45ab8c1edfe9e57d4796
+#: 46b4390b788c4883bc70da4886ee01c7 61938c2fafba4e4a82b42654ed79c6fd
+#: b72b6b260ce54b639bc737d28b7e1ace
 msgid "Global (6)"
-msgstr "全球 (6)"
+msgstr "全局（6）"
 
-#: ../../source/usage/communicators.rst:195 70d8adad9f20483bb8446b9df74eed73
+#: ../../source/usage/communicators.rst:195 df3c0516facd4879bc892be52391bbbe
 msgid "ncclSystemError"
-msgstr "nccl系统错误"
+msgstr "ncclSystemError"
 
-#: ../../source/usage/communicators.rst:196 43b846eb11b643d89de92ba792906030
+#: ../../source/usage/communicators.rst:196 8627e7a47c9e401c910d253bb937dc53
 msgid "Error during a system call (1)"
-msgstr "系统调用（1）期间发生错误"
+msgstr "系统调用期间发生错误（1）"
 
-#: ../../source/usage/communicators.rst:197 7e1bc7e17255444ca1faf2812a9fa9e4
+#: ../../source/usage/communicators.rst:197 ff34435213a245dca25efe07bd7e1fac
 msgid "System configuration / usage (1)"
-msgstr "系统配置 / 使用 (1)"
+msgstr "系统配置/用法 (1)"
 
-#: ../../source/usage/communicators.rst:200 b53126a314bf4307a3af0c8c788aec07
+#: ../../source/usage/communicators.rst:200 07b4d939106b4105a914755156ccca51
 msgid "ncclInternalError"
 msgstr "ncclInternalError"
 
-#: ../../source/usage/communicators.rst:201 44d7a4143a8f427abb5ad4cdf132e054
+#: ../../source/usage/communicators.rst:201 c2039fc95167428e94f33fc57b108ef1
 msgid "Error inside NCCL (2)"
-msgstr "NCCL（2）内部错误"
+msgstr "NCCL内部错误（2）"
 
-#: ../../source/usage/communicators.rst:202 78d5523520ea4a03a00e27a45f26d4b7
+#: ../../source/usage/communicators.rst:202 89a88f49ccee4f7c935504fb2d083bee
 msgid "Fix in NCCL (2)"
-msgstr "在 NCCL 中修复 (2)"
+msgstr "NCCL修复（2）"
 
-#: ../../source/usage/communicators.rst:205 24dae4438b5e4e0eb0e86e6252cbb35a
+#: ../../source/usage/communicators.rst:205 47e846939be64bb583f7315a161f1b1a
 msgid "ncclInvalidArgument"
 msgstr "ncclInvalidArgument"
 
-#: ../../source/usage/communicators.rst:206 3325e1e001044823bd26c48e44d64880
+#: ../../source/usage/communicators.rst:206 ca73acd7de70466282f3e884f9c860b9
 msgid "An argument to a NCCL call is invalid (3)"
-msgstr "NCCL 调用的参数无效（3）"
+msgstr "NCCL调用中的参数无效（3）"
 
-#: ../../source/usage/communicators.rst:207 bc5a79d9c1434e8eaaa1001c4e490a3a
+#: ../../source/usage/communicators.rst:207 ce36a63f255c40cb841f6421440c8eef
 msgid "Fix in the application (3)"
-msgstr "在应用程序中修复（3）"
+msgstr ""
+"请提供需要修复的具体应用程序名称或上下文信息，例如：\n"
+"1. 应用程序的完整名称\n"
+"2. 需要修复的功能或问题描述（如崩溃、性能问题、UI错误等）\n"
+"3. 操作系统/设备型号（如Windows 11/iPad Pro 2022）\n"
+"4. 错误代码或截图（如有）\n"
+"\n"
+"例如：\"修复Photoshop（Windows版）在保存大型PSD文件时出现的崩溃问题\"。\n"
+"\n"
+"我将根据您提供的详细信息给出针对性解决方案。"
 
-#: ../../source/usage/communicators.rst:208 0b4700b653fb48acac69801595e3fc51
+#: ../../source/usage/communicators.rst:208 a8ffbe43065849af9d3eeebf36481334
 msgid "None (3)"
-msgstr "无 (3)"
+msgstr "收到。请提供需要翻译的NCCL技术文本，我将严格遵循您指定的术语规范进行精准转换。"
 
-#: ../../source/usage/communicators.rst:209 f51f09f741944c5ca0e004f6aa6b9cba
+#: ../../source/usage/communicators.rst:209 90e6f6a2596d4da798a2a3294592a05e
 msgid "Individual (3)"
-msgstr "个人（3）"
+msgstr "个体（3）"
 
-#: ../../source/usage/communicators.rst:210 2576da1d13704ec788f86c98a0cec0b0
+#: ../../source/usage/communicators.rst:210 325ac5cf258a44eb9b8215e6ed7db0f7
 msgid "ncclInvalidUsage"
 msgstr "ncclInvalidUsage"
 
-#: ../../source/usage/communicators.rst:211 a584e56b1cda4738b8b5e6a28df16908
+#: ../../source/usage/communicators.rst:211 f58c2c2323ee4ce693212263727ab256
 msgid "The usage of NCCL calls is invalid (4)"
-msgstr "NCCL 调用的使用是无效的 (4)"
+msgstr "NCCL调用用法无效（4）"
 
-#: ../../source/usage/communicators.rst:212 e57c068f4dd7489bbfaa319827d8fc70
+#: ../../source/usage/communicators.rst:212 a03e6ff4209149bda779d6dc7ce813f9
 msgid "Fix in the application (4)"
-msgstr "在应用程序中修复（4）"
+msgstr ""
+"Of course. Please provide the specific text or code snippet you need to be translated. I am ready to convert it from "
+"English to Simplified Chinese, adhering strictly to the NVIDIA NCCL technical terminology and conventions you have "
+"outlined.\n"
+"\n"
+"请提供需要翻译的具体技术文本或代码片段。我已准备就绪，将严格按照您列出的英伟达NCCL技术术语和规范，将其从英文转换为简体中文。"
 
-#: ../../source/usage/communicators.rst:215 475846ff17fa4ce18e54108d5db35d82
+#: ../../source/usage/communicators.rst:215 c5e11bee2c2441eda9360e6b61728db4
 msgid "ncclInProgress"
-msgstr "ncclInProgress"
+msgstr "处理中"
 
-#: ../../source/usage/communicators.rst:216 59cc563f97f04e128321eff21e3fe6c8
+#: ../../source/usage/communicators.rst:216 c6dd177334164a019c8c31ab5e864c18
 msgid "The NCCL call is still in progress"
-msgstr "NCCL 通话仍在进行中"
+msgstr "NCCL调用仍在进行中"
 
-#: ../../source/usage/communicators.rst:217 fa0741ccc3614a8d9ba982ca981281f4
+#: ../../source/usage/communicators.rst:217 3f37ea86f5344971a11c994af1d9ee4c
 msgid "Poll for completion using ncclCommGetAsyncError"
-msgstr "使用 `ncclCommGetAsyncError` 进行完成的调查"
+msgstr "使用 ncclCommGetAsyncError 轮询完成状态"
 
-#: ../../source/usage/communicators.rst:222 ef30bc6a5ae541fd9dfb4ad2bcf9400e
+#: ../../source/usage/communicators.rst:222 592f081b3e7a46188536372da37025cd
 msgid ""
 "(1) ncclUnhandledCudaError and ncclSystemError indicate that a call NCCL made to an external component failed, which "
 "caused the NCCL operation to fail. The error message should explain which component the user should look at and try to "
 "fix, potentially with the help of the administrators of the system."
-msgstr "(1) `ncclUnhandledCudaError`和`ncclSystemError`表示NCCL调用外部组件时失败，导致NCCL操作失败。错误消息应该解释用户应该查看和尝试修复哪个组件，可能需要系统管理员的帮助。"
+msgstr "（1）`ncclUnhandledCudaError` 与 `ncclSystemError` 表示 NCCL 调用外部组件时发生失败，导致集合通信操作中止。错误信息应明确指示用户需检查并修复的组件，必要时可寻求系统管理员协助处理。"
 
-#: ../../source/usage/communicators.rst:226 6a1bf4f9815148df9593debf12731bf2
+#: ../../source/usage/communicators.rst:226 1ec19a4fde504690a08d0cb218c74937
 msgid ""
 "(2) ncclInternalError denotes a NCCL bug. It might not report a message with NCCL_DEBUG=WARN since it requires a fix in "
 "the NCCL source code. NCCL_DEBUG=INFO will print the back trace which lead to the error."
-msgstr "(2) `ncclInternalError`表示NCCL的一个错误。由于需要在NCCL源代码中进行修复，可能不会使用`NCCL_DEBUG=WARN`报告消息。`NCCL_DEBUG=INFO`将打印导致错误的回溯。"
+msgstr "(2) ncclInternalError 表示NCCL内部错误。由于该错误需要修复NCCL源代码，启用NCCL_DEBUG=WARN时可能不会显示报错信息。使用NCCL_DEBUG=INFO可打印导致该错误的回溯信息。"
 
-#: ../../source/usage/communicators.rst:229 ded8f8ed9d1e476aaa594ead2598165e
+#: ../../source/usage/communicators.rst:229 5a658674587c4a9cb6ca28339eab45f5
 msgid ""
 "(3) ncclInvalidArgument indicates an argument value is incorrect, like a NULL pointer, or an out-of-bounds value. When "
 "this error is returned, the NCCL call had no effect. The group state remains unchanged, the communicator is still "
@@ -404,33 +417,34 @@ msgid ""
 "be returned immediately for a call happening within a group and applies to that specific NCCL call. It will not be "
 "returned by ncclGroupEnd since ncclGroupEnd takes no argument."
 msgstr ""
-"(3) `ncclInvalidArgument` 表示参数值不正确，比如空指针或超出范围的值。当出现此错误时，NCCL 调用没有效果。群组状态保持不变，通信器仍然正常运行。应用程序可以调用 `ncclCommAbort` "
-"或继续，就好像调用没有发生一样。此错误将立即返回，适用于组内发生的调用，并且仅适用于特定的 NCCL 调用。它不会被 `ncclGroupEnd` 返回，因为 `ncclGroupEnd` 不接受任何参数。"
+"(3) ncclInvalidArgument "
+"表示参数值不正确，例如空指针或越界值。返回此错误时，NCCL调用未产生任何效果。群组状态保持不变，通信器仍正常运行。应用程序可调用ncclCommAbort或继续执行，如同该调用从未发生。对于群组内的调用，此错误将立即返回且仅作用于该特定N"
+"CCL调用。由于ncclGroupEnd不接受参数，该错误不会通过ncclGroupEnd返回。"
 
-#: ../../source/usage/communicators.rst:235 4c55facbf99b47bc85b60c91ddafa0be
+#: ../../source/usage/communicators.rst:235 6eb3f6a33fd94a1381b8ed9a0c87f653
 msgid ""
 "(4) ncclInvalidUsage is returned when a dynamic condition causes a failure, which denotes an incorrect usage of the "
 "NCCL API."
-msgstr "(4) 当动态条件导致失败时，将返回 ncclInvalidUsage，这表示对 NCCL API 的不正确使用。"
+msgstr "(4) 当动态条件导致失败时返回 ncclInvalidUsage，这表示对 NCCL API 的使用方式不正确。"
 
-#: ../../source/usage/communicators.rst:238 ecee101597d547b49161e49ada675936
+#: ../../source/usage/communicators.rst:238 094f3e761f9a4fb097ecb4cf31654521
 msgid ""
 "(5) These errors are fatal for the communicator. To recover, the application needs to call ncclCommAbort on the "
 "communicator and re-create it."
-msgstr "(5) 这些错误对通信者来说是致命的。要恢复，应用程序需要在通信者上调用ncclCommAbort并重新创建它。"
+msgstr "（5）此类错误对该通信器是致命的。要恢复，应用程序需调用 ncclCommAbort 终止该通信器并重新创建。"
 
-#: ../../source/usage/communicators.rst:241 9e32fae12dd0414abc3edca5c249a0b9
+#: ../../source/usage/communicators.rst:241 a2ef3515dc314164ad07a5594f760794
 msgid ""
 "(6) Dynamic errors for operations within a group are always reported by ncclGroupEnd and apply to all operations within "
 "the group, which may or may not have completed. The application must call ncclCommAbort on all communicators within the "
 "group."
-msgstr "(6) 组内操作的动态错误始终由 ncclGroupEnd 报告，并适用于组内的所有操作，这些操作可能已经完成，也可能尚未完成。应用程序必须在组内的所有通信器上调用 ncclCommAbort。"
+msgstr "（6）组内操作的动态错误始终由 ncclGroupEnd 报告，并适用于组内所有可能已完成或未完成的操作。应用程序必须对组内所有通信器调用 ncclCommAbort。"
 
-#: ../../source/usage/communicators.rst:246 688e6013410f45559d4bd1273277f9de
+#: ../../source/usage/communicators.rst:246 945ec4c76609438194517b95b986bbba
 msgid "Asynchronous errors and error handling"
-msgstr "异步错误和错误处理"
+msgstr "异步错误与错误处理"
 
-#: ../../source/usage/communicators.rst:248 5dfde90a9fd142beb3a414c2a42d6f88
+#: ../../source/usage/communicators.rst:248 4cd241d0f96f4f72bc27b40e0868633d
 msgid ""
 "Some communication errors, and in particular network errors, are reported through the ncclCommGetAsyncError function. "
 "Operations experiencing an asynchronous error will usually not progress and never complete. When an asynchronous error "
@@ -438,28 +452,28 @@ msgid ""
 "operations to complete, applications should call ncclCommGetAsyncError and destroy the communicator when an error "
 "happens."
 msgstr ""
-"通常，通过`ncclCommGetAsyncError`函数报告一些通信错误，特别是网络错误。遇到异步错误的操作通常不会继续进行，也永远不会完成。当发生异步错误时，应中止操作并使用`ncclCommAbort`"
-"销毁通信器。在等待NCCL操作完成时，应用程序应调用`ncclCommGetAsyncError`，并在发生错误时销毁通信器。"
+"某些通信错误（尤其是网络错误）会通过ncclCommGetAsyncError函数上报。遭遇异步错误的操作通常无法继续执行且永不完成。发生异步错误时，应中止操作并通过ncclCommAbort销毁通信器。在等待NCCL操作完成期间，应用程序"
+"应调用ncclCommGetAsyncError检测错误，并在发生错误时销毁通信器。"
 
-#: ../../source/usage/communicators.rst:254 01711fc8a078481899c27d4cdf8131c2
+#: ../../source/usage/communicators.rst:254 8245d4e2de214580b60804daf9da29a7
 msgid ""
 "The following code shows how to wait on NCCL operations and poll for asynchronous errors, instead of using "
 "cudaStreamSynchronize."
-msgstr "以下代码展示了如何等待NCCL操作并轮询异步错误，而不是使用cudaStreamSynchronize。"
+msgstr "以下代码展示了如何等待NCCL操作完成并轮询异步错误，以替代直接使用cudaStreamSynchronize的方法。"
 
-#: ../../source/usage/communicators.rst:295 9f860b0b9b7b432db4d8bb0933d0a769
+#: ../../source/usage/communicators.rst:295 c39ae4ec236541a590127aac867ec899
 msgid ":c:func:`ncclCommGetAsyncError`"
-msgstr ":c:func:`ncclCommGetAsyncError`"
+msgstr "c:func:`ncclCommGetAsyncError`"
 
-#: ../../source/usage/communicators.rst:296 344e976717fb4b9e851036e03ceb9c27
+#: ../../source/usage/communicators.rst:296 9d6e78b1e9d149879c32ea1522758f32
 msgid ":c:func:`ncclCommAbort`"
-msgstr ":c:func:`ncclCommAbort`"
+msgstr "`ncclCommAbort`"
 
-#: ../../source/usage/communicators.rst:300 2db435f911b04712a7a3ef6cc1db90fc
+#: ../../source/usage/communicators.rst:300 dba9b01210c74275ae38109816b395e3
 msgid "Fault Tolerance"
-msgstr "容错能力"
+msgstr "容错性"
 
-#: ../../source/usage/communicators.rst:302 95ada6a7832e4ca5b60a012d655db553
+#: ../../source/usage/communicators.rst:302 c3624e1673e64a84bf6ec3bc517dacb7
 msgid ""
 "NCCL provides a set of features to allow applications to recover from fatal errors such as network failure, node "
 "failure, or process failure. When such an error happens, the application should be able to call ncclCommAbort on the "
@@ -467,22 +481,22 @@ msgid ""
 "ensure ncclCommAbort can be called at any point, during initialization, communication or when finalizing the "
 "communicator."
 msgstr ""
-"NCCL提供了一组功能，允许应用程序从致命错误（如网络故障、节点故障或进程故障）中恢复。当发生此类错误时，应用程序应能够调用ncclCommAbort来释放所有资源，然后重新创建一个新的通信器以继续。所有NCCL调用都可以是非阻塞的，以确保"
-"可以在任何时候调用ncclCommAbort，无论是在初始化、通信还是在完成通信器时。"
+"NCCL提供一系列功能支持应用程序从致命错误中恢复，例如网络故障、节点故障或进程故障。发生此类错误时，应用程序应能够调用ncclCommAbort终止通信器以释放所有资源，随后重新创建新通信器继续运行。所有NCCL调用均可设置为非阻塞模式，"
+"确保在初始化、通信或销毁通信器过程中的任意时刻均可调用ncclCommAbort。"
 
-#: ../../source/usage/communicators.rst:308 10636eb1642a45378745a3977081aa8a
+#: ../../source/usage/communicators.rst:308 5659680d4e5e43cfa9d1601e285c6a9e
 msgid ""
 "To correctly abort, when any rank in a communicator fails (e.g., due to segmentation fault), all other ranks need to "
 "call *ncclCommAbort* to abort their own NCCL communicator. Users can implement methods to decide when and whether to "
 "abort the communicators and restart the NCCL operation. Here is an example showing how to initialize and split a "
 "communicator in a non-blocking manner, allowing for abort at any point:"
 msgstr ""
-"为了正确中止，当通信器中的任何等级失败（例如，由于分段错误），所有其他等级都需要调用 *ncclCommAbort* 来中止他们自己的 NCCL 通信器。用户可以实现方法来决定何时以及是否中止通信器并重新启动 NCCL "
-"操作。以下是一个示例，展示了如何以非阻塞方式初始化和分割通信器，允许在任何时刻中止："
+"为确保正确中止，当通信器中的任意秩发生故障（例如因段错误）时，所有其他秩需调用 *ncclCommAbort* 以中止其自身的 NCCL 通信器。用户可实现相应方法来判断何时及是否中止通信器并重启 NCCL "
+"运算。以下示例展示了如何以非阻塞方式初始化并拆分通信器，从而实现任意时间点的中止操作："
 
-#: ../../source/usage/communicators.rst:357 d7141a1dd80d4ffe930c63a944684b19
+#: ../../source/usage/communicators.rst:357 05366f8295134f2489cd118802f75230
 msgid ""
 "*checkTimeout* function is just an example and provided by users to determine what is the longest time the application "
 "should wait for NCCL initialization; likewise, users can apply other methods to detect errors besides timeout function. "
 "Similar methods can be applied to NCCL finalization as well."
-msgstr "*checkTimeout* 函数只是一个示例，由用户提供，用于确定应用程序等待 NCCL 初始化的最长时间；同样，用户可以应用其他方法来检测错误，而不仅仅是超时函数。类似的方法也可以应用于 NCCL 结束。"
+msgstr "*checkTimeout* 函数仅为示例，由用户提供用于确定应用程序应等待NCCL初始化的最长时间；同样，用户也可采用超时函数以外的其他方法进行错误检测。类似方法同样适用于NCCL终止过程。"

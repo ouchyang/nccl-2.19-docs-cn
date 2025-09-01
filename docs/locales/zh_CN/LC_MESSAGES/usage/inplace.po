@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NCCL(2.19)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 11:38+0800\n"
+"POT-Creation-Date: 2025-09-01 14:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: gpt-po v1.0.11\n"
 "Language: zh_CN\n"
@@ -19,24 +19,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage/inplace.rst:5 8d4fea21415e4f27890434ae5102f82d
+#: ../../source/usage/inplace.rst:5 b9a4c622262a41a290363e4aa3d0e06c
 msgid "In-place Operations"
 msgstr "原地操作"
 
-#: ../../source/usage/inplace.rst:7 c05845682716492da2ec535ea3ac1473
+#: ../../source/usage/inplace.rst:7 4086979a150d4eadabbe3f285e60af89
 msgid ""
 "Contrary to MPI, NCCL does not define a special \"in-place\" value to replace pointers. Instead, NCCL optimizes the "
 "case where the provided pointers are effectively \"in place\"."
-msgstr "与MPI相反，NCCL不定义一个特殊的“原地”值来替换指针。相反，NCCL优化了所提供指针实际上“原地”的情况。"
+msgstr "与MPI不同，NCCL未定义特殊的\"in-place\"值来替代指针。相反，NCCL会对实际提供\"in-place\"指针的情况进行优化。"
 
-#: ../../source/usage/inplace.rst:9 d3c0bb4ebccd458bb11a6a2bcf6428a1
+#: ../../source/usage/inplace.rst:9 02195e014d004666b9baafb7a80fcd08
 msgid ""
 "For ncclBroadcast, ncclReduce and ncclAllreduce functions, this means that passing ``sendBuff == recvBuff`` will "
 "perform in place operations, storing final results at the same place as initial data was read from."
-msgstr "对于 ncclBroadcast、ncclReduce 和 ncclAllreduce 函数，这意味着传递 `sendBuff == recvBuff` 将执行原地操作，在相同位置存储最终结果，就像初始数据的位置一样。"
+msgstr "对于ncclBroadcast、ncclReduce和ncclAllReduce函数，传递``sendBuff == recvBuff``意味着执行原地操作，最终结果将存储在读取初始数据的相同位置。"
 
-#: ../../source/usage/inplace.rst:12 663fed021ed343079b8a65ab576d1ee3
+#: ../../source/usage/inplace.rst:12 980833da42a24ce1b75b1996b0352acc
 msgid ""
 "For ncclReduceScatter and ncclAllGather, in place operations are done when the per-rank pointer is located at the rank "
 "offset of the global buffer. More precisely, these calls are considered in place : ::"
-msgstr "对于ncclReduceScatter和ncclAllGather，在全局缓冲区的排名偏移处找到每个排名指针时，会执行原位操作。更准确地说，这些调用被视为原位：::"
+msgstr "对于`ncclReduceScatter`和`ncclAllGather`操作，当每秩指针位于全局缓冲区的秩偏移位置时，将执行原地操作。更准确地说，以下调用被视为原地操作：::"
