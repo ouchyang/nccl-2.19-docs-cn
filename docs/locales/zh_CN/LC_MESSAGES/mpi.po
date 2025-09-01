@@ -25,7 +25,7 @@ msgstr "NCCL与MPI"
 
 #: ../../source/mpi.rst:7 417f822f4daa4628b39421ddcfd9b894
 msgid "API"
-msgstr "收到。请提供需要翻译的NCCL API相关内容，我将严格遵循技术术语规范进行转换。"
+msgstr "接口（API）"
 
 #: ../../source/mpi.rst:9 aa781f4af7af47b9804edce614d6c58f
 msgid ""

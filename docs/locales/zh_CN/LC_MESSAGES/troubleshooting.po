@@ -29,7 +29,7 @@ msgstr "请确保熟悉以下已知问题和实用调试策略。"
 
 #: ../../source/troubleshooting.rst:9 bb338bdf19754a17921e08b129d1576d
 msgid "Errors"
-msgstr "收到。请提供需要翻译的NCCL技术文本片段。"
+msgstr "错误（Errors）"
 
 #: ../../source/troubleshooting.rst:11 d26a4b47006b41ea984fbf90e2a451d8
 msgid ""

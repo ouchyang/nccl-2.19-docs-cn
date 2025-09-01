@@ -175,7 +175,7 @@ msgstr "若每个设备对应一个线程或进程，则每个线程将为其设
 msgid ""
 "After the call, the operation has been enqueued to the stream.  Therefore, you can call cudaStreamSynchronize if you "
 "want to wait for the operation to be complete:"
-msgstr "调用完成后，该操作已被加入流中。因此，若需等待操作完成，可调用cudaStreamSynchronize："
+msgstr "调用完成后，该操作已被加入流（stream）中。因此，若需等待操作完成，可调用cudaStreamSynchronize："
 
 #: ../../source/examples.rst:554 626882a0de654c519f04b02b071d03b9
 msgid ""
@@ -197,7 +197,7 @@ msgstr "当单个线程管理多个设备时，需要使用组语义（group sem
 msgid ""
 "After ncclGroupEnd, all of the operations have been enqueued to the stream.  Therefore, you can now call "
 "cudaStreamSynchronize if you want to wait for the operation to be complete:"
-msgstr "调用ncclGroupEnd后，所有操作均已加入流中。因此，如需等待操作完成，此时可调用cudaStreamSynchronize："
+msgstr "调用ncclGroupEnd后，所有操作均已加入流（stream）中。因此，如需等待操作完成，此时可调用cudaStreamSynchronize："
 
 #: ../../source/examples.rst:576 bffb12a6d53f4a7bbb62e3c217252219
 msgid ""

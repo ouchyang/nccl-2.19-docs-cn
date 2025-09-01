@@ -92,7 +92,7 @@ msgid ""
 "programming model. Finally, NCCL is compatible with virtually any multi-GPU parallelization model, for example:"
 msgstr ""
 "除性能外，编程便捷性是NCCL设计中的首要考量因素。NCCL采用简洁的C语言API，可轻松适配多种编程语言。其严格遵循MPI（消息传递接口）定义的通用集合通信API规范，因此任何熟悉MPI的开发人员都能直观地使用NCCL "
-"API。与MPI的细微区别在于，NCCL集合通信操作接受\"流\"参数，借此实现与CUDA编程模型的直接集成。最后，NCCL兼容几乎所有多GPU并行化模型，例如："
+"API。与MPI的细微区别在于，NCCL集合通信操作接受\"流（stream）\"参数，借此实现与CUDA编程模型的直接集成。最后，NCCL兼容几乎所有多GPU并行化模型，例如："
 
 #: ../../source/overview.rst:25 11f5f6d5e8e14586b5b7fb51c5f092db
 msgid "single-threaded control of all GPUs"

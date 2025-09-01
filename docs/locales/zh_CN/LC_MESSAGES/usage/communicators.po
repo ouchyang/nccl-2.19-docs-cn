@@ -248,7 +248,7 @@ msgstr "NCCL错误"
 
 #: ../../source/usage/communicators.rst:180 2ebcf10331ab4332bdaf0143ac232309
 msgid "Error"
-msgstr "收到。请重新发送需要翻译的NCCL技术文本片段，我将严格遵循既定规范进行准确翻译。"
+msgstr "错误"
 
 #: ../../source/usage/communicators.rst:181 1f540ce77f7342e88b11ee2f734dc6ff
 msgid "Description"
@@ -264,15 +264,15 @@ msgstr "错误处理"
 
 #: ../../source/usage/communicators.rst:184 f17243f799194afcb4effe6939466a7b
 msgid "Group behavior"
-msgstr "群体行为"
+msgstr "群（Group）行为"
 
 #: ../../source/usage/communicators.rst:185 cb6bb74eb68c42f08cddd061c5a2b5a4
 msgid "ncclSuccess"
-msgstr "操作成功"
+msgstr "ncclSuccess"
 
 #: ../../source/usage/communicators.rst:186 0278c556914548b5a49be235cbdb74d6
 msgid "No error"
-msgstr "收到。待您发送NCCL技术文本后，我将立即按照既定规范进行准确翻译。"
+msgstr "No error"
 
 #: ../../source/usage/communicators.rst:187
 #: ../../source/usage/communicators.rst:188
@@ -282,7 +282,7 @@ msgstr "收到。待您发送NCCL技术文本后，我将立即按照既定规�
 #: 78d9c99859994a4d950ee1b2b760a711 b17f14fb2b064e46ab11789c7cac88cf
 #: b3d4ccd167854b678d23acbfd1c834b5 dace2065c0184f7f8be8753d916394e7
 msgid "None"
-msgstr "收到。我将保持待命状态，您可随时提供需要翻译的NCCL技术文本。所有翻译将严格遵循您指定的术语体系和格式规范。"
+msgstr "None。"
 
 #: ../../source/usage/communicators.rst:190 168213b84f714ae8beacf658918512ef
 msgid "ncclUnhandledCudaError"
@@ -348,24 +348,15 @@ msgstr "NCCL调用中的参数无效（3）"
 
 #: ../../source/usage/communicators.rst:207 ce36a63f255c40cb841f6421440c8eef
 msgid "Fix in the application (3)"
-msgstr ""
-"请提供需要修复的具体应用程序名称或上下文信息，例如：\n"
-"1. 应用程序的完整名称\n"
-"2. 需要修复的功能或问题描述（如崩溃、性能问题、UI错误等）\n"
-"3. 操作系统/设备型号（如Windows 11/iPad Pro 2022）\n"
-"4. 错误代码或截图（如有）\n"
-"\n"
-"例如：\"修复Photoshop（Windows版）在保存大型PSD文件时出现的崩溃问题\"。\n"
-"\n"
-"我将根据您提供的详细信息给出针对性解决方案。"
+msgstr "Fix in the application (3)"
 
 #: ../../source/usage/communicators.rst:208 a8ffbe43065849af9d3eeebf36481334
 msgid "None (3)"
-msgstr "收到。请提供需要翻译的NCCL技术文本，我将严格遵循您指定的术语规范进行精准转换。"
+msgstr "None (3)"
 
 #: ../../source/usage/communicators.rst:209 90e6f6a2596d4da798a2a3294592a05e
 msgid "Individual (3)"
-msgstr "个体（3）"
+msgstr "Individual（3）"
 
 #: ../../source/usage/communicators.rst:210 325ac5cf258a44eb9b8215e6ed7db0f7
 msgid "ncclInvalidUsage"
@@ -377,16 +368,11 @@ msgstr "NCCL调用用法无效（4）"
 
 #: ../../source/usage/communicators.rst:212 a03e6ff4209149bda779d6dc7ce813f9
 msgid "Fix in the application (4)"
-msgstr ""
-"Of course. Please provide the specific text or code snippet you need to be translated. I am ready to convert it from "
-"English to Simplified Chinese, adhering strictly to the NVIDIA NCCL technical terminology and conventions you have "
-"outlined.\n"
-"\n"
-"请提供需要翻译的具体技术文本或代码片段。我已准备就绪，将严格按照您列出的英伟达NCCL技术术语和规范，将其从英文转换为简体中文。"
+msgstr "Fix in the application (4)"
 
 #: ../../source/usage/communicators.rst:215 c5e11bee2c2441eda9360e6b61728db4
 msgid "ncclInProgress"
-msgstr "处理中"
+msgstr "ncclInProgress"
 
 #: ../../source/usage/communicators.rst:216 c6dd177334164a019c8c31ab5e864c18
 msgid "The NCCL call is still in progress"
@@ -442,7 +428,7 @@ msgstr "（6）组内操作的动态错误始终由 ncclGroupEnd 报告，并适
 
 #: ../../source/usage/communicators.rst:246 945ec4c76609438194517b95b986bbba
 msgid "Asynchronous errors and error handling"
-msgstr "异步错误与错误处理"
+msgstr "异步（Asynchronous）错误与错误处理"
 
 #: ../../source/usage/communicators.rst:248 4cd241d0f96f4f72bc27b40e0868633d
 msgid ""
@@ -491,7 +477,7 @@ msgid ""
 "abort the communicators and restart the NCCL operation. Here is an example showing how to initialize and split a "
 "communicator in a non-blocking manner, allowing for abort at any point:"
 msgstr ""
-"为确保正确中止，当通信器中的任意进程(rank)发生故障（例如因段错误）时，所有其他进程(rank)需调用 *ncclCommAbort* 以中止其自身的 NCCL 通信器。用户可实现相应方法来判断何时及是否中止通信器并重启 NCCL "
+"为确保正确中止（abort），当通信器中的任意进程(rank)发生故障（例如：段错误导致）时，所有其他进程(rank)需调用 *ncclCommAbort* 以中止其自身的 NCCL 通信器。用户可实现相应方法来判断何时及是否中止通信器并重启 NCCL "
 "运算。以下示例展示了如何以非阻塞方式初始化并拆分通信器，从而实现任意时间点的中止操作："
 
 #: ../../source/usage/communicators.rst:357 05366f8295134f2489cd118802f75230
