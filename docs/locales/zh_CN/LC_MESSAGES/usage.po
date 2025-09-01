@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../source/usage.rst:3 557a9179fe2f43f2a43470385652a46b
 msgid "Using NCCL"
-msgstr "使用 NCCL"
+msgstr "NCCL 使用指南"
 
 #: ../../source/usage.rst:5 d138eab8cada459392ee8bcdb0e8f456
 msgid "Using NCCL is similar to using any other library in your code:"

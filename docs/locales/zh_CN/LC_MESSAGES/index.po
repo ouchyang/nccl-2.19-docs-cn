@@ -25,7 +25,7 @@ msgstr "NVIDIA 集体通信库（NCCL）文档"
 
 #: ../../source/index.rst:5 2ebf538986554e1bb759a8cac08775db
 msgid "Contents:"
-msgstr "内容："
+msgstr "目录："
 
 #: ../../source/index.rst:19 22f3b7b9f0704fa2bacd4e64467f0407
 msgid "Indices and tables"

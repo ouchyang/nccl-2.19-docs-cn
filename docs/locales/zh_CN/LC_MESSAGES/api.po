@@ -21,8 +21,8 @@ msgstr ""
 
 #: ../../source/api.rst:5 0bdee6603edf40848e1e6c3e74210b83
 msgid "NCCL API"
-msgstr "NCCL API"
+msgstr "NCCL API (接口)"
 
 #: ../../source/api.rst:7 7d4aedc8fe924667ad0b03eede73cd69
 msgid "The following sections describe the collective communications methods and operations."
-msgstr "以下部分描述了集体沟通方法和运营。"
+msgstr "以下部分描述了集体通信的方法和操作。"
