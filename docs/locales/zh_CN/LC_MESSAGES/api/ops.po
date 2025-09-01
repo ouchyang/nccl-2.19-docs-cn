@@ -21,13 +21,13 @@ msgstr ""
 
 #: ../../source/api/ops.rst:3 f639035400924577bec208c2d49763e3
 msgid "User Defined Reduction Operators"
-msgstr "用户自定义规约操作符"
+msgstr "用户自定义归约操作符"
 
 #: ../../source/api/ops.rst:5 13314b1fa5f84f4ea4c2035eb23c23be
 msgid ""
 "The following functions are public APIs exposed by NCCL to create and destroy custom reduction operators for use in "
 "reduction collectives."
-msgstr "以下是NCCL公开的用于创建和销毁自定义规约操作符的公共API，这些操作符可用于规约集合通信操作。"
+msgstr "以下是NCCL公开的用于创建和销毁自定义归约操作符的公共API，这些操作符可用于归约集合通信操作。"
 
 #: ../../source/api/ops.rst:9 72f48125e0a8426d9f5aa722a7ba7bc9
 msgid "ncclRedOpCreatePreMulSum"
@@ -41,8 +41,8 @@ msgid ""
 "function returns (ncclScalarHostImmediate), or by the device during execution of the reduction collective "
 "(ncclScalarDevice). Upon return, the newly created operator's handle is stored in *op*."
 msgstr ""
-"创建一个新的规约操作符，该操作符在通过求和与对等体值进行规约之前，会先在本地将输入值乘以给定标量。此操作符仅适用于针对*comm*和*datatype*发起的集合通信操作。参数*residence*指示*scalar*"
-"所指向的内存应在此函数返回前由主机立即解引用（ncclScalarHostImmediate），还是在规约集合通信执行期间由设备解引用（ncclScalarDevice）。返回时，新创建操作符的句柄将存储于*op*中。"
+"创建一个新的归约操作符，该操作符在通过求和与对等体值进行归约之前，会先在本地将输入值乘以给定标量。此操作符仅适用于针对*comm*和*datatype*发起的集合通信操作。参数*residence*指示*scalar*"
+"所指向的内存应在此函数返回前由主机立即解引用（ncclScalarHostImmediate），还是在归约集合通信执行期间由设备解引用（ncclScalarDevice）。返回时，新创建操作符的句柄将存储于*op*中。"
 
 #: ../../source/api/ops.rst:23 13048712d3504d94864c112e812ffda7
 msgid "ncclRedOpDestroy"

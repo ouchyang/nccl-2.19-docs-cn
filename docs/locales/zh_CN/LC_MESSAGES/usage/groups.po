@@ -105,7 +105,7 @@ msgstr "集合通信操作的聚合可以通过在ncclGroupStart/ncclGroupEnd代
 
 #: ../../source/usage/groups.rst:71 e9a662768c4e4bd8933021b4981856bd
 msgid "In the following example, we launch one broadcast and two allReduce operations together as a single NCCL launch."
-msgstr "在以下示例中，我们将一个广播操作和两个全规约操作作为单次NCCL启动一并提交。"
+msgstr "在以下示例中，我们将一个广播操作和两个全归约操作作为单次NCCL启动一并提交。"
 
 #: ../../source/usage/groups.rst:81 88b896a7434642e1995077890375086b
 msgid ""

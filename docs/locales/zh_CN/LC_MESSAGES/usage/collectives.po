@@ -31,13 +31,13 @@ msgstr "集合通信操作必须由每个进程(rank)（即每个CUDA设备）�
 
 #: ../../source/usage/collectives.rst:10 a5e7959b49174968a280e514041ed180
 msgid "AllReduce"
-msgstr "全规约"
+msgstr "全归约"
 
 #: ../../source/usage/collectives.rst:12 48e5f731f1854029bb5c0c64d0d02e94
 msgid ""
 "The AllReduce operation is performing reductions on data (for example, sum, min, max) across devices and writing the "
 "result in the receive buffers of every rank."
-msgstr "AllReduce操作跨设备对数据执行规约运算（例如求和、最小值、最大值），并将结果写入每个进程(rank)的接收缓冲区中。"
+msgstr "AllReduce操作跨设备对数据执行归约运算（例如求和、最小值、最大值），并将结果写入每个进程(rank)的接收缓冲区中。"
 
 #: ../../source/usage/collectives.rst:14 eed88ca194ae4b9a8f3275aa9d4b578c
 msgid ""
@@ -47,7 +47,7 @@ msgstr "在k个进程(rank)之间执行求和操作的allreduce过程中，每�
 
 #: ../../source/usage/collectives.rst:20 a0f6b7f876c842efa100f56d32029924
 msgid "All-Reduce operation: each rank receives the reduction of input values across ranks."
-msgstr "全规约操作：每个进程(rank)接收到跨所有进程(rank)输入值的规约结果。"
+msgstr "全归约操作：每个进程(rank)接收到跨所有进程(rank)输入值的归约结果。"
 
 #: ../../source/usage/collectives.rst:22 6037f3d8dbfc492bb9d028dd641b2db1
 msgid "Related links: :c:func:`ncclAllReduce`."
@@ -77,17 +77,17 @@ msgstr "相关链接：:c:func:`ncclBroadcast`。"
 
 #: ../../source/usage/collectives.rst:43 8ad3007578e54430837475a608cc8722
 msgid "Reduce"
-msgstr "规约"
+msgstr "归约"
 
 #: ../../source/usage/collectives.rst:45 73553295f27a481ba3bff899771fea4b
 msgid ""
 "The Reduce operation is performing the same operation as AllReduce, but writes the result only in the receive buffers "
 "of a specified root rank."
-msgstr "规约操作执行与全规约相同的运算，但仅将结果写入指定根进程(rank)的接收缓冲区中。"
+msgstr "归约操作执行与全归约相同的运算，但仅将结果写入指定根进程(rank)的接收缓冲区中。"
 
 #: ../../source/usage/collectives.rst:50 d9b89b183c9c47028be3342f34d031b6
 msgid "Reduce operation : one rank receives the reduction of input values across ranks."
-msgstr "规约操作：一个进程(rank)接收跨所有进程(rank)输入值的规约结果。"
+msgstr "归约操作：一个进程(rank)接收跨所有进程(rank)输入值的归约结果。"
 
 #: ../../source/usage/collectives.rst:52 2a5407eece6e4361b7bdc64253667f58
 msgid ""
@@ -97,7 +97,7 @@ msgstr "重要说明：根参数是某个进程(rank)（而非设备编号），
 
 #: ../../source/usage/collectives.rst:54 13f96456f1a941a99ad4c1f6d4c5d6dd
 msgid "Note: A Reduce, followed by a Broadcast, is equivalent to the AllReduce operation."
-msgstr "注意：一次规约操作后接一次广播操作，等效于全规约（AllReduce）操作。"
+msgstr "注意：一次归约操作后接一次广播操作，等效于全归约（AllReduce）操作。"
 
 #: ../../source/usage/collectives.rst:56 3e6922d01a8845a284edcbb1659fc524
 msgid "Related links: :c:func:`ncclReduce`."
@@ -125,7 +125,7 @@ msgstr "全收集操作：每个进程(rank)按进程(rank)序接收来自所有
 
 #: ../../source/usage/collectives.rst:72 ccd53a36a4654bba81984a736e51f18f
 msgid "Note: Executing ReduceScatter, followed by AllGather, is equivalent to the AllReduce operation."
-msgstr "注意：执行规约散播（ReduceScatter）后接全收集（AllGather）操作，其效果等同于执行全规约（AllReduce）操作。"
+msgstr "注意：执行归约散播（ReduceScatter）后接全收集（AllGather）操作，其效果等同于执行全归约（AllReduce）操作。"
 
 #: ../../source/usage/collectives.rst:74 9e52e6548b7344b28b882ccbd57a9533
 msgid "Related links: :c:func:`ncclAllGather`."
@@ -133,7 +133,7 @@ msgstr "相关链接：:c:func:`ncclAllGather`。"
 
 #: ../../source/usage/collectives.rst:79 36fa9defe1064dae93c8f3c2754a054d
 msgid "ReduceScatter"
-msgstr "规约散播"
+msgstr "归约散播"
 
 #: ../../source/usage/collectives.rst:81 85863c9b678749b780072e95bf9a4ca7
 msgid ""
@@ -143,11 +143,11 @@ msgstr "ReduceScatter操作执行与Reduce操作相同的计算，但结果会�
 
 #: ../../source/usage/collectives.rst:84 9ccd4d3e70aa4e009bc420f8f2e9d0d6
 msgid "The ReduceScatter operation is impacted by a different rank or device mapping since the ranks determine the data layout."
-msgstr "规约散播操作受到不同进程(rank)或设备映射的影响，因为进程(rank)决定了数据布局。"
+msgstr "归约散播操作受到不同进程(rank)或设备映射的影响，因为进程(rank)决定了数据布局。"
 
 #: ../../source/usage/collectives.rst:89 357d564b87934e60b53b7526f13bd03c
 msgid "Reduce-Scatter operation: input values are reduced across ranks, with each rank receiving a subpart of the result."
-msgstr "规约散播操作：输入值在多个进程(rank)间进行规约，每个进程(rank)接收结果的一个子部分。"
+msgstr "归约散播操作：输入值在多个进程(rank)间进行归约，每个进程(rank)接收结果的一个子部分。"
 
 #: ../../source/usage/collectives.rst:92 e1e2a4dd58c34cc6ba200e74cf9557c6
 msgid "Related links: :c:func:`ncclReduceScatter`"

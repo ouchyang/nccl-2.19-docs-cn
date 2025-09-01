@@ -41,7 +41,7 @@ msgstr "NCCL提供以下集合通信原语："
 
 #: ../../source/overview.rst:11 ba57bfa627164beea937edfc4cee319c
 msgid "AllReduce"
-msgstr "全规约"
+msgstr "全归约"
 
 #: ../../source/overview.rst:12 fb4528aa851f491ab3aaaa5b84e3975f
 msgid "Broadcast"
@@ -49,7 +49,7 @@ msgstr "广播"
 
 #: ../../source/overview.rst:13 3e7c251bd42d42e3b3f69d7b1e37a443
 msgid "Reduce"
-msgstr "规约"
+msgstr "归约"
 
 #: ../../source/overview.rst:14 f1e4616bd1cf4bd7a4fe1f5c21cebe15
 msgid "AllGather"
@@ -57,7 +57,7 @@ msgstr "全收集"
 
 #: ../../source/overview.rst:15 fee698c0e2734f1abed01b721b87dbf7
 msgid "ReduceScatter"
-msgstr "规约散播"
+msgstr "归约散播"
 
 #: ../../source/overview.rst:17 60ff224837f64db8a630b911b6db4dd5
 msgid ""
@@ -73,7 +73,7 @@ msgid ""
 "and computation operations. This allows for fast synchronization and minimizes the resources needed to reach peak "
 "bandwidth."
 msgstr ""
-"通信处理器间的紧密同步是集合通信操作的关键特性。基于CUDA的集合操作传统上通过结合CUDA内存拷贝操作与本地规约CUDA内核实现。而NCCL则通过单一内核实现每个集合操作，同时处理通信与计算操作。这种方式可实现快速同步，并以最小资源占用达"
+"通信处理器间的紧密同步是集合通信操作的关键特性。基于CUDA的集合操作传统上通过结合CUDA内存拷贝操作与本地归约CUDA内核实现。而NCCL则通过单一内核实现每个集合操作，同时处理通信与计算操作。这种方式可实现快速同步，并以最小资源占用达"
 "到峰值带宽。"
 
 #: ../../source/overview.rst:21 f1ac7f3fdb6841f39a701a0e7032064a

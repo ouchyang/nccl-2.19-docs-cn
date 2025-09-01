@@ -140,7 +140,7 @@ msgstr "ncclRedOp_t"
 
 #: ../../source/api/types.rst:135 b1cc7240374246d792c8ff97835fbbf0
 msgid "Defines the reduction operation."
-msgstr "定义规约操作。"
+msgstr "定义归约操作。"
 
 #: ../../source/api/types.rst:139 5b5e759ba9764d9caaf71329fdf00939
 msgid "Perform a sum (+) operation"

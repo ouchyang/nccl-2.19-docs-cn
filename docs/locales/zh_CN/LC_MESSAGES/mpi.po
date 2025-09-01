@@ -45,7 +45,7 @@ msgstr "与MPI端点概念类似，NCCL不要求进程(rank)与MPI进程(rank)�
 
 #: ../../source/mpi.rst:16 ba2bee05f50c43ccaad7eab357414750
 msgid "ReduceScatter operation"
-msgstr "规约散播操作"
+msgstr "归约散播操作"
 
 #: ../../source/mpi.rst:17 08d022242e284e538397d7f85dec6977
 msgid ""
@@ -77,7 +77,7 @@ msgid ""
 "other count being equal to nranks*count. The function prototype clearly shows which count is provided. ncclAllgather "
 "has a sendcount as argument, while ncclReduceScatter has a recvcount as argument."
 msgstr ""
-"对于AllGather（全收集）和ReduceScatter（规约散播）操作，count参数等于单进程(rank)（per-rank）大小，即最小尺寸；另一尺寸等于nranks*"
+"对于AllGather（全收集）和ReduceScatter（归约散播）操作，count参数等于单进程(rank)（per-rank）大小，即最小尺寸；另一尺寸等于nranks*"
 "count。函数原型明确显示了提供的count类型：ncclAllgather使用sendcount作为参数，而ncclReduceScatter使用recvcount作为参数。"
 
 #: ../../source/mpi.rst:25 6fd005f65dc1447cae00458387ad0a3f

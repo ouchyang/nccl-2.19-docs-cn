@@ -35,7 +35,7 @@ msgstr "ncclAllReduce"
 msgid ""
 "Reduce data arrays of length ``count`` in ``sendbuff`` using ``op`` operation and leaves identical copies of the result "
 "on each ``recvbuff``."
-msgstr "对长度为 ``count`` 的 ``sendbuff`` 数据数组执行 ``op`` 运算的规约操作，并在每个 ``recvbuff`` 中留存相同的运算结果副本。"
+msgstr "对长度为 ``count`` 的 ``sendbuff`` 数据数组执行 ``op`` 运算的归约操作，并在每个 ``recvbuff`` 中留存相同的运算结果副本。"
 
 #: ../../source/api/colls.rst:15 ../../source/api/colls.rst:28
 #: ../../source/api/colls.rst:51 1325e6d3a88f48c989ff6963697b45e2
@@ -77,11 +77,11 @@ msgstr "ncclReduce"
 msgid ""
 "Reduce data arrays of length ``count`` in ``sendbuff`` into ``recvbuff`` on the ``root`` rank using the ``op`` "
 "operation. ``recvbuff`` is only used on rank ``root`` and ignored for other ranks."
-msgstr "使用``op``操作将``sendbuff``中长度为``count``的数据数组规约到``root``进程(rank)的``recvbuff``中。``recvbuff``仅在``root``进程(rank)上使用，其他进程(rank)将忽略该参数。"
+msgstr "使用``op``操作将``sendbuff``中长度为``count``的数据数组归约到``root``进程(rank)的``recvbuff``中。``recvbuff``仅在``root``进程(rank)上使用，其他进程(rank)将忽略该参数。"
 
 #: ../../source/api/colls.rst:53 5dfaa606867c4e9391040d5be7a4111f
 msgid "Related links: :ref:`reduce`."
-msgstr "相关链接：:ref:`规约`。"
+msgstr "相关链接：:ref:`归约`。"
 
 #: ../../source/api/colls.rst:56 397324a1d0084727ab24fafef63cf8d5
 msgid "ncclAllGather"
@@ -113,7 +113,7 @@ msgstr "ncclReduceScatter"
 msgid ""
 "Reduce data in ``sendbuff`` from all GPUs using the ``op`` operation and leave the reduced result scattered over the "
 "devices so that the ``recvbuff`` on rank ``i`` will contain the i-th block of the result."
-msgstr "使用`op`操作从所有GPU的`sendbuff`中规约数据，并将规约结果分散存储在各设备上，使得进程(rank)`i`的`recvbuff`将包含结果的第i个数据块。"
+msgstr "使用`op`操作从所有GPU的`sendbuff`中归约数据，并将归约结果分散存储在各设备上，使得进程(rank)`i`的`recvbuff`将包含结果的第i个数据块。"
 
 #: ../../source/api/colls.rst:76 2ad798c3b19f4347bfdc7d9d7f7be069
 msgid ""
@@ -127,4 +127,4 @@ msgstr "若满足条件`recvbuff == sendbuff + rank * recvcount`，将执行**�
 
 #: ../../source/api/colls.rst:80 dd4ebc7a63cd4e519cf3bf4a92461c28
 msgid "Related links: :ref:`reducescatter`, :ref:`in-place-operations`."
-msgstr "相关链接：:ref:`规约散播`, :ref:`原地操作`。"
+msgstr "相关链接：:ref:`归约散播`, :ref:`原地操作`。"
