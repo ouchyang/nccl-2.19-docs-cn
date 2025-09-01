@@ -25,4 +25,4 @@ msgstr "NCCL API"
 
 #: ../../source/api.rst:7 eca86ecc0ccc4dacadc181c5c15ceca6
 msgid "The following sections describe the collective communications methods and operations."
-msgstr "The following sections describe the collective communications methods and operations. 以下章节将详细阐述集合通信
+msgstr "The following sections describe the collective communications methods and operations. 以下章节将详细阐述集合通信（collective communications）方法与操作。"
