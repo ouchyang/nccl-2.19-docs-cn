@@ -55,7 +55,7 @@ msgstr "ncclBroadcast"
 msgid ""
 "Copies ``count`` elements from ``sendbuff`` on the ``root` rank to all ranks' ``recvbuff``. ``sendbuff`` is only used "
 "on rank ``root`` and ignored for other ranks."
-msgstr "将 `root` 秩上 `sendbuff` 中的 `count` 个元素复制到所有秩的 `recvbuff` 中。`sendbuff` 仅在 `root` 秩上使用，其他秩将忽略该参数。"
+msgstr "将 `root` 进程(rank)上 `sendbuff` 中的 `count` 个元素复制到所有进程(rank)的 `recvbuff` 中。`sendbuff` 仅在 `root` 进程(rank)上使用，其他进程(rank)将忽略该参数。"
 
 #: ../../source/api/colls.rst:33 cb98b13b1b3b4f9e9ff818a0b6f3907d
 msgid "Legacy in-place version of ``ncclBroadcast`` in a similar fashion to MPI_Bcast. A call to ::"
@@ -77,7 +77,7 @@ msgstr "ncclReduce"
 msgid ""
 "Reduce data arrays of length ``count`` in ``sendbuff`` into ``recvbuff`` on the ``root`` rank using the ``op`` "
 "operation. ``recvbuff`` is only used on rank ``root`` and ignored for other ranks."
-msgstr "使用``op``操作将``sendbuff``中长度为``count``的数据数组规约到``root``秩的``recvbuff``中。``recvbuff``仅在``root``秩上使用，其他秩将忽略该参数。"
+msgstr "使用``op``操作将``sendbuff``中长度为``count``的数据数组规约到``root``进程(rank)的``recvbuff``中。``recvbuff``仅在``root``进程(rank)上使用，其他进程(rank)将忽略该参数。"
 
 #: ../../source/api/colls.rst:53 5dfaa606867c4e9391040d5be7a4111f
 msgid "Related links: :ref:`reduce`."
@@ -89,7 +89,7 @@ msgstr "全收集"
 
 #: ../../source/api/colls.rst:60 547c5ac51a7e4693b907fcefd0965073
 msgid "Gather ``sendcount`` values from all GPUs into ``recvbuff``, receiving data from rank ``i`` at offset ``i*sendcount``."
-msgstr "从所有GPU收集``sendcount``个数值至``recvbuff``，接收来自秩``i``的数据位于偏移量``i*sendcount``处。"
+msgstr "从所有GPU收集``sendcount``个数值至``recvbuff``，接收来自进程(rank)``i``的数据位于偏移量``i*sendcount``处。"
 
 #: ../../source/api/colls.rst:62 7b79049965664325ba9c0de87f5cb40f
 msgid ""
@@ -99,7 +99,7 @@ msgstr "注意：此处假设接收计数等于``nranks*sendcount``，这意味�
 
 #: ../../source/api/colls.rst:64 89ed8356ce514b3a9489b7c56d61a1ca
 msgid "In-place operation will happen if ``sendbuff == recvbuff + rank * sendcount``."
-msgstr "若 ``sendbuff == recvbuff + 秩 * sendcount`` 成立，将触发原地操作。"
+msgstr "若 ``sendbuff == recvbuff + 进程(rank) * sendcount`` 成立，将触发原地操作。"
 
 #: ../../source/api/colls.rst:66 2b7ebf5b69a14fe1b19ee32ee470bf6d
 msgid "Related links: :ref:`allgather`, :ref:`in-place-operations`."
@@ -113,7 +113,7 @@ msgstr "ncclReduceScatter"
 msgid ""
 "Reduce data in ``sendbuff`` from all GPUs using the ``op`` operation and leave the reduced result scattered over the "
 "devices so that the ``recvbuff`` on rank ``i`` will contain the i-th block of the result."
-msgstr "使用`op`操作从所有GPU的`sendbuff`中规约数据，并将规约结果分散存储在各设备上，使得秩`i`的`recvbuff`将包含结果的第i个数据块。"
+msgstr "使用`op`操作从所有GPU的`sendbuff`中规约数据，并将规约结果分散存储在各设备上，使得进程(rank)`i`的`recvbuff`将包含结果的第i个数据块。"
 
 #: ../../source/api/colls.rst:76 2ad798c3b19f4347bfdc7d9d7f7be069
 msgid ""

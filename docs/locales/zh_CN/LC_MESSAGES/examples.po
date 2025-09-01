@@ -93,7 +93,7 @@ msgstr "当单个进程或主机线程最多负责一个GPU时，可使用ncclCo
 
 #: ../../source/examples.rst:142 edeecac735184a66ba21db675a9912b2
 msgid "The following code is an example of a communicator creation in the context of MPI, using one device per MPI rank."
-msgstr "以下代码展示了在MPI环境中创建通信器的示例，其中每个MPI秩对应一个设备。"
+msgstr "以下代码展示了在MPI环境中创建通信器的示例，其中每个MPI进程(rank)对应一个设备。"
 
 #: ../../source/examples.rst:145 ../../source/examples.rst:330
 #: 3797c34164e742f087ea29b9c262a23c c55a888c7f4f49178619bbb056a19411
@@ -103,7 +103,7 @@ msgstr "首先，我们获取有关进程的MPI信息："
 #: ../../source/examples.rst:153 ../../source/examples.rst:338
 #: 1b794fccd2f54c5691b164c488794b23 5b1a3cd46ff448bc875ea3c11bbf3798
 msgid "Next, a single rank will create a unique ID and send it to all other ranks to make sure everyone has it:"
-msgstr "接下来，单个秩将生成唯一标识符并将其发送至所有其他秩，以确保所有参与者均持有该标识符："
+msgstr "接下来，单个进程(rank)将生成唯一标识符并将其发送至所有其他进程(rank)，以确保所有参与者均持有该标识符："
 
 #: ../../source/examples.rst:161 c8f7c5a4565f42cb894b4886efe5b108
 msgid "Finally, we create the communicator:"
@@ -133,7 +133,7 @@ msgstr "可以同时结合多进程或多线程与每个进程/线程的多设�
 
 #: ../../source/examples.rst:327 095552d0b2a24491b26f54e1ecabd839
 msgid "The following example combines MPI and multiple devices per process (=MPI rank)."
-msgstr "以下示例结合了MPI与每个进程（=MPI秩）中的多个设备。"
+msgstr "以下示例结合了MPI与每个进程（=MPI进程(rank)）中的多个设备。"
 
 #: ../../source/examples.rst:346 e9fa2be55ba94565bec1b8786b13e785
 msgid "Then, we create our ngpus communicator objects, which are part of a larger group of ngpus*nRanks:"

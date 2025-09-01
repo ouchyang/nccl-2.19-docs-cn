@@ -41,7 +41,7 @@ msgstr "每个进程使用多个设备"
 msgid ""
 "Similarly to the concept of MPI endpoints, NCCL does not require ranks to be mapped 1:1 to MPI ranks. A NCCL "
 "communicator may have many ranks associated to a single process (hence MPI rank if used with MPI)."
-msgstr "与MPI端点概念类似，NCCL不要求秩与MPI秩保持1:1映射关系。单个进程（若与MPI联用则对应单个MPI秩）可关联NCCL通信器的多个秩。"
+msgstr "与MPI端点概念类似，NCCL不要求进程(rank)与MPI进程(rank)保持1:1映射关系。单个进程（若与MPI联用则对应单个MPI进程(rank)）可关联NCCL通信器的多个进程(rank)。"
 
 #: ../../source/mpi.rst:16 ba2bee05f50c43ccaad7eab357414750
 msgid "ReduceScatter operation"
@@ -77,7 +77,7 @@ msgid ""
 "other count being equal to nranks*count. The function prototype clearly shows which count is provided. ncclAllgather "
 "has a sendcount as argument, while ncclReduceScatter has a recvcount as argument."
 msgstr ""
-"对于AllGather（全收集）和ReduceScatter（规约散播）操作，count参数等于单秩（per-rank）大小，即最小尺寸；另一尺寸等于nranks*"
+"对于AllGather（全收集）和ReduceScatter（规约散播）操作，count参数等于单进程(rank)（per-rank）大小，即最小尺寸；另一尺寸等于nranks*"
 "count。函数原型明确显示了提供的count类型：ncclAllgather使用sendcount作为参数，而ncclReduceScatter使用recvcount作为参数。"
 
 #: ../../source/mpi.rst:25 6fd005f65dc1447cae00458387ad0a3f
@@ -85,7 +85,7 @@ msgid ""
 "Note: When performing or comparing AllReduce operations using a combination of ReduceScatter and AllGather, define the "
 "sendcount and recvcount as the total count divided by the number of ranks, with the correct count rounding-up, if it is "
 "not a perfect multiple of the number of ranks."
-msgstr "注意：当使用ReduceScatter和AllGather组合执行或比较AllReduce操作时，应将sendcount和recvcount定义为总计数除以秩数，若总计数不是秩数的整数倍，则需采用正确的向上取整计数方式。"
+msgstr "注意：当使用ReduceScatter和AllGather组合执行或比较AllReduce操作时，应将sendcount和recvcount定义为总计数除以进程(rank)数，若总计数不是进程(rank)数的整数倍，则需采用正确的向上取整计数方式。"
 
 #: ../../source/mpi.rst:28 7546d22be6294b21b2c969363187e3b7
 msgid "Other collectives and point-to-point operations"
@@ -139,14 +139,14 @@ msgstr "MPI定义了一种称为“进展”（progress）的概念，这意味�
 msgid ""
 "In some implementations, progress on one rank may need MPI to be called on another rank. While this is usually bad for "
 "performance, it can be argued that this is a valid MPI implementation."
-msgstr "在某些实现中，某个秩上的进度可能需要通过对其他秩调用MPI来实现。尽管这通常对性能不利，但可以认为这是一种有效的MPI实现方式。"
+msgstr "在某些实现中，某个进程(rank)上的进度可能需要通过对其他进程(rank)调用MPI来实现。尽管这通常对性能不利，但可以认为这是一种有效的MPI实现方式。"
 
 #: ../../source/mpi.rst:55 b6a802aea1864af293435b9465a4007b
 msgid ""
 "As a result, blocking in a NCCL collective operations, for example calling cudaStreamSynchronize, may create a deadlock "
 "in some cases because not calling MPI will not make other ranks progress, hence reach the NCCL call, hence unblock the "
 "NCCL operation."
-msgstr "因此，在NCCL集合通信操作中进行阻塞（例如调用cudaStreamSynchronize）可能在某些情况下导致死锁，因为不调用MPI将无法使其他秩继续执行，从而无法触达NCCL调用，最终无法解除NCCL操作的阻塞状态。"
+msgstr "因此，在NCCL集合通信操作中进行阻塞（例如调用cudaStreamSynchronize）可能在某些情况下导致死锁，因为不调用MPI将无法使其他进程(rank)继续执行，从而无法触达NCCL调用，最终无法解除NCCL操作的阻塞状态。"
 
 #: ../../source/mpi.rst:57 5647d7955cf84d58b2c2fddaf8e53a5a
 msgid "In that case, the cudaStreamSynchronize call should be replaced by a loop like the following:"
@@ -165,7 +165,7 @@ msgid ""
 "NCCL creates inter-device dependencies, meaning that after it has been launched, a NCCL kernel will wait (and "
 "potentially block the CUDA device) until all ranks in the communicator launch their NCCL kernel. CUDA-aware MPI may "
 "also create such dependencies between devices depending on the MPI implementation."
-msgstr "NCCL会创建设备间依赖关系，这意味着在启动后，NCCL内核将等待（并可能阻塞CUDA设备），直到通信器中的所有秩都启动其NCCL内核。根据MPI实现的不同，支持CUDA的MPI也可能在设备间创建此类依赖关系。"
+msgstr "NCCL会创建设备间依赖关系，这意味着在启动后，NCCL内核将等待（并可能阻塞CUDA设备），直到通信器中的所有进程(rank)都启动其NCCL内核。根据MPI实现的不同，支持CUDA的MPI也可能在设备间创建此类依赖关系。"
 
 #: ../../source/mpi.rst:78 35b8b2f1277d4ba18275e0bbd2e94a54
 msgid ""

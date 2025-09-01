@@ -162,7 +162,7 @@ msgstr "执行最大操作"
 
 #: ../../source/api/types.rst:155 006471d9903f4f0cacc483053267a952
 msgid "Perform an average operation, i.e. a sum across all ranks, divided by the number of ranks."
-msgstr "执行平均操作：跨所有秩执行求和操作，再除以秩的总数。"
+msgstr "执行平均操作：跨所有进程(rank)执行求和操作，再除以进程(rank)的总数。"
 
 #: ../../source/api/types.rst:159 e5a6482816bb41bb91ec49b168252936
 msgid "ncclScalarResidence_t"

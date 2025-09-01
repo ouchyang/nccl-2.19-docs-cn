@@ -62,7 +62,7 @@ msgid ""
 "the Id should be distributed to all ranks in the communicator before calling ncclCommInitRank. *uniqueId* should point "
 "to a ncclUniqueId object allocated by the user."
 msgstr ""
-"生成用于`ncclCommInitRank`的标识符。创建通信器时，`ncclGetUniqueId`应被调用一次，且该标识符需在调用`ncclCommInitRank`前分发给通信器中的所有秩。*uniqueId*应指向用户分配的`"
+"生成用于`ncclCommInitRank`的标识符。创建通信器时，`ncclGetUniqueId`应被调用一次，且该标识符需在调用`ncclCommInitRank`前分发给通信器中的所有进程(rank)。*uniqueId*应指向用户分配的`"
 "ncclUniqueId`对象。"
 
 #: ../../source/api/comms.rst:39 28b083ca49c5453aadf93b36eedee493
@@ -76,8 +76,8 @@ msgid ""
 "ncclCommInitRank implicitly synchronizes with other ranks, hence it must be called by different threads/processes or "
 "use ncclGroupStart/ncclGroupEnd."
 msgstr ""
-"创建新的通信器（多线程/多进程版本）。*秩*必须介于0到*总秩数-1*"
-"之间，且在通信器集群中保持唯一性。每个秩需关联一个CUDA设备，该设备必须在调用ncclCommInitRank前完成设置。ncclCommInitRank会隐式与其他秩进行同步，因此必须由不同线程/"
+"创建新的通信器（多线程/多进程版本）。*进程(rank)*必须介于0到*总进程(rank)数-1*"
+"之间，且在通信器集群中保持唯一性。每个进程(rank)需关联一个CUDA设备，该设备必须在调用ncclCommInitRank前完成设置。ncclCommInitRank会隐式与其他进程(rank)进行同步，因此必须由不同线程/"
 "进程调用，或使用ncclGroupStart/ncclGroupEnd进行协同调用。"
 
 #: ../../source/api/comms.rst:51 32dcbd436dc44b8098c1ee06963aea51
@@ -92,7 +92,7 @@ msgid ""
 "associated with each rank. If *devlist* is NULL, the first *ndev* CUDA devices are used, in order."
 msgstr ""
 "以阻塞方式创建通信子集团（单进程版本）。这是一个用于创建单进程通信子集团的便捷函数。在*comms*中返回包含*ndev*个新初始化的通信子的数组。*comms*应预先分配至少ndev*sizeof(:c:type:`ncclComm_t`"
-")大小的内存空间。*devlist*定义了与每个秩关联的CUDA设备。若*devlist*为NULL，则默认按顺序使用前*ndev*个CUDA设备。"
+")大小的内存空间。*devlist*定义了与每个进程(rank)关联的CUDA设备。若*devlist*为NULL，则默认按顺序使用前*ndev*个CUDA设备。"
 
 #: ../../source/api/comms.rst:63 9f04ad52c1d84e1086b13ce8badaec81
 msgid "ncclCommInitRankConfig"
@@ -107,7 +107,7 @@ msgstr "此函数与*ncclCommInitRank*功能相同，但支持通过配置参数
 
 #: ../../source/api/comms.rst:71 17f75e7a4ee74314915c1c1d9405db96
 msgid "See the :ref:`init-rank-config` section for details on configuration options."
-msgstr "请参阅 :ref:`初始化与秩配置` 章节了解配置选项的详细信息。"
+msgstr "请参阅 :ref:`初始化与进程(rank)配置` 章节了解配置选项的详细信息。"
 
 #: ../../source/api/comms.rst:74 2f9b305259684e93abd716e7555a3e2e
 msgid "ncclCommSplit"
@@ -125,8 +125,8 @@ msgid ""
 "opereations on the *comm*. Otherwise, it might cause deadlock."
 msgstr ""
 "*ncclCommSplit* "
-"函数基于现有通信器创建一组新通信器。传入相同*color*值的秩将被划分到同一组中，且color必须为非负值。若传入*NCCL_SPLIT_NOCOLOR*"
-"，则表示该秩不会加入任何组，因此会返回NULL作为newcomm。key的数值将决定秩的排序顺序，较小的key值对应新通信器中较小的秩。当不同秩的key值相同时，将依据原始通信器中的秩顺序进行排序。若需为新通信器设置特殊配置，可通过*"
+"函数基于现有通信器创建一组新通信器。传入相同*color*值的进程(rank)将被划分到同一组中，且color必须为非负值。若传入*NCCL_SPLIT_NOCOLOR*"
+"，则表示该进程(rank)不会加入任何组，因此会返回NULL作为newcomm。key的数值将决定进程(rank)的排序顺序，较小的key值对应新通信器中较小的进程(rank)。当不同进程(rank)的key值相同时，将依据原始通信器中的进程(rank)顺序进行排序。若需为新通信器设置特殊配置，可通过*"
 "config*参数传入，否则将config设置为NULL会使新通信器继承原始通信器的配置。执行拆分操作时，原有通信器*comm*上不应存在任何未完成的NCCL操作，否则可能引发死锁。"
 
 #: ../../source/api/comms.rst:91 cf60deb0897b428baefcfb8c40fec0c2
@@ -202,7 +202,7 @@ msgstr "`ncclCommCount`"
 
 #: ../../source/api/comms.rst:145 a278a71ed39a44d39f41df9e162abfb4
 msgid "Returns in *count* the number of ranks in the NCCL communicator *comm*."
-msgstr "返回 *comm* NCCL 通信器中包含的秩数量至 *count*。"
+msgstr "返回 *comm* NCCL 通信器中包含的进程(rank)数量至 *count*。"
 
 #: ../../source/api/comms.rst:148 14020e8f0d6548929a13c2beaeb05b7f
 msgid "ncclCommCuDevice"
@@ -218,7 +218,7 @@ msgstr "ncclCommUserRank"
 
 #: ../../source/api/comms.rst:159 d7234bcdbdbf4789b5cbaa51c3908ae1
 msgid "Returns in *rank* the rank of the NCCL communicator *comm*."
-msgstr "返回NCCL通信器*comm*的*秩*。"
+msgstr "返回NCCL通信器*comm*的*进程(rank)*。"
 
 #: ../../source/api/comms.rst:162 15c68880fbab4d96904e1256a11dfc98
 msgid "ncclCommRegister"

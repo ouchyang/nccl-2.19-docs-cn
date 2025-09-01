@@ -43,7 +43,7 @@ msgstr "缓冲区通过 :c:func:`ncclMemAlloc()` 进行分配。"
 
 #: ../../source/usage/bufferreg.rst:14 f5b0efb904454e2788656a97849d8fd9
 msgid "Offset to the head address of the buffer is same for each rank in collectives."
-msgstr "集合通信操作中，每个秩的缓冲区首地址偏移量保持相同。"
+msgstr "集合通信操作中，每个进程(rank)的缓冲区首地址偏移量保持相同。"
 
 #: ../../source/usage/bufferreg.rst:15 1bc0ed7722a344cfb49091b177f412d2
 msgid "The NCCL operation is launched on a stream captured by a CUDA graph."
@@ -65,7 +65,7 @@ msgstr "在调用集合通信操作前，使用 :c:func:`ncclCommRegister` 注�
 
 #: ../../source/usage/bufferreg.rst:23 f02b0a419fbb46c1b3fdd8c3f22e73dd
 msgid "Call NCCL collectives as usual but similarly keep the offset to the head address of the buffer same for each rank."
-msgstr "照常调用NCCL集合通信操作，但同样保持每个秩的缓冲区首地址偏移量一致。"
+msgstr "照常调用NCCL集合通信操作，但同样保持每个进程(rank)的缓冲区首地址偏移量一致。"
 
 #: ../../source/usage/bufferreg.rst:25 491181c2038e423a97ba125f72ea6510
 msgid "Registered buffers will be deregistered when users explicitly call :c:func:`ncclCommDeregister`."

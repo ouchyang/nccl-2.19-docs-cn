@@ -43,7 +43,7 @@ msgid ""
 "have to block, waiting for other threads/ranks to arrive, before effectively posting the NCCL operation on the given "
 "stream. Hence, a simple loop on multiple devices like shown below could block on the first call waiting for the other "
 "ones:"
-msgstr "当单个线程管理多个设备时，必须采用组语义。这是因为每次NCCL调用都可能需要阻塞，等待其他线程/秩到达后，才能在给定流上有效提交NCCL操作。因此，如下所示的简单多设备循环可能会在首次调用时阻塞，以等待其他操作："
+msgstr "当单个线程管理多个设备时，必须采用组语义。这是因为每次NCCL调用都可能需要阻塞，等待其他线程/进程(rank)到达后，才能在给定流上有效提交NCCL操作。因此，如下所示的简单多设备循环可能会在首次调用时阻塞，以等待其他操作："
 
 #: ../../source/usage/groups.rst:25 abc5e3083749437b917f4b200cb7022c
 msgid "To define that these calls are part of the same collective operation, ncclGroupStart and ncclGroupEnd should be used:"

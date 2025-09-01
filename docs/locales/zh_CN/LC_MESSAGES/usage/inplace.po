@@ -39,4 +39,4 @@ msgstr "对于ncclBroadcast、ncclReduce和ncclAllReduce函数，传递``sendBuf
 msgid ""
 "For ncclReduceScatter and ncclAllGather, in place operations are done when the per-rank pointer is located at the rank "
 "offset of the global buffer. More precisely, these calls are considered in place : ::"
-msgstr "对于`ncclReduceScatter`和`ncclAllGather`操作，当每秩指针位于全局缓冲区的秩偏移位置时，将执行原地操作。更准确地说，以下调用被视为原地操作：::"
+msgstr "对于`ncclReduceScatter`和`ncclAllGather`操作，当每进程(rank)指针位于全局缓冲区的进程(rank)偏移位置时，将执行原地操作。更准确地说，以下调用被视为原地操作：::"

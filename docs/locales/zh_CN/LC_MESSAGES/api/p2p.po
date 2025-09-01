@@ -28,7 +28,7 @@ msgid ""
 "(Since NCCL 2.7) Point-to-point communication primitives need to be used when ranks need to send and receive arbitrary "
 "data from each other, which cannot be expressed as a broadcast or allgather, i.e. when all data sent and received is "
 "different."
-msgstr "（自 NCCL 2.7 起）当需要在不同秩之间发送和接收无法通过广播或全收集表达的任意数据（即所有发送和接收的数据均不相同）时，需使用点对点通信原语。"
+msgstr "（自 NCCL 2.7 起）当需要在不同进程(rank)之间发送和接收无法通过广播或全收集表达的任意数据（即所有发送和接收的数据均不相同）时，需使用点对点通信原语。"
 
 #: ../../source/api/p2p.rst:10 2a17364d3d0744598147b65b839e93e9
 msgid "ncclSend"
@@ -36,11 +36,11 @@ msgstr "ncclSend"
 
 #: ../../source/api/p2p.rst:14 c047d1833c6f44f8953dd6f37e107695
 msgid "Send data from ``sendbuff`` to rank ``peer``."
-msgstr "将数据从``sendbuff``发送至秩为``peer``的对等体。"
+msgstr "将数据从``sendbuff``发送至进程(rank)为``peer``的对等体。"
 
 #: ../../source/api/p2p.rst:16 1d16f5c3eaa146398097639f6fd959b4
 msgid "Rank ``peer`` needs to call ncclRecv with the same ``datatype`` and the same ``count`` from this rank."
-msgstr "秩为 ``peer`` 的对等体需要以相同的 ``datatype`` 和相同的 ``count`` 从此秩调用 ncclRecv。"
+msgstr "进程(rank)为 ``peer`` 的对等体需要以相同的 ``datatype`` 和相同的 ``count`` 从此进程(rank)调用 ncclRecv。"
 
 #: ../../source/api/p2p.rst:18 ../../source/api/p2p.rst:33
 #: 2611fa16f251465db9c7baa5680ea4b3 8b25b1e9747a421598903c9809ad6c91
@@ -62,8 +62,8 @@ msgstr "ncclRecv"
 
 #: ../../source/api/p2p.rst:29 bfd6c7cc79f143169e8b42e9d389b625
 msgid "Receive data from rank ``peer`` into ``recvbuff``."
-msgstr "从秩为 ``peer`` 的对等体接收数据至 ``recvbuff``。"
+msgstr "从进程(rank)为 ``peer`` 的对等体接收数据至 ``recvbuff``。"
 
 #: ../../source/api/p2p.rst:31 092f0290f4144f168d331e88d3e421df
 msgid "Rank ``peer`` needs to call ncclSend with the same ``datatype`` and the same ``count`` to this rank."
-msgstr "秩为 ``peer`` 的对等体需要向本秩调用具有相同 ``datatype`` 和相同 ``count`` 的 ncclSend。"
+msgstr "进程(rank)为 ``peer`` 的对等体需要向本进程(rank)调用具有相同 ``datatype`` 和相同 ``count`` 的 ncclSend。"

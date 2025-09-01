@@ -28,7 +28,7 @@ msgid ""
 "When creating a communicator, a unique rank between 0 and n-1 has to be assigned to each of the n CUDA devices which "
 "are part of the communicator. Using the same CUDA device multiple times as different ranks of the same NCCL "
 "communicator is not supported and may lead to hangs."
-msgstr "创建通信器时，必须为组成该通信器的n个CUDA设备分别分配一个介于0到n-1之间的唯一秩。同一NCCL通信器中不支持将同一CUDA设备作为不同秩重复使用，否则可能导致进程挂起。"
+msgstr "创建通信器时，必须为组成该通信器的n个CUDA设备分别分配一个介于0到n-1之间的唯一进程(rank)。同一NCCL通信器中不支持将同一CUDA设备作为不同进程(rank)重复使用，否则可能导致进程挂起。"
 
 #: ../../source/usage/communicators.rst:11 58b7206ab01641b69d4a138c64f0aa59
 msgid ""
@@ -36,8 +36,8 @@ msgid ""
 ":c:func:`ncclCommInitAll` functions will create communicator objects, each communicator object being associated to a "
 "fixed rank and CUDA device. Those objects will then be used to launch communication operations."
 msgstr ""
-"在给定静态的秩到CUDA设备映射后，:c:func:`ncclCommInitRank`、:c:func:`ncclCommInitRankConfig` 和 :c:func:`ncclCommInitAll` "
-"函数将创建通信器对象，每个通信器对象与固定的秩和CUDA设备相关联。这些对象随后将用于启动集合通信操作。"
+"在给定静态的进程(rank)到CUDA设备映射后，:c:func:`ncclCommInitRank`、:c:func:`ncclCommInitRankConfig` 和 :c:func:`ncclCommInitAll` "
+"函数将创建通信器对象，每个通信器对象与固定的进程(rank)和CUDA设备相关联。这些对象随后将用于启动集合通信操作。"
 
 #: ../../source/usage/communicators.rst:15 4aa7668d13c7418f9aee082b92cddcf5
 msgid ""
@@ -117,13 +117,13 @@ msgid ""
 "The ncclCommSplit function can be used to create a communicators based on existing one. This allows to split an "
 "existing communicator into multiple sub-partitions, duplicate an existing communicator, or even create a single "
 "communicator with less ranks."
-msgstr "ncclCommSplit函数可用于基于现有通信器创建新的通信器。该函数能够将现有通信器拆分为多个子分区、复制现有通信器，甚至创建包含较少秩的单一通信器。"
+msgstr "ncclCommSplit函数可用于基于现有通信器创建新的通信器。该函数能够将现有通信器拆分为多个子分区、复制现有通信器，甚至创建包含较少进程(rank)的单一通信器。"
 
 #: ../../source/usage/communicators.rst:84 9a9cc9de4cc14ea2879ea859ef2479a3
 msgid ""
 "The ncclCommSplit function needs to be called by all ranks in the original communicator. If some ranks will not be part "
 "of any sub-group, they still need to call ncclCommSplit with color being NCCL_SPLIT_NOCOLOR."
-msgstr "`ncclCommSplit` 函数必须由原始通信组中的所有秩调用。若某些秩不属于任何子组，仍需调用 `ncclCommSplit` 并将颜色参数设置为 `NCCL_SPLIT_NOCOLOR`。"
+msgstr "`ncclCommSplit` 函数必须由原始通信组中的所有进程(rank)调用。若某些进程(rank)不属于任何子组，仍需调用 `ncclCommSplit` 并将颜色参数设置为 `NCCL_SPLIT_NOCOLOR`。"
 
 #: ../../source/usage/communicators.rst:87 2830838dccb344dd88f9ed27fd60da97
 msgid ""
@@ -145,7 +145,7 @@ msgstr "此操作将通信器分割为两个对等部分："
 
 #: ../../source/usage/communicators.rst:109 a1226f136a1342cc9b4f50e808b46e6f
 msgid "This creates a communicator with only the first 2 ranks:"
-msgstr "这将创建一个仅包含前2个秩的通信器："
+msgstr "这将创建一个仅包含前2个进程(rank)的通信器："
 
 #: ../../source/usage/communicators.rst:120 321f513ab3d84830b2e11c610154a251
 msgid ":c:func:`ncclCommSplit`"
@@ -170,7 +170,7 @@ msgstr "NCCL内核会阻塞（等待数据到达），且任何CUDA操作都可�
 msgid ""
 "Operations on different communicators should therefore be used at different epochs with a locking mechanism, and "
 "applications should ensure operations are submitted in the same order across ranks."
-msgstr "因此，针对不同通信器的操作应当通过加锁机制在不同时段执行，且应用程序必须确保各秩间操作提交的顺序一致性。"
+msgstr "因此，针对不同通信器的操作应当通过加锁机制在不同时段执行，且应用程序必须确保各进程(rank)间操作提交的顺序一致性。"
 
 #: ../../source/usage/communicators.rst:134 a2e552c70d364c60a58886fe1d216e3a
 msgid ""
@@ -193,7 +193,7 @@ msgid ""
 "marked as nonblocking, this operation is nonblocking; otherwise, it is blocking."
 msgstr ""
 "`ncclCommFinalize` 会将通信器从 *ncclSuccess* 状态转换为 *ncclInProgress* "
-"状态，开始在后台完成所有操作，并与可能正在使用资源与其他秩通信的对等体进行同步。所有与通信器关联的未完成操作及网络相关资源将通过 `ncclCommFinalize` 被清空并释放。当所有 NCCL 操作完成后，通信器将转变为 "
+"状态，开始在后台完成所有操作，并与可能正在使用资源与其他进程(rank)通信的对等体进行同步。所有与通信器关联的未完成操作及网络相关资源将通过 `ncclCommFinalize` 被清空并释放。当所有 NCCL 操作完成后，通信器将转变为 "
 "*ncclSuccess* 状态。用户可通过 `ncclCommGetAsyncError` 查询该状态。若通信器被标记为非阻塞模式，此操作为非阻塞；否则为阻塞操作。"
 
 #: ../../source/usage/communicators.rst:150 e5823f56ec404eb288d2f5c3f1c69ba9
@@ -491,7 +491,7 @@ msgid ""
 "abort the communicators and restart the NCCL operation. Here is an example showing how to initialize and split a "
 "communicator in a non-blocking manner, allowing for abort at any point:"
 msgstr ""
-"为确保正确中止，当通信器中的任意秩发生故障（例如因段错误）时，所有其他秩需调用 *ncclCommAbort* 以中止其自身的 NCCL 通信器。用户可实现相应方法来判断何时及是否中止通信器并重启 NCCL "
+"为确保正确中止，当通信器中的任意进程(rank)发生故障（例如因段错误）时，所有其他进程(rank)需调用 *ncclCommAbort* 以中止其自身的 NCCL 通信器。用户可实现相应方法来判断何时及是否中止通信器并重启 NCCL "
 "运算。以下示例展示了如何以非阻塞方式初始化并拆分通信器，从而实现任意时间点的中止操作："
 
 #: ../../source/usage/communicators.rst:357 05366f8295134f2489cd118802f75230

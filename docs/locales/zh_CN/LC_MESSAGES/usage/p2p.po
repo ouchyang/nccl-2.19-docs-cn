@@ -29,7 +29,7 @@ msgid ""
 "point-to-point communication needs two NCCL calls : a call to :c:func:`ncclSend` on one rank and a corresponding "
 ":c:func:`ncclRecv` on the other rank, with the same count and data type."
 msgstr ""
-"（自 NCCL 2.7 起）点对点通信可用于表达秩之间的任意通信模式。任何点对点通信需要两个 NCCL 调用：一个秩上调用 :c:func:`ncclSend`，另一个秩上调用相应的 "
+"（自 NCCL 2.7 起）点对点通信可用于表达进程(rank)之间的任意通信模式。任何点对点通信需要两个 NCCL 调用：一个进程(rank)上调用 :c:func:`ncclSend`，另一个进程(rank)上调用相应的 "
 ":c:func:`ncclRecv`，且需保持相同的计数和数据类型。"
 
 #: ../../source/usage/p2p.rst:13 58bdf05d38bc44a4a041b1394324a429
@@ -52,7 +52,7 @@ msgstr "组内的点对点调用将保持阻塞状态，直至该组调用全部
 msgid ""
 "Below are a few examples of classic point-to-point communication patterns used by parallel applications. NCCL semantics "
 "allow for all variants with different sizes, datatypes, and buffers, per rank."
-msgstr "以下是并行应用程序中使用的几种经典点对点通信模式示例。NCCL语义支持每个秩（rank）使用不同大小、数据类型和缓冲区的所有变体。"
+msgstr "以下是并行应用程序中使用的几种经典点对点通信模式示例。NCCL语义支持每个进程(rank)（rank）使用不同大小、数据类型和缓冲区的所有变体。"
 
 #: ../../source/usage/p2p.rst:28 880f792f839f46c1bc972ea17aa45485
 msgid "Sendrecv"
@@ -62,7 +62,7 @@ msgstr "Sendrecv → 发送接收"
 msgid ""
 "In MPI terms, a sendrecv operation is when two ranks exchange data, both sending and receiving at the same time. This "
 "can be done by merging both ncclSend and ncclRecv calls into one :"
-msgstr "在MPI术语中，发送接收操作指两个秩同时进行数据交换，既发送又接收。这可以通过将ncclSend和ncclRecv调用合并为一个操作来实现："
+msgstr "在MPI术语中，发送接收操作指两个进程(rank)同时进行数据交换，既发送又接收。这可以通过将ncclSend和ncclRecv调用合并为一个操作来实现："
 
 #: ../../source/usage/p2p.rst:41 2e2e0bf2ead646f589acb3f9d89bb198
 msgid "One-to-all (scatter)"
@@ -70,7 +70,7 @@ msgstr "一对多（散播）"
 
 #: ../../source/usage/p2p.rst:43 b511c0e32e0348029997930d14c30c85
 msgid "A one-to-all operation from a ``root`` rank can be expressed by merging all send and receive operations in a group :"
-msgstr "从根秩执行的一对多操作可通过合并组内所有发送与接收操作来实现："
+msgstr "从根进程(rank)执行的一对多操作可通过合并组内所有发送与接收操作来实现："
 
 #: ../../source/usage/p2p.rst:57 4a936d922014420fa98ed6fd5e0f6a2c
 msgid "All-to-one (gather)"
@@ -78,7 +78,7 @@ msgstr "全收集（gather）"
 
 #: ../../source/usage/p2p.rst:59 66e12c2a591a457fb0fc5591de6ec469
 msgid "Similarly, an all-to-one operations to a ``root`` rank would be implemented this way :"
-msgstr "类似地，针对某个根秩（root rank）的一对多操作将按以下方式实现："
+msgstr "类似地，针对某个根进程(rank)（root rank）的一对多操作将按以下方式实现："
 
 #: ../../source/usage/p2p.rst:72 990967a7e63940b7836e361ea445018b
 msgid "All-to-all"
