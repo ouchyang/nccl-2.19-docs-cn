@@ -51,7 +51,7 @@ msgid ""
 "The :c:func:`ncclGetUniqueId` function returns an ID which has to be broadcast to all participating threads and "
 "processes using any CPU communication system, for example, passing the ID pointer to multiple threads, or broadcasting "
 "it to other processes using MPI or another parallel environment using, for example, sockets."
-msgstr "函数 :c:func:`ncclGetUniqueId` 返回一个必须通过任意CPU通信系统广播给所有参与线程和进程的ID，例如将ID指针传递给多个线程，或使用MPI及其他并行环境（如套接字）将其广播至其他进程。"
+msgstr "函数 :c:func:`ncclGetUniqueId` 返回一个必须通过任意CPU通信系统广播给所有参与线程和进程的ID，例如将ID指针传递给多个线程，或使用MPI及其他并行环境（如 sockets）将其广播至其他进程。"
 
 #: ../../source/usage/communicators.rst:23 d6867839913843c0ba8b065a066275a1
 msgid ""
@@ -181,7 +181,7 @@ msgstr "在GPU容量允许的前提下，通过不同流启动多个集合通信
 
 #: ../../source/usage/communicators.rst:139 26a007938f8f463b805a2e74e2aad346
 msgid "Finalizing a communicator"
-msgstr "完成通信器的初始化"
+msgstr "终止通信器"
 
 #: ../../source/usage/communicators.rst:141 3123da841bfc4645bccfec12fb50d2c9
 msgid ""

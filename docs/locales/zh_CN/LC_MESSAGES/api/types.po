@@ -226,7 +226,7 @@ msgid ""
 "choose the network module automatically."
 msgstr ""
 "指定NCCL用于网络通信的网络模块名称。netName的值必须与网络模块名称完全匹配（不区分大小写）。NCCL内置网络模块名称为\"IB\"（通用IB "
-"verbs）和\"Socket\"（TCP/IP套接字）。外部网络插件可自定义其名称。默认值为未定义，此时NCCL将自动选择网络模块。"
+"verbs）和\"Socket\"（TCP/IP sockets）。外部网络插件可自定义其名称。默认值为未定义，此时NCCL将自动选择网络模块。"
 
 #: ../../source/api/types.rst:220 0601fca450ac407f96b36a14de3e31d8
 msgid ""

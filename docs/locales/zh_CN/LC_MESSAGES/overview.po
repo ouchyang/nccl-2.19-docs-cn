@@ -81,7 +81,7 @@ msgid ""
 "NCCL conveniently removes the need for developers to optimize their applications for specific machines. NCCL provides "
 "fast collectives over multiple GPUs both within and across nodes. It supports a variety of interconnect technologies "
 "including PCIe, NVLINK, InfiniBand Verbs, and IP sockets."
-msgstr "NCCL便捷地免除了开发者针对特定机器优化应用程序的需求。该库在节点内与跨节点场景中为多GPU提供高速集合通信操作，支持包括PCIe、NVLINK、InfiniBand Verbs及IP套接字在内的多种互连技术。"
+msgstr "NCCL便捷地免除了开发者针对特定机器优化应用程序的需求。该库在节点内与跨节点场景中为多GPU提供高速集合通信操作，支持包括PCIe、NVLINK、InfiniBand Verbs及IP sockets在内的多种互连技术。"
 
 #: ../../source/overview.rst:23 314600475aa1429a96cecee2f3db0bbc
 msgid ""
